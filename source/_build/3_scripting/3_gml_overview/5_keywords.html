@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Keywords</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../files/helpindex.css" type=
+"text/css">
+<link rel="stylesheet" href="../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/3_gml_overview/5_keywords.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F5_keywords.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F5_keywords.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Palabras clave </h2><div class="body-scroll"><p><br></p><p> Para facilitar ciertas cosas en <i><span class="notranslate">GameMaker Studio 2</span></i>, puede usar una de varias <b>palabras clave</b> en sus secuencias de comandos y acciones. Estas palabras clave se usan principalmente para identificar instancias y cada una se explica en el texto a continuación. Tenga en cuenta que todas las palabras clave están representadas por un valor entero negativo internamente, por lo que debe tener cuidado al asignar valores a las variables, ya que puede obtener resultados inesperados más tarde ya que <i><span class="notranslate">GameMaker Studio 2</span></i> interpreta el valor que ha utilizado como otra cosa. También debe tener en cuenta que el uso de los valores en lugar de las palabras clave en su código <b>no</b> es <b>en absoluto recomendado</b> y podría causar problemas más adelante. </p><blockquote> <label class="collapse" for="one"><tt>self</tt></label> <input id="one" type="checkbox"><div class="index_list"><div class="compat"><table><tr><th> Palabra clave </th><th> Descripción </th><th> valor </th></tr><tr><td> <span class="notranslate">self</span> </td> <td> La instancia que está ejecutando el bloque actual de código. </td><td> <span class="notranslate">-1</span> </td> </tr></table></div><p><tt>self</tt> se puede usar para identificar la instancia de llamada del bloque actual de código. Siempre devuelve el valor de -1 que <i><span class="notranslate">GameMaker Studio 2</span></i> interpreta como el ID único de la instancia. Por ejemplo: </p><p class="code">var val = 100;<br>
+with (instance_create_layer(x, y, "Instances", obj_Fire))<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;self.val = val;<br>
+&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> En este ejemplo, puede ver que tenemos una variable <i>local</i> llamada <tt>val</tt> y queremos que establezca la variable de <i>instancia</i> con el mismo nombre en la instancia de objeto recién creada. Para identificar la variable de instancia correctamente y decirle a <i><span class="notranslate">GameMaker</span> Studio 2</i> que la configure en la instancia que llama al bloque de código, usamos el <tt>self</tt> palabra clave. Tenga en cuenta que recomendamos usar el <tt>id</tt> palabra clave en la mayoría de las situaciones como esta sobre el <tt>self</tt> palabra clave ya que es más explícita y obvia qué está sucediendo exactamente. </p></div><br> <label class="collapse" for="two"><tt>other</tt></label> <input id=
+"two" type="checkbox"><div class="index_list"><div class="compat"><table><tr><th> Palabra clave </th><th> Descripción </th><th> valor </th></tr><tr><td> <span class="notranslate">other</span> </td> <td> La otra instancia involucrada en un evento de colisión, o la otra instancia de un <a href=
+"14_language_features.html#with"><tt>with</tt></a> función. </td><td> <span class="notranslate">-2</span> </td> </tr></table></div><p> La <i>palabra clave</i> especial <b>other</b> tiene dos maneras diferentes en que puede usarse para hacer referencia a una instancia específica: cuando se usa en una <tt><b>with</b></tt> función (explicada <a href=
+"14_language_features.html#with">aquí</a> ) o cuando se utiliza en un <a href="../../2_interface/1_editors/events/index.html">evento de colisión</a>, que es lo que esta sección va a explicar. </p><p> Un evento de colisión solo puede ocurrir entre dos instancias. <i>Puede</i> tener varias colisiones entre varias instancias, pero todos ellos son resueltos por <i><span class="notranslate">GameMaker Studio 2</span></i> sobre una base de 1-a-1, con la instancia que tiene el evento de colisión y la &quot;otra&quot; instancia que está implicado. Imagine que tiene un objeto jugador, múltiples objetos enemigos y múltiples objetos de bala que el enemigo puede disparar contra usted. Puedes asignar a cada enemigo una única instancia de bala pero con una variable de daño diferente asignada al azar cuando se crea, por ejemplo: </p><p class="code">var nnn;<br>
+nnn = instance_create_layer(x, y, "Bullets", obj_Bullet);<br>
+nnn.damage = 5 + irandom(5);<br>
+nnn.speed = 8;<br>
+nnn.direction = point_direction(x, y, obj_Player.x,
+obj_Player.y);<br><span class="notranslate"></span></p><p> Vea cómo establecemos sus variables usando el método de puntos descrito en la sección sobre <a href="6_scope.html">Variables de direccionamiento</a> ? Esto le dará a los objetos de bala un valor de daño diferente. Pero, ¿y el objeto jugador? ¿Cómo detectará el daño que tiene que sufrir? Mediante el uso <b><tt>other</tt></b> en el evento de colisión: </p><p class="code">hp -= other.damage;<br>
+if hp &lt;= 0 instance_destroy();<br><span class="notranslate"></span></p><p> El código anterior deducirá la cantidad almacenada en la <i>otra</i> instancia en la variable &quot;daños&quot; de colisiones de la variable &quot;hp&quot; del jugador, luego verificará si el &quot;hp&quot; es menor o igual a 0. Si es entonces destruirá el objeto jugador. Tenga en cuenta que <b>otros</b> utilizados de esta manera <i>solo funcionan en el evento de colisión</i> y que la otra instancia debe tener la variable que se verifica o de lo contrario se producirá un error. Sin embargo, puede asignar valores a las variables, o incluso crear nuevas, usando <b>otras</b> en el evento de colisión también, como esta: </p><p class="code">other.mana += 10; //add ten to the other instance
+"mana" variable<br>
+other.hit = true; //set the other instance variable "hit" to true,
+creating it if the variable doesn't already exist<br><span class="notranslate"></span></p></div><br> <label class="collapse" for="three"><tt>all</tt></label> <input id=
+"three" type="checkbox"><div class="index_list"><div class="compat"><table><tr><th> Palabra clave </th><th> Descripción </th><th> valor </th></tr><tr><td> <span class="notranslate">all</span> </td> <td> Todas las instancias actualmente activas en la sala. </td><td> <span class="notranslate">-3</span> </td> </tr></table></div><p> Esta palabra clave se usa para indicar a <i><span class="notranslate">GameMaker Studio 2</span></i> que se debe aplicar una función, o para verificar, todas las instancias activas dentro de una habitación (las instancias desactivadas no se verificarán ni se accederá a ellas). No <b>puedes</b> usar <tt>all</tt> para acceder o establecer variables en otras instancias usando el método de punto (ver <a href=
+"6_scope.html">aquí</a> ), pero puedes usarlo cuando llamas <a href=
+"14_language_features.html#with"><tt>with()</tt></a>, por ejemplo: </p><p class="code">with (all)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;speed = 0;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior establecerá la velocidad de todas las instancias en la sala a 0. También puede usar <tt>all</tt> dentro de las funciones para apuntar o verificar todas las instancias en la sala, por ejemplo: </p><p class="code">inst = instance_position(mouse_x, mouse_y, all);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Check
+a point for any active instance in the room<br>
+<br>
+if collision_line(x, y, mouse_x, mouse_y, all, false, true) {}
+//Check all instances for a collision along a line<br>
+<br>
+mp_grid_add_instances(grid, all, false);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Add
+all instances in the room into a motion planning grid<br>
+<br><span class="notranslate"></span></p><p><tt>all</tt> es una palabra clave muy útil y se puede utilizar en numerosas situaciones dentro de su código y acciones, a menudo reduciendo la cantidad de código que necesita escribir para lograr el efecto deseado. </p></div><br> <label class="collapse" for="four"><tt>noone</tt></label> <input id="four" type="checkbox"><div class="index_list"><div class="compat"><table><tr><th> Palabra clave </th><th> Descripción </th><th> valor </th></tr><tr><td> <span class="notranslate">noone</span> </td> <td> Ninguna instancia en absoluto. </td><td> <span class="notranslate">-4</span> </td> </tr></table></div><p> Puede parecer extraño, pero muchas veces mientras programa sus juegos, encontrará la necesidad de verificar si no hay instancias encontradas en una ubicación, colisión, etc. En esos casos, usaría esta palabra clave para no verificar nada, algo como esto: </p><p class="code">if instance_nearest(x, y, obj_enemy) != noone<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;//do something as there is an enemy instance
+near<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> En este ejemplo, la función <tt>instance_nearest()</tt> Regresará ya sea <tt>noone</tt> o la identificación única de la instancia encontrada más cercana. Básicamente, cada vez que necesite verificar una instancia, puede esperar obtener <tt>noone</tt> o una ID de instancia única devuelta. </p></div></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Descripción general de GML</a> </div><div style="float:right"> Siguiente: <a href="6_scope.html">Variables y alcance variable</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

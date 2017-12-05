@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>facebook_post_message</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/asynchronous functions/facebook/facebook_post_message.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fasynchronous%20functions%2Ffacebook%2Ffacebook_post_message.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fasynchronous%20functions%2Ffacebook%2Ffacebook_post_message.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> facebook_post_message </h2><div class="body-scroll"><p><br></p><h3> <b>Sintaxis:</b> </h3><p class="code">facebook_post_message(title, caption, message,
+picture_url, redirect_url, actionname, action_url)<span class="notranslate"></span></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">title</span> </td> <td> El &quot;nombre&quot; del enlace. </td></tr><tr class="alt"><td> <span class="notranslate">caption</span> </td> <td> El título del enlace (aparece debajo del nombre del enlace). </td></tr><tr><td> <span class="notranslate">message</span> </td> <td> El mensaje para incluir con la publicación. </td></tr><tr class="alt"><td> <span class="notranslate">picture_url</span> </td> <td> Un enlace a la imagen incluida con esta publicación. </td></tr><tr><td> <span class="notranslate">redirect_url</span> </td> <td> El enlace adjunto a esta publicación. </td></tr><tr class="alt"><td> <span class="notranslate">actionname</span> </td> <td> Una acción que se aplicará para esta publicación. </td></tr><tr><td> <span class="notranslate">action_url</span> </td> <td> El enlace para usar para la acción anterior. </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Descripción </h3><blockquote><p> Esta función publicará un mensaje directo al feed del usuario (es decir, una publicación &quot;/ me / feed&quot; en la API gráfica de Facebook). Usted proporciona el nombre y el título, así como un mensaje y una imagen para incluir, luego la url a la que enlazar. Los dos últimos argumentos, &quot;actionname&quot; y &quot;actionurl&quot; son opcionales y pueden dejarse como cadenas vacías (&quot;&quot;) o pueden establecerse en una de las acciones permitidas de Facebook, como comentar o agradecer, en cuyo caso también debe proporcione una URL adecuada (para obtener más información, vea <a href=
+"https://developers.facebook.com/docs/reference/api/post/" target=
+"_blank">Facebook Developers Api Post</a> ). </p><div class="note"><p> <b>NOTA:</b> No se muestra el diálogo de Facebook para esta función ya que la publicación se envía &quot;silenciosamente&quot; sin interacción del usuario. Por este motivo, <b>debe</b> haber solicitado los permisos correctos al iniciar sesión (&quot;publish_actions&quot;). </p></div><div class="note"><p> <b>NOTA:</b> El usuario <b>debe</b> haber iniciado sesión para que funcione la publicación del mensaje. </p></div></blockquote><p><br></p><h3> Ejemplo: </h3><p class="code">if mouse_check_button_pressed(mb_left)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;facebook_post_message("Catch The Haggis",
+"MacSweeneygames.com", "I just got a hi-score playing Catch The
+Haggis!", "http://MacSweeneygames.com/Clown.jpg",
+"http://MacSweeneygames.com/CatchTheHaggis.html", "", "");<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> El código anterior publicará de forma silenciosa un mensaje en el feed de pared de los usuarios. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href=
+"index.html">Facebook</a> </div><div style="float:right"> Siguiente: <a href=
+"facebook_logout.html">facebook_logout</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

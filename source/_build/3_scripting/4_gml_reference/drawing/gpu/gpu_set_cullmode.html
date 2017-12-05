@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>gpu_set_cullmode</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/drawing/gpu/gpu_set_cullmode.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Fgpu%2Fgpu_set_cullmode.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Fgpu%2Fgpu_set_cullmode.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> gpu_set_cullmode </h2><p><br></p><h3> Descripción </h3><blockquote><p> Esta función se puede usar para configurar el modo de eliminación de fondos ocultos. Un polígono (primitivo) tiene un <i>frente</i> y un lado <i>trasero</i>. El lado frontal se dice que es el lado donde los vértices se definen en <b>el sentido contrario a las agujas del reloj</b>. Normalmente ambos lados están dibujados, pero si haces una forma cerrada (como una pirámide), entonces esto es un desperdicio de poder de procesamiento porque el lado posterior del triángulo nunca se puede ver. En estos casos, puede activar la eliminación de fondos ocultos, ya que esto ahorra aproximadamente la mitad del tiempo de dibujo, aunque eso significa que tiene la tarea de definir sus polígonos de la forma correcta para evitar problemas. </p><p> El valor de modo de exclusión utilizado debe ser una de las siguientes constantes (el valor predeterminado es <tt>cull_noculling</tt> ) </p><ul><li><tt>cull_noculling</tt></li><li><tt>cull_clockwise</tt></li><li><tt>cull_counterclockwise</tt></li></ul></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">gpu_set_cullmode(cullmode);<span class="notranslate"></span></p><p><br></p><h3> Argumentos: </h3><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">cullmode</span> </td> <td> El modo de eliminación para usar (consulte la lista anterior) </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">if gpu_get_cullmode() != cull_clockwise<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;gpu_set_cullmode(cull_clockwise);<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote> El código anterior obtiene el modo de descarte actual y si no es <tt>cull_clockwise</tt> está configurado a esa constante. </blockquote><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href="index.html">funciones de la GPU</a> </div><div style="float:right"> Siguiente: <a href=
+"gpu_set_blendmode.html">gpu_set_blendmode</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

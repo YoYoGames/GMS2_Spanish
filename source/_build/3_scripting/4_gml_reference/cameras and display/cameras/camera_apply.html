@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>camera_apply</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/cameras and display/cameras/camera_apply.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fcameras%20and%20display%2Fcameras%2Fcamera_apply.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fcameras%20and%20display%2Fcameras%2Fcamera_apply.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> camera_apply </h2><p><br></p><h3> Descripción </h3><blockquote><p> Esta función aplicará la configuración de la cámara dada a la vista actual de la cámara que se está procesando de inmediato. Si bien puede configurar cualquier cámara de visualización utilizando el específico <tt>camera_set_*</tt> funciones, la nueva configuración no se usará para renderizar hasta el <i>próximo</i> cuadro de juego, pero con esta función puede hacer esos cambios inmediatamente. Si está utilizando vistas múltiples, entonces la función debe usarse en el <b>Evento de Dibujo</b> y puede usar la variable <a href="view_current.html"><tt>view_current</tt></a> para aplicar selectivamente la cámara dada solo a la vista de cámara que se está renderizando actualmente. Tenga en cuenta que esto NO cambia el valor de ID de la cámara, solo los ajustes para esa cámara, y que si usa esta función en la cámara predeterminada (es decir, la cámara interna que <i><span class="notranslate">GameMaker Studio 2</span></i> usa cuando no hay cámaras de visualización activas) los cambios serán sobreescribió el siguiente marco de juego por la configuración interna para dibujar la habitación. </p></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">camera_apply(camera_id)<span class="notranslate"></span></p><p><br></p><h3> Argumentos: </h3><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">camera_id</span> </td> <td> El valor único de ID de cámara que se devolvió cuando creó la cámara. </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">if view_current == 0<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;camera_apply(cutscene_cam);<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior (en un evento de Draw) comprueba para ver qué cámara se está visualizando actualmente y si es la vista de la cámara [0], entonces se le aplican los ajustes para la cámara a la que hace referencia la variable &quot;cutscene_cam&quot;. </p><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href=
+"index.html">Cámaras</a> </div><div style="float:right"> Siguiente: <a href=
+"camera_set_view_mat.html">camera_set_view_mat</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

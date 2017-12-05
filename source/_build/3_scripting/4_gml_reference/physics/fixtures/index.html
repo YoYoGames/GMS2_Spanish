@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Fixtures</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/physics/fixtures/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fphysics%2Ffixtures%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fphysics%2Ffixtures%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Fixtures </h2><p> Antes de que una instancia en <i><span class="notranslate">GameMaker Studio 2</span></i> pueda tener propiedades físicas, debe tener un dispositivo asignado. Un accesorio vincula una forma o forma a la instancia y esto agrega propiedades materiales como densidad, fricción y restitución. Los accesorios pueden ser cajas, círculos, polígonos o cualquier otra forma simple que desee, ya que <i><span class="notranslate">GameMaker Studio 2</span></i> proporciona funciones que le permiten definir su propia forma punto por punto, y luego, una vez que tenga su forma, puede continuar y definir sus propiedades físicas también.. Estas propiedades son las que rigen la forma en que la instancia con el dispositivo que se le asignó reaccionará con otra instancia en el mundo de la física y se enumeran a continuación: <br><br></p><blockquote><ul><li> <b>Densidad: la densidad de</b> un material se define como su masa por unidad de volumen. Es, esencialmente, una medida de cuán estrechamente se apila la materia. Si desea que su dispositivo sea <i>estático</i> (es decir, inamovible), entonces la densidad debe establecerse en 0, lo que hace que sea infinitamente denso. <i>Los</i> objetos <i>cinemáticos</i> que se mueven con velocidad constante y que no se ven afectados físicamente por las colisiones también se definen con una densidad de 0. </li><li style="list-style: none"><br></li><li> <b>Fricción: la</b> fricción es la fuerza que resiste el movimiento relativo de superficies sólidas, capas de fluido y elementos materiales que se deslizan uno contra el otro. </li><li style="list-style: none"><br></li><li> <b>Amortiguación lineal:</b> esta es la fuerza generalizada que hace que un objeto en movimiento pierda impulso. En el &quot;mundo real&quot; las cosas generalmente no pasan para siempre. Por ejemplo, un avión de papel volará por un tiempo breve, pero eventualmente caerá debido a la fricción del aire que actúa sobre él y hace que disminuya la velocidad. En el mundo de la física que creamos tales cosas son difíciles de modelar, por lo que a cada accesorio se le da su propia amortiguación lineal para simular este tipo de &quot;fricción generalizada&quot;. </li><li style="list-style: none"><br></li><li> <b>Amortiguación angular:</b> como arriba, esta es una fuerza generalizada que se aplica a un objeto para evitar que gire eternamente. </li><li style="list-style: none"><br></li><li> <b>Restitución:</b> en física, la restitución se define como &quot;el retorno de un objeto o sistema a su estado original después de la deformación elástica&quot;, pero como los accesorios en <i><span class="notranslate">GameMaker Studio 2</span></i> son cuerpos realmente rígidos y no se pueden deformar, piense en esto básicamente &quot;Bouncy&quot; es el accesorio. </li></ul></blockquote><p> Como puede ver, con solo unas pocas funciones simples, <i><span class="notranslate">GameMaker Studio 2</span></i> puede ayudarlo a crear sistemas complejos e interacciones que darán a sus juegos una sensación de realismo sin precedentes. </p><div class="note"> <b>NOTA:</b> Puede definir un dispositivo y vincularlo a varias instancias (piense en una mesa de billar, donde todas las bolas tienen las mismas propiedades físicas, pero cada una es una entidad discreta). </div><blockquote><a name="creating_fixtures" id="creating_fixtures"></a> <label class="collapse" for="one">Creando accesorios</label> <input id="one" type="checkbox"><div class="index_list"><p> Las siguientes funciones son para crear, encuadernar, establecer colisiones y luego eliminar accesorios: </p><ul><li> <a href=
+"physics_fixture_create.html">physics_fixture_create</a> <br></li><li> <a href=
+"physics_fixture_bind.html">physics_fixture_bind</a> <br></li><li> <a href=
+"physics_fixture_bind_ext.html">physics_fixture_bind_ext</a> <br></li><li> <a href=
+"physics_fixture_set_collision_group.html">physics_fixture_set_collision_group</a> <br></li><li> <a href=
+"physics_fixture_delete.html">physics_fixture_delete</a> <br></li><li> <a href=
+"physics_remove_fixture.html">physics_remove_fixture</a> <br></li></ul></div><br><a name="defining_fixtures" id="defining_fixtures"></a> <label class="collapse" for="two">Definición de accesorios</label> <input id="two" type="checkbox"><div class="index_list"><p> A un accesorio se le debe dar una forma o de lo contrario no será detectado por el mundo de la física, y esta forma se puede definir con las siguientes funciones: </p><ul><li> <a href=
+"physics_fixture_set_box_shape.html">physics_fixture_set_box_shape</a> <br></li><li> <a href=
+"physics_fixture_set_circle_shape.html">physics_fixture_set_circle_shape</a> <br></li><li> <a href=
+"physics_fixture_set_edge_shape.html">physics_fixture_set_edge_shape</a> <br></li><li> <a href=
+"physics_fixture_set_chain_shape.html">physics_fixture_set_chain_shape</a> <br></li><li> <a href=
+"physics_fixture_set_polygon_shape.html">physics_fixture_set_polygon_shape</a> <br></li><li> <a href=
+"physics_fixture_add_point.html">physics_fixture_add_point</a> <br></li></ul></div><br><a name="fixture_properties" id="fixture_properties"></a> <label class="collapse" for="three">Propiedades del accesorio</label> <input id="three" type="checkbox"><div class="index_list"><p> Para que su instancia habilitada para la física reaccione de forma adecuada al mundo que la rodea, los dispositivos que utilice deben tener propiedades específicas definidas que proporcionen rebote, fricción, masa, etc. del dispositivo. Las siguientes funciones se utilizan para configurar estas propiedades del dispositivo. accesorio: </p><ul><li> <a href=
+"physics_fixture_set_density.html">physics_fixture_set_density</a> <br></li><li> <a href=
+"physics_fixture_set_friction.html">physics_fixture_set_friction</a> <br></li><li> <a href=
+"physics_fixture_set_linear_damping.html">physics_fixture_set_linear_damping</a> <br></li><li> <a href=
+"physics_fixture_set_angular_damping.html">physics_fixture_set_angular_damping</a> <br></li><li> <a href=
+"physics_fixture_set_restitution.html">physics_fixture_set_restitution</a> <br></li><li> <a href=
+"physics_fixture_set_sensor.html">physics_fixture_set_sensor</a> <br></li><li> <a href=
+"physics_fixture_set_kinematic.html">physics_fixture_set_kinematic</a> <br></li><li> <a href=
+"physics_fixture_set_awake.html">physics_fixture_set_awake</a> <br></li></ul><p> También puede establecer ciertas propiedades del dispositivo <i>después de</i> haberlo vinculado a una instancia. Al vincular el dispositivo &quot;base&quot;, puede optar por almacenar el índice exclusivo para las propiedades físicas vinculadas en una variable. Esto se puede usar en las siguientes funciones para cambiar ciertas propiedades u obtener los valores actuales para ellas: </p><ul><li> <a href=
+"physics_get_friction.html">physics_get_friction</a> <br></li><li> <a href="physics_get_density.html">physics_get_density</a> <br></li><li> <a href=
+"physics_get_restitution.html">physics_get_restitution</a> <br></li><li> <a href=
+"physics_set_friction.html">physics_set_friction</a> <br></li><li> <a href="physics_set_density.html">physical_set_density</a> <br></li><li> <a href=
+"physics_set_restitution.html">physical_set_restitution</a> <br></li><li> <a href=
+"../physics_mass_properties.html">physics_mass_properties</a> <br></li></ul></div></blockquote><p><br></p><div class="clear"><div style="float:left"> Espalda: <a href="../index.html">Funciones Físicas</a> </div><div style="float:right"> Siguiente: <a href=
+"../joints/index.html">Juntas</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

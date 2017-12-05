@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Set View Variable</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/2_drag_and_drop_reference/camera_actions/set_view_variable.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fcamera_actions%2Fset_view_variable.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fcamera_actions%2Fset_view_variable.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2><img style="vertical-align:middle" src=
+"images/i_cameras_set_view_variable.png"> Establecer variable de vista </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta acción le permite establecer ciertas variables integradas relacionadas con la forma en que el <b>puerto de</b> visualización mostrará las vistas de la habitación de la cámara. Seleccione la variable de puerto de vista para editar, luego dele el puerto de vista al objetivo (de 0 a 7) y finalmente el nuevo valor para la variable. El puerto de vista es el área de la pantalla que se usará para dibujar una vista de cámara determinada (como se configuró en el editor de sala), y las diferentes variables que puede establecer de esta manera se describen en la tabla a continuación: </p><div class="compat"><table><tr><th> Variable </th><th> Descripción </th></tr><tr><td> Cámara </td><td> Esto es para configurar la ventana gráfica para que muestre una vista de cámara diferente. Debe proporcionar el valor de identificación único de la cámara para cambiar a (consulte <a href=
+"../../4_gml_reference/cameras%20and%20display/cameras/index.html">aquí</a> para obtener más información). </td></tr><tr class="alt"><td> Visibilidad </td><td> Esta es la palanca de visibilidad para el puerto de visualización y espera un valor de <tt>true</tt> o <tt>false</tt> donde configurarlo para <tt>true</tt> hará visible el puerto de visualización (es decir, dibujará en la pantalla), y un valor de <tt>false</tt> no dibujará nada en la pantalla. </td></tr><tr><td> Ver la Coordenada del puerto X </td><td> Esta es la posición X del puerto de vista dentro de la ventana del juego. Sin embargo, tenga en cuenta que esto solo es realmente necesario cuando hay más de un puerto de vista activo, por ejemplo, para crear un efecto de pantalla dividida, y si se usa cuando solo hay un puerto activo, se obtienen resultados inesperados. </td></tr><tr class="alt"><td> Ver el puerto Y Coordinate </td><td> Esta es la posición Y del puerto de visualización dentro de la ventana del juego. Sin embargo, tenga en cuenta que esto solo es realmente necesario cuando hay más de un puerto de vista activo, por ejemplo, para crear un efecto de pantalla dividida, y si se usa cuando solo hay un puerto activo, se obtienen resultados inesperados. </td></tr><tr><td> Ver el ancho del puerto </td><td> Este es el ancho (en píxeles) del puerto de visualización. El ancho del puerto de vista (o puertos de vista combinados si hay más de uno activo) define el ancho de la ventana del juego o del lienzo de fondo al inicio del juego, por lo que cambiar este valor una vez que el juego haya comenzado <i>no tendrá efecto visible en el tamaño de la ventana del juego a</i> menos que se llame junto con la función GML <a href=
+"../../4_gml_reference/cameras%20and%20display/display/the%20game%20window/window_set_size.html"><tt>window_set_size</tt></a>. También tenga en cuenta que si tiene un tamaño de puerto más grande o más pequeño que el asignado a la cámara, entonces la vista de la cámara se reducirá o hacia arriba para ajustarse. </td></tr><tr class="alt"><td> Ver la altura del puerto </td><td> Esta es la altura (en píxeles) del puerto de visualización. La altura del puerto de visualización (o puertos de vista combinados si hay más de uno activo) define la altura de la ventana del juego o del lienzo de fondo al comienzo del juego, por lo que cambiar este valor una vez que el juego haya comenzado <i>no tendrá efecto visible en el tamaño de la ventana del juego a</i> menos que se llame junto con la función GML <a href=
+"../../4_gml_reference/cameras%20and%20display/display/the%20game%20window/window_set_size.html"><tt>window_set_size</tt></a>. También tenga en cuenta que si tiene un tamaño de puerto más grande o más pequeño que el asignado a la vista de la cámara, entonces la vista de la cámara se reducirá o hacia arriba para ajustarse. </td></tr><tr><td> Ver ID de la superficie del puerto </td><td> Con esta variable puede establecer el contenido de un puerto de vista determinado para dibujar en una superficie, con el valor que suministra es el de la superficie que se utilizará para dibujar el puerto de vista. Para obtener más información, consulte <a href=
+"../../4_gml_reference/cameras%20and%20display/cameras/view_set_surface_id.html">aquí</a>. </td></tr></table></div></blockquote><p><br></p><h3> Sintaxis de acción: </h3><img class="center" src="images/a_cameras_set_view_variable.png"
+alt="Establecer la sintaxis de la variable de vista"><p><br></p><h3> Argumentos: </h3><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">Variable</span> </td> <td> La variable de vista incorporada para establecer </td></tr><tr class="alt"><td> <span class="notranslate">View</span> </td> <td> El puerto de visualización al objetivo (de 0 a 7) </td></tr><tr><td> <span class="notranslate">Value</span> </td> <td> El nuevo valor para la variable incorporada </td></tr></table></blockquote><p><br></p><h3> Ejemplo: </h3><img class="center" src="images/e_cameras_set_view_variable.png"
+alt="Establecer ejemplo de variable de vista"><blockquote> El código de bloque de acción anterior comprobará si se presiona una tecla y, si se detecta una, hará que el puerto de vista [0] sea visible, de lo contrario lo hará invisible. </blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Acciones de la cámara</a> </div><div style="float:right"> siguiente: <a href="get_view_variable.html">Obtener una variable de vista</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

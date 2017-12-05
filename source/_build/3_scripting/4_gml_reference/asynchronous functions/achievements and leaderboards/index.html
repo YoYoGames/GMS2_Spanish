@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Achievements and Leaderboards</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/asynchronous functions/achievements and leaderboards/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fasynchronous%20functions%2Fachievements%20and%20leaderboards%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fasynchronous%20functions%2Fachievements%20and%20leaderboards%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Logros y tablas de clasificación </h2><div class="body-scroll"><p><br></p> Los juegos creados para dispositivos de destino que ejecutan iOS o <span class="notranslate">Android</span> también se pueden conectar a una de las dos tablas de clasificación y API de logros. Para iOS tienes <b>iTunes Game Center</b>, y para <span class="notranslate">Android</span> puedes usar <b><span class="notranslate">Amazon</span> Game Circle</b> o <b>Google Play</b>, y todos usan las funciones que se encuentran en esta página. Estas funciones permiten que tu juego envíe información sobre puntajes y logros a las tablas de clasificación que hayas configurado en la Cuenta de Desarrolladores para el juego que estás haciendo y es una excelente manera de involucrar a los jugadores en el aspecto social de los juegos, ya que pueden ver qué otras personas que han jugado su juego han logrado y tratan de mejorarlas. <br><br> Al usar estas funciones, debe tener en cuenta que no hacen <i>un</i> seguimiento de los logros y puntajes automáticamente para usted. Solo muestran los datos que les envías de tu juego, por lo que debes codificar tus propios logros y el sistema de puntaje para realizar un seguimiento del estado individual en el juego, luego usa estas funciones para agregar los datos a la red elegida ( <i>puede</i> solicitar información de progreso para los logros utilizando el <a href=
+"achievement_load_progress.html"><tt>achievement_load_progress</tt></a> función). <br><br> Algunas de estas funciones desencadenarán un <a href=
+"../../../../2_interface/1_editors/events/async_events.html">evento social asincrónico de</a> devolución de llamada, que contendrá un <tt>ds_map</tt> de datos relacionados con la función que lo desencadenó. Las funciones que desencadenan el evento también detallan los pares clave / valor de mapa que devuelve la devolución de llamada, sin embargo, un <b>evento social de</b> devolución de llamada también puede ser activado por su juego recibiendo notificaciones externas sobre desafíos, etc. Los detalles exactos de la <tt>ds_map</tt> devueltos para estos eventos se explican en la sección <a href=
+"../../../../2_interface/1_editors/events/async_events.html">Evento social asincrónico</a>. <br><br><blockquote> <i><b>NOTA:</b> Para que estas funciones funcionen con iOS, debes tener una cuenta de Game Center válida y una <b>ID de aplicación de</b> iOS para tu juego.</i> <br><br> <i><b>NOTA:</b> Para que estas funciones funcionen con <span class="notranslate">Android</span>, debes enviar tu juego a la App Store de <span class="notranslate">Amazon</span> o a Google Play, y debes configurar las secciones necesarias, así como tener la API activada en <a href=
+"../../../../2_interface/3_settings/game_options/options_android.html"><span class="notranslate">Android</span> Opciones de juego de <span class="notranslate">Android</span></a> para tu juego.</i> <br><br></blockquote><p> Las funciones enumeradas a continuación son las básicas que se utilizan para integrar su juego con la plataforma de juego social objetivo elegida: </p><blockquote><ul><li> <a href=
+"achievement_login_status.html">achievement_login_status</a> <br></li><li> <a href="achievement_login.html">logro_login</a> <br></li><li> <a href="achievement_logout.html">logro_logout</a> <br></li><li> <a href=
+"achievement_available.html">logro_disponible</a> <br></li><li> <a href="achievement_post.html">logro_post</a> <br></li><li> <a href=
+"achievement_post_score.html">logro_post_score</a> <br></li><li> <a href=
+"achievement_increment.html">logro_incremento</a> <br></li><li> <a href=
+"achievement_show_achievements.html">achievement_show_achievements</a> <br></li><li> <a href=
+"achievement_show_leaderboards.html">achievement_show_leaderboards</a> <br></li><li> <a href=
+"achievement_show_challenge_notifications.html">achievement_show_challenge_notifications</a> <br></li><li> <a href=
+"achievement_get_challenges.html">achievement_get_challenges</a> <br></li><li> <a href="achievement_get_pic.html">achievement_get_pic</a> <br></li><li> <a href=
+"achievement_load_friends.html">achievement_load_friends</a> <br></li><li> <a href=
+"achievement_load_leaderboard.html">achievement_load_leaderboard</a> <br></li><li> <a href=
+"achievement_load_progress.html">achievement_load_progress</a> <br></li><li> <a href=
+"achievement_send_challenge.html">logro_send_challenge</a> <br></li><li> <a href="achievement_reset.html">logro_respuesta</a> <br></li></ul></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="../index.html">Funciones asíncronas</a> </div><div style="float:right"> Siguiente: <a href=
+"../facebook/index.html">Facebook</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

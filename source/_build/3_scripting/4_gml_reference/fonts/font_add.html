@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>font_add</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/fonts/font_add.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Ffonts%2Ffont_add.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Ffonts%2Ffont_add.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> font_add </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta función se puede usar para agregar una fuente a su juego de aquellas fuentes que están instaladas en el sistema en el que se está ejecutando. Puede definir el tamaño de la fuente (en puntos), así como si la fuente debe ser <b>negrita</b> o <i>cursiva</i>, y también puede definir el rango de caracteres a incluir (para una tabla completa de caracteres disponibles y su valor UTF8, consulte <a href=
+"font_tables.html">Fuente tablas</a> ). La función devuelve un valor de <i>índice</i> que debe almacenarse en una variable, ya que será necesario en todos los demás códigos que hagan referencia a esta fuente. </p><div class="note"> <b>¡IMPORTANTE!</b> Esta función <b>no</b> está disponible con la licencia de prueba del producto. </div><p><br> Para el módulo de destino HTML5, esta función solo se puede usar para agregar <i>Fuentes web</i>, pero solo funcionará <i>si WebGL <b>no</b> está habilitado</i> ; si WebGL está habilitado, entonces debe usar un archivo de fuente incluido. La siguiente tabla muestra las fuentes que son estándar en todos los navegadores y que deberían estar disponibles para su uso sin problemas. Cualquier otra fuente puede o no existir en la computadora o dispositivo que ejecuta su juego, por lo que el uso de esta función debe limitarse a estas fuentes estándar: </p><div class="compat"><table><tr><th> Nombre de fuente de Windows </th><th> Nombre de la fuente Mac </th><th> Familia tipográfica </th></tr><tr><td> Arial </td><td> Arial / Helvetica </td><td> sans-serif </td></tr><tr><td> Arial Negro </td><td> Arial Black / Gadget </td><td> sans-serif </td></tr><tr><td> Comic Sans MS </td><td> Comic Sans MS </td><td> cursivo </td></tr><tr><td> Courier Nuevo </td><td> Courier Nuevo </td><td> monoespaciado </td></tr><tr><td> Georgia </td><td> Georgia </td><td> serif </td></tr><tr><td> Impacto </td><td> Impacto / Carbón </td><td> sans-serif </td></tr><tr><td> Consola Lucida </td><td> Mónaco </td><td> monoespaciado </td></tr><tr><td> Lucida Sans Unicode </td><td> Lucida Grande </td><td> sans-serif </td></tr><tr><td> Palatino Linotype / Book Antiqua </td><td> Palatino </td><td> serif </td></tr><tr><td> Tahoma </td><td> Ginebra </td><td> sans-serif </td></tr><tr><td> Times New Roman </td><td> Times New Roman / Times </td><td> serif </td></tr><tr><td> Trebuchet MS </td><td> Trebuchet MS </td><td> sans-serif </td></tr><tr><td> Verdana </td><td> Verdana / Ginebra </td><td> sans-serif </td></tr><tr><td> Georgia </td><td> Georgia </td><td> serif </td></tr><tr><td> Símbolo </td><td> Símbolo </td><td> N / A </td></tr><tr><td> Webdings </td><td> Webdings </td><td> N / A </td></tr><tr><td> Wingdings </td><td> Zapf Dingbats </td><td> N / A </td></tr><tr><td> MS Sans Serif </td><td> Ginebra </td><td> sans-serif </td></tr><tr><td> MS Serif </td><td> Nueva York </td><td> sans-serif </td></tr></table></div><p><br><br> En todos los demás destinos (que no sean JavaScript), puede usar esta función para agregar una fuente desde un archivo. El archivo <b>debe incluirse en el paquete del juego</b> utilizando la funcionalidad <a href=
+"../../../2_interface/1_editors/included_files.html">Archivos incluidos</a> de <i><span class="notranslate">GameMaker Studio 2</span></i>, y debe ser un <tt>*.ttf</tt> formato de archivo de fuente, útil para agregar fuentes no estándar como asiático o árabe. </p><div class="note"> <b>¡ADVERTENCIA!:</b> Si incluye una fuente en <tt>*.ttf</tt> formato con un juego, <b>debe tener licencia</b> para su distribución con el juego. </div><p><br> Al cargar una fuente desde un archivo de esta manera, el <i>tamaño</i> de la fuente es en <b>píxeles</b> y el <i>primer</i> y <i>último</i> valor se ignoran, lo que significa que se agregarán todos los glifos de la fuente. Las fuentes añadidas de esta manera se asignan a su propia página de texturas, por lo que se debe tener cuidado al usar esta función ya que aumentará el número de intercambios de texturas al dibujar. También vale la pena señalar que las fuentes pueden aparecer un poco más grandes cuando se dibujan, ya que los glifos pueden tener partes que se dibujan fuera del cuadro delimitador definido para la fuente. También debe tener en cuenta que existe una limitación de alrededor de 200 glifos que se pueden representar en un solo cuadro para una fuente en particular. </p><div class="note"> <b>NOTA:</b> Cuando cargue una fuente en <i><span class="notranslate">GameMaker Studio 2</span></i>: Studio, debe recordar eliminarla nuevamente (con <a href="font_delete.html"><tt>font_delete</tt></a> ) cuando ya no sea necesario, de lo contrario existe el riesgo de una pérdida de memoria que disminuirá la velocidad y, finalmente, se bloqueará el juego. </div></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">font_add(name, size, bold, italic, first,
+last);<span class="notranslate"></span></p><p><br></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">name</span> </td> <td> El nombre de la fuente que se agregará (por ejemplo, &#39;Arial&#39;) o la ruta del archivo si la fuente está incluida <tt>*.ttf</tt> archivo. </td></tr><tr><td> <span class="notranslate">size</span> </td> <td> El tamaño de la fuente: puntos para Fuentes web, píxeles para <tt>*.ttf</tt> fuentes </td></tr><tr><td> <span class="notranslate">bold</span> </td> <td> Si la fuente es negrita (verdadera) o no (falsa). </td></tr><tr><td> <span class="notranslate">italics</span> </td> <td> Si la fuente es cursiva (verdadera) o no (falsa). </td></tr><tr><td> <span class="notranslate">first</span> </td> <td> El primer personaje para incluir (si no estás seguro, ve por 32). </td></tr><tr><td> <span class="notranslate">last</span> </td> <td> El último personaje para incluir (si no estás seguro, ve por 128). </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">Real<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">newfont = font_add( 'Arial', 24, true, true, 32,
+128);<br><span class="notranslate"></span></p><blockquote><p> Esto creará una nueva fuente de 24 pts de tamaño, usa &quot;Arial&quot;, que es negrita y cursiva, y el índice de esta nueva fuente se almacena en la variable &quot;newfont&quot;. El rango de fuentes incluye mayúsculas y minúsculas, números y todos los signos de puntuación comunes. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Fuentes</a> </div><div style="float:right"> Siguiente: <a href=
+"font_add_sprite.html">font_add_sprite</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

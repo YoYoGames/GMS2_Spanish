@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>vertex_submit</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href=
+"../../../../../../../files/helpindex.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../../default.css"
+type="text/css">
+
+<script type="text/JavaScript" src="../../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/drawing/primitives/primitive building/vertex_submit.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Fprimitives%2Fprimitive%20building%2Fvertex_submit.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Fprimitives%2Fprimitive%20building%2Fvertex_submit.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h1 class="studio"> vertex_submit </h1><h2 class="studio"> Congele el buffer de vértice dado. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">vertex_submit(buffer, primitive, texture);<span class="notranslate"></span></p><p><br></p><div><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">buffer</span> </td> <td> El buffer para usar. </td></tr><tr class="alt"><td> <span class="notranslate">primitive</span> </td> <td> El tipo base primitivo. </td></tr><tr><td> <span class="notranslate">texture</span> </td> <td> La textura a usar (o -1 para ninguna textura). </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> N / A </p><p><br></p><h3 class="studio"> Descripción </h3><p> Puede usar esta función para enviar el contenido de un búfer de vértices a la tubería de gráficos para usar con un sombreador. Proporciona el índice de búfer que se utilizará, el tipo de primitiva base que se utilizará (consulte las constantes a continuación) y la textura que se utilizará. El tipo de base primitiva solo se usa para asignar el orden en el que se dibujan y conectan los vértices que almacenó en el búfer, pero los datos reales utilizados para cada uno de los vértices serán los que definió al crear el búfer de vértices. </p><div class="note"> <b>NOTA</b>: Esta función solo se puede usar en el <b>Evento de sorteo</b>. </div><p><br> Para un ejemplo visual de las diferentes primitivas de base disponibles, vea la imagen a continuación: <img class="center" src=
+"../images/primitive_types.png" alt="Tipos primitivos"></p><div class="compat"><table><tr><th> Constante </th><th> Descripción </th></tr><tr><td> <span class="notranslate">pr_pointlist</span> </td> <td> Una primitiva que consiste en una lista de puntos. </td></tr><tr class="alt"><td> <span class="notranslate">pr_linelist</span> </td> <td> Un primitivo compuesto por líneas individuales en una lista. </td></tr><tr><td> <span class="notranslate">pr_linestrip</span> </td> <td> Un primitivo compuesto por una tira consecutiva de líneas. </td></tr><tr class="alt"><td> <span class="notranslate">pr_trianglelist</span> </td> <td> Un primitivo compuesto de triángulos individuales en una lista. </td></tr><tr><td> <span class="notranslate">pr_triangle_strip</span> </td> <td> Un primitivo compuesto por una tira consecutiva de triángulos. </td></tr></table></div><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">shader_set(shader_prim);<br>
+vertex_submit(buff, pr_trianglelist,
+sprite_get_texture(sprite_index));<br>
+shader_reset();<br><span class="notranslate"></span></p><p> El código anterior enviará el búfer de vértices indexado en la variable &quot;buff&quot; para dibujar con el shader &quot;shader_prim&quot;, usando una lista de triángulos como la primitiva base y la textura del sprite para la instancia que ejecuta el código. </p><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Construcción de primitivas</a> </div><div style="float:right"> Siguiente: <a href=
+"vertex_create_buffer.html">vertex_create_buffer</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

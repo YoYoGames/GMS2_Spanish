@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>sprite_replace</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/sprites/sprite_replace.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Fsprite_replace.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Fsprite_replace.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> sprite_replace </h2><div class="body-scroll"><p><br></p><h3> Sintaxis: </h3><p class="code">sprite_replace(ind, fname, imgnumb, removeback,
+smooth, xorig, yorig);<span class="notranslate"></span></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">ind</span> </td> <td> El índice del sprite para reemplazar permanentemente. </td></tr><tr class="alt"><td> <span class="notranslate">fname</span> </td> <td> El nombre de archivo de la imagen para hacer el nuevo sprite. </td></tr><tr><td> <span class="notranslate">imgnumb</span> </td> <td> La cantidad de cuadros en los que se cortará el sprite horizontalmente. 1 = una sola imagen / <tt>*.gif</tt>. </td></tr><tr class="alt"><td> <span class="notranslate">removeback</span> </td> <td> Indica si se deben hacer transparentes todos los píxeles con el color de fondo (píxel inferior izquierdo). </td></tr><tr><td> <span class="notranslate">smooth</span> </td> <td> Indica si suavizar los bordes. </td></tr><tr class="alt"><td> <span class="notranslate">xorig</span> </td> <td> La coordenada x del origen, relativa a la esquina superior izquierda del elemento. </td></tr><tr><td> <span class="notranslate">yorig</span> </td> <td> La coordenada y del origen, relativa a la esquina superior izquierda del sprite. </td></tr></table></blockquote><p><br></p><h3> Devoluciones </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Descripción </h3><blockquote><p> Esta función funciona casi de la misma manera que <a href=
+"sprite_add.html"><tt>sprite_add</tt></a>, solo en lugar de devolver el índice del sprite que está importando, sobrescribe un índice de sprite creado previamente. Al usar esta función, debe usar un índice de sprites que se haya creado y almacenado en una variable usando otras funciones como <a href=
+"sprite_add.html"><tt>sprite_add</tt></a> o <a href=
+"sprite_create_from_surface.html"><tt>sprite_create_from_surface</tt></a>, o incluso <a href=
+"sprite_duplicate.html"><tt>sprite_duplicate</tt></a>, en lugar de un recurso de elemento de árbol de recursos. <i>Puede</i> reemplazar un sprite de los recursos del juego de utilizar esta función, pero al hacerlo significa que perderá el ID de referencia para el sprite que va a sustituir, independientemente de si usted llama <tt>game_restart()</tt> o no, y por lo tanto no es recomendable. Independientemente del sprite que se sustituya, esta función <b>creará una nueva página de textura para el sprite</b> y, por lo tanto, se debe tener cuidado al usarla, ya que puede afectar negativamente el rendimiento al aumentar el número de intercambios de textura necesarios para el renderizado. </p><p> El archivo de imagen que se va a cargar <b>siempre</b> debe estar en <tt>*.png</tt> el formato y todas las imágenes que se convertirán en sprites animados deberían tener un formato de &quot;tira&quot; (ver la imagen a continuación). Se dividirán en el número de imágenes secundarias especificadas siguiendo el <b>ancho del elemento sprite de</b> la regla <b>= ancho / subimágenes</b>. <img class="center" src="spr_strip.png"></p><p> Como puede ver en la imagen de arriba, el sprite se ha colocado sobre un fondo morado oscuro, y esto puede eliminarse configurando el argumento &quot;removeback&quot; para <tt>true</tt>. Esto funciona verificando el píxel <i>inferior izquierdo</i> del sprite para ver el color y luego lo usa como el color que se eliminará. Por ejemplo, en la imagen de arriba, si tuviéramos el color del píxel inferior izquierdo en verde, todas las partes verdes del sprite habrían sido eliminadas y el resto del fondo púrpura ignorado. </p><p> Si eliges la opción &quot;eliminar&quot;, también puedes desear que <i><span class="notranslate">GameMaker Studio 2</span></i> suavice los bordes del sprite configurando el argumento &quot;suave&quot; para <tt>true</tt>. Todo lo que hace es crear un borde semitransparente alrededor de los bordes del sprite después de haber eliminado su fondo. </p><p> Finalmente, también puede especificar el <i>origen</i> x e y para el sprite. Este es el punto donde el sprite se &quot;fija&quot; en la instancia que lo usa, y siempre se calcula como relativo a la esquina superior izquierda 0,0 de una subimagen de sprite. Entonces, por ejemplo, un sprite de 32 x 32 píxeles con estos valores establecidos en (16,16) tendrá su origen en el centro. </p><p> De forma predeterminada, todos los nuevos sprites tienen sus cuadros delimitadores calculados automáticamente (la bbox exacta dependerá del tamaño y la transparencia del sprite); sin embargo, es posible que desee personalizar esto, en cuyo caso también debe usar la función <a href=
+"sprite_collision_mask.html"><tt>sprite_collision_mask</tt></a>. </p><div class="note"> <b>NOTA:</b> Dependiendo de la plataforma de destino elegida, está limitado en cuanto a dónde puede guardar y cargar archivos. Consulte <a href="../file%20handling/index.html">Manejo de archivos</a> para obtener más información. </div><p><br></p><div class="note"> <b>NOTA:</b> debe tener en cuenta que si está utilizando esta función en su juego de destino HTML5 para cargar recursos de un servidor externo, debido a la protección XSS en los navegadores, los intentos de cargar recursos desde varios dominios pueden bloquearse y parecer que pueden regresar. resultados en blanco </div><p><br></p><div class="note"> <b>¡IMPORTANTE!</b> Esta función <b>no</b> está disponible con la licencia de prueba del producto. </div></blockquote><p><br></p><h3> Ejemplo: </h3><p class="code">sprite_replace(spr_banner, "gravemaker.png", 1,
+false, false, 0, 0);<span class="notranslate"></span></p><blockquote><p> El código anterior reemplazará el elemento de imagen indexado en &quot;spr_banner&quot; por otro cargado de una fuente externa. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Espalda: <a href=
+"index.html">Sprites</a> </div><div style="float:right"> Siguiente: <a href=
+"sprite_duplicate.html">sprite_duplicate</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

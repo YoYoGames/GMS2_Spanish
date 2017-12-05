@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>In App Purchases</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/in app purchases/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fin%20app%20purchases%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fin%20app%20purchases%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Compras en la aplicación </h2><div class="body-scroll"><p><br></p><p> En App Las compras son una parte importante de los juegos modernos, multiplataforma, que le permiten tener contenido &quot;freemium&quot; donde su juego es gratuito, pero cierto contenido solo está disponible a través de una compra dentro del juego mismo. Por ejemplo, tu juego de acertijos es gratuito, pero los niveles extra le costarán al usuario 0.99 $. Este modelo de aplicación es muy común y se puede configurar con un mínimo de trabajo desde <i><span class="notranslate">GameMaker Studio 2</span></i>, y esta sección del manual contiene detalles de todas las funciones disponibles que le permiten hacer eso, así como algunos consejos para configuración e información sobre cómo probar en las diferentes plataformas. </p><p> Configurar las compras de la aplicación dentro de su juego es relativamente simple con <i><span class="notranslate">GameMaker Studio 2</span></i>, pero aún requiere cierto conocimiento de la configuración de la plataforma objetivo así como una planificación cuidadosa antes de comenzar a crear su juego, por lo que no se recomienda que use esto. funcionalidad si está comenzando con <i><span class="notranslate">GameMaker Studio 2</span></i> o si no está seguro de cómo se configuran las diferentes tiendas para cada plataforma de destino. </p><p> Antes de hacer cualquier otra cosa, deberá asegurarse de haber configurado los detalles de compra en la tienda objetivo para cada plataforma que desee admitir, teniendo en cuenta cuidadosamente cada uno de los <b>ID de productos</b> que defina, ya que estas cadenas de ID son cómo <i><span class="notranslate">GameMaker Studio 2</span></i> identifica cada producto y compra. <br><br></p><p> Para ayudar a aquellos de ustedes que nunca han trabajado con ningún tipo de servicios de IAP y para explicar las diferentes formas en que IAP puede probarse en diferentes dispositivos, consulte las siguientes páginas: </p><blockquote><ol><li> <a href="http://help.yoyogames.com/entries/29734673.html"
+target="_blank">Ejemplo de IAP</a> <br></li><li> <a href="http://help.yoyogames.com/entries/29736883" target=
+"_blank">Pruebas IAP</a> <br></li></ol></blockquote><div class="note"> <b>NOTA</b>: <i><span class="notranslate">GameMaker Studio 2</span></i> actualmente permite hasta 128 opciones de compra distintas por título, excepto si está usando <span class="notranslate">Amazon</span> Store (para <span class="notranslate">Android</span> ) donde está limitado a 100. <p> <b>ADVERTENCIA:</b> No podrá realizar compras al depurar títulos con <i><span class="notranslate">GameMaker Studio 2</span></i> IDE. En su lugar, deberá crear ejecutables finales para garantizar que el título se comunique correctamente con los servidores de tienda respectivos. </p></div><p> A continuación se enumeran las funciones que están integradas en <i><span class="notranslate">GameMaker Studio 2</span></i> para habilitar las compras de aplicaciones en dispositivos de destino iOS y <span class="notranslate">Android</span> (esta es la capacidad de comprar créditos, artículos, niveles y otras cosas adicionales desde el propio juego). Muchas de estas funciones desencadenarán un <a href=
+"../../../2_interface/1_editors/events/async_events.html">evento asincrónico IAP</a>, que contiene un <a href=
+"../../../2_interface/1_editors/events/async_events.html">evento</a> especial <tt>ds_map</tt> con una clave inicial &quot;tipo&quot;. Esto se puede consultar para obtener el tipo de evento IAP que se ha activado, lo que le permitirá obtener más datos del mapa. </p><p> Las funciones de compra disponibles en la aplicación son: </p><ul><li> <a href="iap_activate.html">iap_activate</a> <br></li><li> <a href="iap_status.html">iap_status</a> <br></li><li> <a href=
+"iap_enumerate_products.html">iap_enumerate_products</a> <br></li><li> <a href="iap_restore_all.html">iap_restore_all</a> <br></li><li> <a href="iap_acquire.html">iap_acquire</a> <br></li><li> <a href="iap_consume.html">iap_consume</a> <br></li><li> <a href="iap_product_details.html">iap_product_details</a> <br></li><li> <a href=
+"iap_purchase_details.html">iap_purchase_details</a> <br></li></ul><br><p> También debe tener en cuenta que <i><span class="notranslate">GameMaker Studio 2</span></i> <i><b>no</b></i> persiste el estado de compra activo en varias jugadas del juego (y por lo tanto <tt>iap_is_purchased()</tt> no es confiable si una tienda no se ha cargado correctamente). Esto significa que tendrá que almacenar esta información usted mismo y recuperarla de nuevo en cada puesta en marcha de su juego. Puede usar las funciones de guardar y cargar especiales &quot;seguras&quot; provistas para ds_maps para este propósito: </p><ul><li> <a href=
+"../data_structures/ds%20maps/ds_map_secure_save.html">ds_map_secure_save</a> <br></li><li> <a href=
+"../data_structures/ds%20maps/ds_map_secure_load.html">ds_map_secure_load</a> <br></li></ul><br><p> <i><span class="notranslate">GameMaker Studio 2</span></i> no persiste el estado de compra en varias jugadas del juego porque no es apropiado que proporcionemos un método seguro para verificar si una compra individual es válida y, por lo tanto, cualquier estado de compra almacenado automáticamente sería presuntuoso. En la mayoría de las plataformas, los datos de &quot;recibo&quot; estarán disponibles a través de <a href=
+"iap_purchase_details.html"><tt>iap_purchase_details()</tt></a> qué usuarios pueden usar para verificar una compra, aunque Google Play usa datos &quot;token&quot; en su lugar. </p><p> <i><span class="notranslate">GameMaker Studio 2</span></i> requiere la <b>clave pública de Google Play</b> para la verificación simple de la compra local y usted puede verificar que los datos de la &quot;carga útil&quot; devueltos con un resultado de compra coincidan con los utilizados con la llamada correspondiente a <tt>iap_acquire()</tt>. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="../index.html">Referencia del lenguaje de <i><span class="notranslate">GameMaker</span> Studio 2</i></a> </div><div style="float:right"> Siguiente: <a href=
+"../asynchronous%20functions/index.html">Funciones asincrónicas</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>buffer_create_from_vertex_buffer_ext</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/buffers/buffer_create_from_vertex_buffer_ext.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fbuffers%2Fbuffer_create_from_vertex_buffer_ext.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fbuffers%2Fbuffer_create_from_vertex_buffer_ext.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> buffer_create_from_vertex_buffer_ext </h2><div class="body-scroll"><h3 class="studio"> Sintaxis: </h3><p class="code">buffer_create_from_vertex_buffer_ext(vertex_buffer,
+type, alignment, start_vertex, num_vertices)<span class="notranslate"></span></p><p><br></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">vertex_buffer</span> </td> <td> El índice de búfer de vértice a usar. </td></tr><tr class="alt"><td> <span class="notranslate">type</span> </td> <td> El tipo de buffer para crear (ver la lista de constantes a continuación). </td></tr><tr><td> <span class="notranslate">alignment</span> </td> <td> La alineación de bytes para el buffer </td></tr><tr class="alt"><td> <span class="notranslate">start_vertex</span> </td> <td> El vértice inicial. </td></tr><tr><td> <span class="notranslate">num_vertices</span> </td> <td> El número total de vértices para copiar. </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> Real </p><p><br></p><h3 class="studio"> Descripción </h3><p> Utiliza esta función para asignar una porción de memoria como un búfer en tu juego lleno con los datos de un <a href=
+"../drawing/primitives/primitive%20building/index.html">búfer de vértices</a> previamente creado. La función devuelve un <i>identificador</i> único de <i>almacenamiento intermedio</i> que debe almacenarse en una variable y utilizarse para todas las demás llamadas de función al almacenamiento intermedio. La función toma la identificación para el buffer de vértice para usar (como lo devuelve la función <a href=
+"../drawing/primitives/primitive%20building/vertex_create_buffer.html"><tt>vertex_create_buffer()</tt></a>, por ejemplo) con las siguientes constantes que se utilizan para definir el tipo de buffer: <br><br></p><div class="compat"><table><tr><th> Constante </th><th> Descripción </th></tr><tr><td> <span class="notranslate">buffer_fixed</span> </td> <td> Un buffer de tamaño fijo. </td></tr><tr class="alt"><td> <span class="notranslate">buffer_grow</span> </td> <td> Un buffer que &quot;crecerá&quot; dinámicamente a medida que se agreguen los datos </td></tr><tr><td> <span class="notranslate">buffer_wrap</span> </td> <td> Un buffer donde los datos se &quot;ajustarán&quot;. Cuando los datos que se agregan alcanzan el límite del tamaño del búfer, la sobrescritura se volverá a colocar al inicio del búfer, y la escritura continuará desde ese punto. </td></tr><tr class="alt"><td> <span class="notranslate">buffer_fast</span> </td> <td> Buffer especial &quot;stripped&quot; que es extremadamente rápido para leer / escribir. Solo se puede usar con <tt>buffer_u8</tt> <a href=
+"buffer_read.html">tipos de datos</a>, y <i>deben</i> estar alineados a 1 byte. </td></tr><tr><td> <span class="notranslate">buffer_vbuffer</span> </td> <td></td></tr></table></div><p><br><br> Además del tipo de búfer, también deberá establecer la <i>alineación de bytes</i> para el búfer. Este valor variará según los datos que desee almacenar en el búfer, y en la mayoría de los casos un valor de 1 está perfectamente bien. Sin embargo, tenga en cuenta que para algunas operaciones es <i>esencial</i> una alineación específica, y una alineación incorrecta puede causar errores (para obtener más detalles sobre la alineación, consulte <a href=
+"../../../1_overview/3_additional_information/using_buffers.html">Alineación de zonas tampón</a> ). La siguiente es una guía general para mostrar qué valores son los más apropiados para cada tipo de datos (cuando tenga dudas, use una alineación de 1): </p><blockquote><ul><li> Las cadenas deben estar alineadas a 1 byte. </li><li> Los enteros de 8 bits con signo o sin signo se pueden alinear con cualquier valor, pero tenga en cuenta que para un búfer rápido (consulte <a href=
+"buffer_write.html"><tt>buffer_write</tt></a> ) <i>debe</i> estar alineado a 1. </li><li> Los enteros de 16 bits firmados o sin firmar se deben alinear a 2 bytes. </li><li> Los enteros de 32 bits firmados o sin firmar se deben alinear a 4 bytes </li><li> Los flotadores de hasta 16 bits se deben alinear a 2 bytes. <i>(¡Actualmente no compatible!)</i> </li><li> Los flotantes de hasta 32 bits se deben alinear a 4 bytes. </li><li> Los flotadores de hasta 64 bits se deben alinear a 8 bytes. </li></ul></blockquote><p> <i><b>NOTA: Los</b> búferes de vértices están alineados en 1 byte, pero puede crear el búfer con cualquier alineación dependiendo de cómo quiera tratar los datos, ya que los datos de vértice son simplemente una copia en bruto de la memoria en el búfer.</i> <br><br> Los dos argumentos finales se usan para especificar el rango de datos de vértice que desea copiar en el búfer recién creado. El vértice de inicio puede estar entre 0 y el número de vértices -1, y luego se da el número de vértices desde ese punto para copiar. Puedes usar la función <a href=
+"../drawing/primitives/primitive%20building/vertex_get_number.html"><tt>vertex_get_number()</tt></a> en el buffer de vértice para obtener el número total de vértices almacenados. <br><br> <i><b>NOTA:</b> Es importante que elimine de la memoria todos los recursos creados dinámicamente de esta manera cuando ya no los necesite para evitar pérdidas de memoria, de modo que cuando haya terminado con el búfer que ha creado, debería liberarlo nuevamente usando <a href="buffer_delete.html"><tt>buffer_delete</tt></a>. También tenga en cuenta que el búfer de vértices utilizado para crear el nuevo búfer tampoco se elimina de la memoria y debe utilizar la función <a href=
+"../drawing/primitives/primitive%20building/vertex_delete_buffer.html"><tt>vertex_delete_buffer()</tt></a> cuando ya no es necesario.</i> <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">var v_num = vertex_get_number(model_buff);
+player_buffer = buffer_create_from_vertex_buffer(model_buffer,
+buffer_grow, 1, 0, v_num - 1);<br><span class="notranslate"></span></p><p> El código anterior asigna memoria a un búfer y luego copia los datos de todos los vértices del búfer de vértices dado en él, devolviendo el índice del nuevo búfer que está almacenado en la variable &quot;player_buffer&quot;, para uso futuro. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Espalda: <a href=
+"index.html">Buffers</a> </div><div style="float:right"> Siguiente: <a href=
+"buffer_delete.html">buffer_delete</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>audio_listener_set_velocity</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/audio/audio_listener_set_velocity.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Faudio%2Faudio_listener_set_velocity.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Faudio%2Faudio_listener_set_velocity.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> audio_listener_set_velocity </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta función se puede usar para proporcionar los efectos <i>Doppler del</i> oyente dados y simular el movimiento del audio en función del vector que se resuelve a partir de las posiciones relativas x, yyz dadas. El índice de escucha predeterminado es 0, pero puede usar la función <a href=
+"audio_get_listener_info.html"><tt>audio_get_listener_info</tt></a> para obtener los diferentes índices disponibles para la plataforma objetivo. </p><p> Si el oyente determinado no va a moverse nunca, o el movimiento no es constante, normalmente no necesitaría establecer estos valores, pero, por ejemplo, si está haciendo un juego de desplazamiento donde el jugador tiene un fondo constante para movimiento superior y los enemigos un movimiento constante de arriba a abajo, usted configuraría las velocidades del oyente <i>y del</i> emisor (para los emisores que usaría) <a href=
+"audio_emitter_velocity.html"><tt>audio_emitter_velocity</tt></a> ) a los vectores apropiados para simular el efecto Doppler correcto a medida que se mueven más allá de la instancia del jugador. </p><p> La imagen a continuación muestra cómo esto podría ser configurado para el juego de ejemplo dado anteriormente: <img class="center" src=
+"audio_listener_velocity.png"></p></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">audio_listener_set_velocity(index, x, y, z);<span class="notranslate"></span></p><p><br></p><div><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">index</span> </td> <td> El oyente para obtener los datos (por defecto 0). </td></tr><tr class="alt"><td> <span class="notranslate">x</span> </td> <td> La velocidad x del oyente (predeterminado 0). </td></tr><tr><td> <span class="notranslate">y</span> </td> <td> La velocidad y del oyente (predeterminado 0). </td></tr><tr class="alt"><td> <span class="notranslate">z</span> </td> <td> La velocidad z del oyente (por defecto 0). </td></tr></table></div><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">var num = audio_get_listener_count();<br>
+for(var i = 0; i &lt; num; ++i;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;var info = audio_get_listener_info(i);<br>
+&nbsp;&nbsp;&nbsp;var data = audio_listener_get_data(info[?
+"index"]);<br>
+&nbsp;&nbsp;&nbsp;if data[? "vx"] != 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio_listener_set_velocity(info[?
+"index"], 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;ds_map_destroy(info);<br>
+&nbsp;&nbsp;&nbsp;ds_map_destroy(data);<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> El código anterior comprueba el número de oyentes disponibles y luego pasa a través de ellos y si su velocidad x no es 0, establece sus valores de velocidad en 0, 0, 0. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href=
+"audio%20listeners.html">oyentes de audio</a> </div><div style="float:right"> Siguiente: <a href=
+"audio_listener_set_orientation.html">audio_listener_set_orientation</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

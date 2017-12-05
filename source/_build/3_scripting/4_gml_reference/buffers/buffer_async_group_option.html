@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>buffer_async_group_option</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/buffers/buffer_async_group_option.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fbuffers%2Fbuffer_async_group_option.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fbuffers%2Fbuffer_async_group_option.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> buffer_async_group_option </h2><div class="body-scroll"><h3 class="studio"> Sintaxis: </h3><p class="code">buffer_async_group_option(option, value);<span class="notranslate"></span></p><p><br></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">option</span> </td> <td> La opción de establecer </td></tr><tr><td> <span class="notranslate">value</span> </td> <td> El valor para establecer (puede ser de cadena o real, dependiendo de la opción). </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> N / A </p><p><br></p><h3 class="studio"> Descripción </h3><p> Con esta función puede establecer algunas opciones específicas de la plataforma para el grupo de búferes que se está guardando. Las opciones disponibles son las siguientes: </p><ul><li> &quot; <b>subtítulo</b> &quot; o &quot; <b>slottitle</b> &quot;: el valor de esta opción sería una cadena, que se mostrará al usuario al administrar sus datos guardados en el sistema operativo. Esto solo es importante cuando se guardan datos, no cuando se cargan nuevamente. <br><br></li><li> &quot; <b>showdialog</b> &quot; - El valor para esta opción es un booleano <tt>true</tt> o <tt>false</tt>. Si está configurado para <tt>true</tt> Cuando guarde <i>o</i> cargue, <i><span class="notranslate">GameMaker Studio 2</span></i> mostrará la IU del sistema, de lo contrario, realizará una salvaguarda / carga rápida sin que se muestre la IU. Normalmente solo necesita esto si admite varias ranuras de guardado para permitir que el usuario elija una ranura, pero si solo admite una ranura por usuario, configúrelo para <tt>false</tt>. <br><br></li><li> &quot; <b>savepadindex</b> &quot;: para esta opción, debe especificar el <i>índice</i> del <i>panel</i> del reproductor que está guardando <i>o</i> cargando y el sistema escribirá y leerá datos en la carpeta de guardado de este jugador. <br><br></li><li> &quot; <b>saveslotsize</b> &quot;: esta opción requiere que especifique el tamaño real en bytes que desea guardar (para que pueda hacer una <a href=
+"buffer_seek.html"><tt>buffer_seek</tt></a> y <a href=
+"buffer_tell.html"><tt>buffer_tell</tt></a> para obtener eso, por ejemplo). Tenga en cuenta que no es obligatorio proporcionar este valor, ya que todas las grabaciones están preasignadas en un espacio mínimo, que normalmente es de unos 10 MB más o menos. <br><br></li></ul><p> <i><b>IMPORTANTE</b>: esta función actualmente solo es válida para los módulos de destino PSVita, PS4 y <span class="notranslate">XBox One</span>. En todos los otros objetivos no hará nada.</i> <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">buffer_async_group_begin("save_folder_name");<br>
+buffer_async_group_option("showdialog", false);<br>
+buffer_async_group_option("slottitle", "Catch The Haggis
+Save");<br>
+buffer_async_group_option("subtitle", "All your haggis are saved
+here!");<br>
+save = buffer_save_async(buff, "Player_Save.sav", 0, 16384);<br>
+buffer_async_group_end();<br><span class="notranslate"></span></p><p> El código anterior inicia un grupo de almacenamiento intermedio y luego establece las opciones de grupo antes de establecer 4 archivos para guardar de forma asíncrona. La definición del grupo se termina (en ese momento comenzará el ahorro). </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Espalda: <a href=
+"index.html">Buffers</a> </div><div style="float:right"> Siguiente: <a href=
+"buffer_async_group_end.html">buffer_async_group_end</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Sprites</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/sprites/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Sprites </h2><div class="body-scroll"><p><br></p><p> Los Sprites son generalmente las representaciones visuales de los objetos dentro del juego que estás creando, aunque se pueden usar para muchos otros propósitos. Un sprite es una imagen individual o un conjunto de imágenes que, cuando se reproducen una tras otra, se ven como una animación en bucle. Los Sprites se pueden crear en muchos formatos, con el sprite &quot;tradicional&quot; formado por marcos de imágenes de píxeles, importados en <i><span class="notranslate">GameMaker Studio 2</span></i> como <tt>*.png</tt> archivos. Sin embargo, también puede importar sprites <i>vector</i> que se hayan guardado en <tt>*.swf</tt> formato, o sprites de <i>animación esquelética</i> que se han guardado como <tt>*.json</tt> archivos con acompañamiento <tt>*.atlas</tt> y <tt>*.png</tt> archivos (para obtener más información sobre estos tipos de archivos de imagen y cómo importarlos en <i><span class="notranslate">GameMaker Studio 2</span></i>, consulte la sección <a href=
+"../../../1_overview/3_additional_information/importing_non_bitmap_sprites.html">Importar Sprites que no son de mapa de bits</a> ). </p><p> Dado que los sprites son una parte integral de cualquier juego, <i><span class="notranslate">GameMaker</span> Studio 2</i> tiene una gran cantidad de funciones que se pueden usar para obtener información sobre sprites específicos, o para cambiar los que están en tu juego, o incluso para cargar tus propios sprites en una aplicación. desde un archivo de imagen de origen. </p><blockquote> <label class="collapse" for="one">Información de Sprite</label> <input id="one" type="checkbox"><div class="index_list"><p> Las siguientes funciones se pueden usar para obtener información sobre un activo de sprite. Tenga en cuenta que estas funciones obtienen la información del sprite <i>base</i> (es decir, el activo del sprite) y no del sprite, ya que se está utilizando en una instancia. Por ejemplo, puede usar la <i>variable de instancia</i> <a href=
+"../instances/instance_variables/sprite_width.html"><tt>sprite_width</tt></a> para obtener el ancho del sprite que usa una instancia y este ancho tendrá en cuenta cualquier escala que se haya aplicado. Sin embargo, si necesita saber el ancho de un sprite como lo haría normalmente, sin aplicar transformadas, necesitaría usar el <tt>sprite_get_width()</tt> función a continuación. Para obtener más información sobre las variables de instancia de sprite, consulte la sección sobre <a href="../instances/instance_variables/index.html">Variables de instancia</a>. </p><ul><li> <a href="sprite_get_name.html">sprite_get_name</a> </li><li> <a href="sprite_get_number.html">sprite_get_number</a> </li><li> <a href="sprite_get_speed.html">sprite_get_speed</a> </li><li> <a href="sprite_get_speed_type.html">sprite_get_speed_type</a> </li><li> <a href="sprite_get_width.html">sprite_get_width</a> </li><li> <a href="sprite_get_height.html">sprite_get_height</a> </li><li> <a href="sprite_get_xoffset.html">sprite_get_xoffset</a> </li><li> <a href="sprite_get_yoffset.html">sprite_get_yoffset</a> </li><li> <a href=
+"sprite_get_bbox_bottom.html">sprite_get_bbox_bottom</a> </li><li> <a href="sprite_get_bbox_left.html">sprite_get_bbox_left</a> </li><li> <a href="sprite_get_bbox_right.html">sprite_get_bbox_right</a> </li><li> <a href="sprite_get_bbox_top.html">sprite_get_bbox_top</a> </li><li> <a href="sprite_get_tpe.html">sprite_get_tpe</a> </li><li> <a href="sprite_get_texture.html">sprite_get_texture</a> </li><li> <a href="sprite_get_uvs.html">sprite_get_uvs</a> </li></ul></div><br> <label class="collapse" for="two">Manipulación de Sprites</label> <input id="two" type="checkbox"><div class="index_list"><p> Las funciones a continuación están todas relacionadas con el cambio del activo de sprite (recurso) en sí mismo. Esto significa que la mayoría de estas funciones afectarán a <i>todas las instancias</i> que hacen referencia al sprite que se está modificando, también significa que debe tener mucho cuidado para asegurarse de que exista un sprite antes de hacer referencia a él, o para asegurarse de que no se está haciendo referencia antes de cambiarlo. </p><ul><li> <a href="sprite_exists.html">sprite_exists</a> </li><li> <a href="sprite_add.html">sprite_add</a> </li><li> <a href="sprite_replace.html">sprite_replace</a> </li><li> <a href="sprite_duplicate.html">sprite_duplicate</a> </li><li> <a href="sprite_assign.html">sprite_assign</a> </li><li> <a href="sprite_merge.html">sprite_merge</a> </li><li> <a href=
+"sprite_create_from_surface.html">sprite_create_from_surface</a> </li><li> <a href=
+"sprite_add_from_surface.html">sprite_add_from_surface</a> </li><li> <a href="sprite_collision_mask.html">sprite_collision_mask</a> </li><li> <a href="sprite_set_offset.html">sprite_set_offset</a> </li><li> <a href="sprite_delete.html">sprite_delete</a> </li><li> <a href=
+"sprite_set_alpha_from_sprite.html">sprite_set_alpha_from_sprite</a> </li><li> <a href="sprite_set_cache_size.html">sprite_set_cache_size</a> </li><li> <a href=
+"sprite_set_cache_size_ext.html">sprite_set_cache_size_ext</a> </li><li> <a href="sprite_save.html">sprite_save</a> </li><li> <a href="sprite_save_strip.html">sprite_save_strip</a> </li><li> <a href="sprite_flush.html">sprite_flush</a> </li><li> <a href="sprite_flush_multi.html">sprite_flush_multi</a> </li><li> <a href="sprite_prefetch.html">sprite_prefetch</a> </li><li> <a href="sprite_prefetch_multi.html">sprite_prefetch_multi</a> </li></ul></div><br> <label class="collapse" for="four">Variables de instancia de Sprite</label> <input id="four" type="checkbox"><div class="index_list"><p> Estas variables están integradas en todos los objetos de <i><span class="notranslate">GameMaker Studio 2</span></i> y están relacionadas con el sprite asignado a la instancia en la sala y se pueden usar para cambiar lo que se dibuja y cómo: </p><ul><li> <a href=
+"../instances/instance_variables/sprite_index.html">sprite_index</a> </li><li> <a href=
+"../instances/instance_variables/sprite_width.html">sprite_width</a> </li><li> <a href=
+"../instances/instance_variables/sprite_height.html">sprite_height</a> </li><li> <a href=
+"../instances/instance_variables/sprite_xoffset.html">sprite_xoffset</a> </li><li> <a href=
+"../instances/instance_variables/sprite_yoffset.html">sprite_yoffset</a> </li><li> <a href=
+"../instances/instance_variables/image_alpha.html">image_alpha</a> </li><li> <a href=
+"../instances/instance_variables/image_angle.html">image_angle</a> </li><li> <a href=
+"../instances/instance_variables/image_blend.html">image_blend</a> </li><li> <a href=
+"../instances/instance_variables/image_index.html">image_index</a> </li><li> <a href=
+"../instances/instance_variables/image_number.html">image_number</a> </li><li> <a href=
+"../instances/instance_variables/image_speed.html">image_speed</a> </li><li> <a href=
+"../instances/instance_variables/image_xscale.html">image_xscale</a> </li><li> <a href=
+"../instances/instance_variables/image_yscale.html">image_yscale</a> </li></ul></div><br> <label class="collapse" for="three">Animación esquelética</label> <input id="three" type="checkbox"><div class="index_list"><p> Debido a la naturaleza de los sprites hechos con animación esquelética, también requieren un subconjunto de funciones para manipular el sprite dibujado en sus juegos. Estas funciones se pueden encontrar en la siguiente sección del manual: </p><blockquote><ol><li> <a href="skeletal%20animations/index.html">Animaciones esqueléticas</a> </li></ol></blockquote></div></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="../index.html">Referencia del lenguaje de <i><span class="notranslate">GameMaker</span> Studio 2</i></a> </div><div style="float:right"> Siguiente: <a href=
+"../audio/index.html">Audio</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>
