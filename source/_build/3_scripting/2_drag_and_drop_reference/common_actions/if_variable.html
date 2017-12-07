@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>If Variable</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/2_drag_and_drop_reference/common_actions/if_variable.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fcommon_actions%2Fif_variable.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fcommon_actions%2Fif_variable.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2><img style="vertical-align:middle" src=
+"images/i_common_if_variable.png"> Si Variable </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta acción se usa para verificar el estado de una variable dada contra un valor dado usando una expresión específica. Una instrucción &quot;if&quot; siempre devolverá <tt>true</tt> o <tt>false</tt> y las expresiones para verificar pueden ser cualquiera de las siguientes: </p><ul><li> <b>Igual a</b> - La variable y el valor son exactamente iguales </li><li> <b>Menos de</b> - La variable es menor que el valor </li><li> <b>Mayor que</b> - La variable es mayor que el valor </li><li> <b>Menor que o igual a</b> - La variable es menor <i>o</i> igual que el valor </li><li> <b>Mayor que o igual a</b> - La variable es mayor <i>o</i> igual que el valor </li></ul><p> Si marca el argumento &quot;No&quot;, lo anterior será expresiones negadas, por ejemplo &quot;igual a&quot; se convierte en &quot; <i>no</i> es igual a&quot;. También tenga en cuenta que ni la variable ni los argumentos de valor están limitados a valores numéricos y pueden ser una cadena, un puntero, una identificación de recurso o cualquier otra cosa que una función pueda devolver o usar (consulte la sección sobre <a href=
+"../../3_gml_overview/9_data_types.html">tipos de datos</a> para obtener más información). no puede comparar dos tipos de datos diferentes sin obtener un error; por ejemplo, si la variable contiene una cadena e intenta verificar si es igual a un número, obtendrá un error de sintaxis. </p><div class="note"> <b>NOTA IMPORTANTE</b>: debido a <a href=
+"http://floating-point-gui.de/formats/fp/" target=
+"·_blank&quot;">problemas de precisión de punto flotante</a>, puede verificar si dos valores son exactamente iguales. <tt>false</tt>, ya que uno puede ser exactamente 1, mientras que el otro puede ser 1.00000000000001. Esto se puede evitar utilizando la acción <a href=
+"../Type_Actions/decimal_to_integer.html">Decimal a Integer</a> antes de verificar o usar las expresiones &quot;mayor que&quot; o &quot;menor que&quot;. </div><p><br> Tenga en cuenta que para agregar acciones al bloque &quot;if&quot;, deben soltarse al lado de la acción, como se muestra en la imagen siguiente: <br><img class="center" src="Images/a_Common_If_Drop.png" alt="Si Agregar acciones"></p><p> Estas acciones ahora se ejecutarán si el &quot;si&quot; se evalúa como <tt>true</tt>, mientras que cualquier acción que se elimine en otro lugar se realizará después del bloque &quot;if&quot;. </p></blockquote><p><br></p><h3> Sintaxis de acción: </h3><img class="center" src="Images/a_Common_if_variable.png" alt="Si la sintaxis de variables"><p><br></p><h3> Argumentos: </h3><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">Variable</span> </td> <td> El nombre de la variable a verificar. </td></tr><tr class="alt"><td> <span class="notranslate">Not</span> </td> <td> Establezca para verificar si la expresión no <i>se</i> evalúa como verdadera. </td></tr><tr><td> <span class="notranslate">Expression</span> </td> <td> El tipo de expresión a usar para el control. </td></tr><tr class="alt"><td> <span class="notranslate">Value</span> </td> <td> El valor para verificar la variable en contra. </td></tr></table></blockquote><p><br></p><h3> Ejemplo: </h3><img class="center" src="Images/e_Common_If_Variable.png" alt="Si el ejemplo variable"><blockquote> El código de bloque de acción anterior comprueba una variable &quot;dir&quot; para ver si es igual a 10, y si es que crea una instancia de &quot;obj_Squirrel&quot; y si no lo es, destruye la instancia. </blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Acciones comunes</a> </div><div style="float:right"> siguiente: <a href="if_expression.html">si la expresión</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

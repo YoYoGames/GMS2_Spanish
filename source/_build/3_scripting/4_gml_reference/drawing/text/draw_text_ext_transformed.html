@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>draw_text_ext_transformed</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/drawing/text/draw_text_ext_transformed.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Ftext%2Fdraw_text_ext_transformed.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Ftext%2Fdraw_text_ext_transformed.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h1 class="studio"> draw_text_ext_transformado </h1><h2 class="studio"> Dibuja una cadena con espaciado y escalamiento personalizados. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">draw_text_ext_transformed(x, y, string, sep, w,
+xscale, yscale, angle);<span class="notranslate"></span></p><p><br></p><div><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">x</span> </td> <td> La coordenada x de la cadena dibujada. </td></tr><tr><td> <span class="notranslate">y</span> </td> <td> La coordenada y de la cuerda dibujada. </td></tr><tr><td> <span class="notranslate">string</span> </td> <td> La cuerda para dibujar. </td></tr><tr><td> <span class="notranslate">sep</span> </td> <td> La distancia en píxeles entre líneas de texto. </td></tr><tr><td> <span class="notranslate">w</span> </td> <td> El ancho máximo en píxeles de la cadena antes de un salto de línea. </td></tr><tr><td> <span class="notranslate">xscale</span> </td> <td> La escala horizontal. </td></tr><tr><td> <span class="notranslate">yscale</span> </td> <td> La escala vertical. </td></tr><tr><td> <span class="notranslate">angle</span> </td> <td> El ángulo del texto. </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> N / A </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función es una combinación de la base <a href=
+"draw_text.html"><tt>draw_text</tt></a> funcionar con el <a href=
+"draw_text_ext.html"><tt>draw_text_ext</tt></a> y <a href=
+"draw_text_transformed.html"><tt>draw_text_transformed</tt></a> funciones, lo que le permite escalar y rotar texto mientras mantiene un espaciado de línea específico y ancho máximo por línea. Tenga en cuenta que el argumento &quot;ancho&quot; se basa en una escala de 1, por lo que si la escala es diferente, este valor se debe cambiar proporcionalmente. Por ejemplo, si el ancho de la base para un salto de línea es 300 y establece la escala en 2, entonces el texto aparecerá incorrectamente, sobrepasando el ancho dado. En su lugar, debería haber establecido el ancho en 150 para compensar la escala. <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">draw_set_halign(fa_center);<br>
+draw_set_valign(fa_middle);<br>
+image_angle += 1;<br>
+draw_text_ext_transformed(room_width / 2, room_height / 2,
+keyboard_string, 10, 300, 2, 2, image_angle);<br><span class="notranslate"></span></p><p> El código anterior dibujará el texto dado en el medio de la sala, con una longitud de cadena máxima de 300 píxeles, un espacio entre cada línea de 10 píxeles, girando y escalando al doble de su tamaño original. </p><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href="index.html">texto de dibujo</a> </div><div style="float:right"> Siguiente: <a href=
+"draw_text_transformed_colour.html">draw_text_transformed_colour</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

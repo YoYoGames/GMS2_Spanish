@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>steam_get_quota_total</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/steam api/steam_get_quota_total.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsteam%20api%2Fsteam_get_quota_total.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsteam%20api%2Fsteam_get_quota_total.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> <span class="notranslate">steam</span> _get_quota_total </h2><div class="body-scroll"><h3 class="studio"> Sintaxis: </h3><p class="code">steam_get_quota_total();<span class="notranslate"></span></p><p><br></p><p> <b>Devoluciones:</b> Real </p><p><br></p><h3 class="studio"> Descripción </h3><p> Al usar <span class="notranslate">Steam</span> Cloud para almacenar y sincronizar archivos, debe configurar la <i>cuota</i> de espacio que su juego necesitará. Esta cuota se aplica en cada juego habilitado para la nube, por usuario y por juego, por lo que, por ejemplo, si la cuota para el juego X es de 1 megabyte, cada cuenta de <span class="notranslate">Steam</span> que posee el juego X puede almacenar, como máximo, 1 megabyte de datos asociados con ese juego en la nube. Cualquier otro juego habilitado para la nube que el usuario posea (por ejemplo, el Juego Y) no se verá afectado por los datos almacenados en el Juego X. La cuota predeterminada para los nuevos juegos de <span class="notranslate">Steam</span> es de un gigabyte, pero puede cambiar esto desde el control de <span class="notranslate">Steam</span> Works panel para tu juego. <br><br> <i><b>NOTA:</b> Una vez que se agote la cuota, las escrituras de los archivos <b>fallarán</b>. Si cree que es posible que la cuota se agote para el usuario de su juego, debe crear un código para manejarlo, ya que al no hacer nada deja a los usuarios en una situación en la que no pueden arreglar las cosas y eso los conducirá a una mala experiencia de tu juego.</i> <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">if steam_is_cloud_enabled_for_app()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;quota = steam_get_quota_total();<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior comprueba si la nube de <span class="notranslate">steam</span> está habilitada para el juego y, de ser así, obtiene el tamaño de la cuota de almacenamiento y la almacena en una variable. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html"><span class="notranslate">Steam</span> API</a> </div><div style="float:right"> Siguiente: <a href=
+"steam_get_quota_free.html"><span class="notranslate">steam</span> _get_quota_free</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>sprite_create_from_surface</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/sprites/sprite_create_from_surface.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Fsprite_create_from_surface.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Fsprite_create_from_surface.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> sprite_create_from_surface </h2><div class="body-scroll"><p><br></p><h3> Sintaxis: </h3><p class="code">sprite_create_from_surface(index, x, y, w, h,
+removeback, smooth, xorig, yorig);<span class="notranslate"></span></p><blockquote><div><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">index</span> </td> <td> El índice de la superficie para crear desde. </td></tr><tr class="alt"><td> <span class="notranslate">x</span> </td> <td> La posición x para copiar desde. </td></tr><tr><td> <span class="notranslate">y</span> </td> <td> La posición y para copiar desde. </td></tr><tr class="alt"><td> <span class="notranslate">w</span> </td> <td> El ancho del área a copiar (desde la posición x). </td></tr><tr><td> <span class="notranslate">h</span> </td> <td> La altura del área que se va a copiar (desde la posición y). </td></tr><tr class="alt"><td> <span class="notranslate">removeback</span> </td> <td> Indica si se deben hacer transparentes todos los píxeles con el color de fondo (píxel inferior izquierdo). </td></tr><tr><td> <span class="notranslate">smooth</span> </td> <td> Indica si suavizar los bordes. </td></tr><tr class="alt"><td> <span class="notranslate">xorig</span> </td> <td> Indica la posición x del origen en el sprite. </td></tr><tr><td> <span class="notranslate">yorig</span> </td> <td> Indica la posición y del origen en el sprite. </td></tr></table></div></blockquote><p><br></p><h3> Devoluciones </h3><p class="code">Real (unique sprite ID value)<span class="notranslate"></span></p><p><br></p><h3> Descripción </h3><blockquote><p> Con esta función, puede crear un sprite a partir de una superficie previamente inicializada (el valor de ID de índice de superficie se devuelve cuando crea la superficie usando <a href=
+"../drawing/surfaces/surface_create.html"><tt>surface_create</tt></a> ) Las coordenadas xey que ingresas en la función deben ser relativas a la posición (0,0) de la <i>superficie</i> (la esquina superior izquierda) y no a la ventana del juego (ni a la vista si tienes una activa). Los argumentos de ancho y alto están en píxeles y definen el ancho y la altura de la parte de la superficie que se usará. </p><p> Establecer el argumento &quot;eliminar&quot; para <tt>true</tt> eliminará un color del sprite, marcando el píxel <i>inferior izquierdo</i> del sprite para ver el color y luego usarlo como el color que se va a eliminar. </p><p> Si eliges la opción &quot;eliminar&quot;, también puedes desear que <i><span class="notranslate">GameMaker Studio 2</span></i> suavice los bordes del sprite configurando el argumento &quot;suave&quot; para <tt>true</tt>. Todo lo que hace es crear un borde semitransparente alrededor de los bordes del sprite después de haber eliminado su fondo. </p><p> Finalmente, también puede especificar el <i>origen</i> x e y para el sprite. Este es el punto donde el sprite se &quot;fija&quot; en la instancia que lo usa, y siempre se calcula como relativo a la esquina superior izquierda 0,0 de una subimagen de sprite. Entonces, por ejemplo, un sprite de 32 x 32 píxeles con estos valores establecidos en (16,16) tendrá su origen en el centro. </p><p> De forma predeterminada, todos los nuevos sprites tienen sus cuadros delimitadores calculados automáticamente (la bbox exacta dependerá del tamaño y la transparencia del sprite); sin embargo, es posible que desee personalizar esto, en cuyo caso también debe usar la función <a href=
+"sprite_collision_mask.html"><tt>sprite_collision_mask</tt></a>. </p><div class="note"> <b>NOTA:</b> Cuando crees un sprite en <i><span class="notranslate">GameMaker Studio 2</span></i> con este método, debes recordar eliminarlo de nuevo (con <a href=
+"sprite_delete.html"><tt>sprite_delete</tt></a> ) cuando ya no sea necesario, de lo contrario existe el riesgo de una pérdida de memoria que disminuirá la velocidad y, finalmente, se bloqueará el juego. </div><div class="note"> <b>¡IMPORTANTE!</b> Esta función <b>no</b> está disponible con la licencia de prueba del producto. </div></blockquote><p><br></p><h3> Ejemplo: </h3><p class="code">var surf;<br>
+surf = surface_create(32, 32);<br>
+surface_set_target(surf);<br>
+draw_clear_alpha(c_black, 0);<br>
+draw_sprite(spr_Body, 0, 0, 0);<br>
+draw_sprite(spr_Clothes, 0, 0, 0);<br>
+draw_sprite(spr_Hair, 0, 0, 0);<br>
+spr_custom = sprite_create_from_surface(surf, 0, 0, 32, 32, true,
+true, 16, 16);<br>
+surface_reset_target();<br>
+surface_free(surf);<br><span class="notranslate"></span></p><blockquote><p> El código anterior crea una superficie y almacena su índice en la variable local &quot;navegar&quot;. Luego apunta a esa superficie, la despeja y dibuja varios sprites uno encima del otro. Finalmente, crea un nuevo sprite a partir de la imagen compuesta dibujada en la superficie y asigna su índice a &quot;spr_Custom&quot; antes de liberar la memoria utilizada por la superficie. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Espalda: <a href=
+"index.html">Sprites</a> </div><div style="float:right"> Siguiente: <a href=
+"sprite_add_from_surface.html">sprite_add_from_surface</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

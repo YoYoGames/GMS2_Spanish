@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>get_login_async</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/asynchronous functions/get_login_async.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fasynchronous%20functions%2Fget_login_async.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fasynchronous%20functions%2Fget_login_async.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> get_login_async </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta función abre una ventana que le pide al usuario que ingrese un nombre de usuario y contraseña. Estos argumentos se pueden establecer como una cadena vacía o puede almacenar valores previamente ingresados ​​para usarlos si lo desea. Esta es una función asíncrona, y como tal, <i><span class="notranslate">GameMaker</span> Studio 2</i> <i>no</i> bloquea el dispositivo que se está ejecutando mientras se espera la respuesta, sino que más bien continúa ejecutando eventos de forma normal. Una vez que el usuario ha ingresado los detalles y presionado el botón &quot;Aceptar&quot;, se desencadena un evento de <b>Interacción del usuario</b> asíncrono que, durante la duración de ese <i>solo</i> evento, tendrá un ds_map almacenado en la variable <tt>async_load</tt>. </p><p> Este mapa contendrá las dos claves, &quot;nombre de usuario&quot; y &quot;contraseña&quot;, con la correspondiente entrada de usuario almacenada en cada una. Como es un <a href=
+"../data_structures/ds%20maps/index.html"><tt>ds_map</tt></a> que ha sido creado, esto puede ser utilizado, por ejemplo, por el <a href=
+"../file%20handling/json_encode.html"><tt>json_encode</tt></a> función lista para ser enviada a un servidor o escrita en un archivo en el dispositivo elegido. </p><p> Vale la pena señalar que esta función devolverá un número de índice para el ds_map creado que luego se puede verificar en el evento correspondiente para que pueda &quot;orientar&quot; un ds_map específico en caso de que espere que se devuelva más de un mapa asincrónico (quizás de alguna otra función). Fuera de los eventos asincrónicos, async_load ds_map devolverá un valor &quot;id&quot; de -1. </p></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">get_login_async(name, password);<span class="notranslate"></span></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">username</span> </td> <td> El nombre de usuario predeterminado </td></tr><tr class="alt"><td> <span class="notranslate">password</span> </td> <td> La contraseña predeterminada </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">Real<span class="notranslate"></span></p><p><br></p><h3> Ejemplo extendido: </h3><blockquote><p> El <b>evento de creación</b> (por ejemplo) del objeto que controla el inicio de sesión de nuestro usuario tendría el siguiente código: </p></blockquote><p class="code">ini_open("Profile.ini");<br>
+u = ini_read_string("User","0","");<br>
+p = ini_read_string("User","1","");<br>
+ini_close();<br>
+login = get_login_async(u,p);<br><span class="notranslate"></span></p><blockquote><p> El código anterior abre un archivo ini (o crea uno si no existe) y obtiene el nombre y la contraseña almacenados en ese archivo. Si no existen, se devuelve el valor predeterminado de una cadena vacía (&quot;&quot;). Estos valores se usan luego en <tt>get_login_async()</tt> para preguntar al usuario los detalles de su nombre de usuario y contraseña, con el índice de solicitud almacenado en la variable &quot;iniciar sesión&quot;. Tenga en cuenta que mientras espera que el usuario brinde la información necesaria, el juego y sus eventos continuarán ejecutándose normalmente. </p><p> Ahora que el código asíncrono se ha desactivado, debemos verificar el valor de retorno en el <a href=
+"../../../2_interface/1_editors/events/async_events.html">evento asíncrono para Diálogos</a> de la siguiente manera: </p></blockquote><p class="code">if ds_map_find_value(async_load, "id") == login<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;u = ds_map_find_value(async_load,
+"username");<br>
+&nbsp;&nbsp;&nbsp;p = ds_map_find_value(async_load,
+"password");<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> El código anterior verifica la clave &quot;id&quot; de async_load ds_map y si tiene el mismo valor que el almacenado en la variable de &quot;inicio de sesión&quot;, los detalles del mapa se leen en las variables correspondientes que luego puede almacenar o usar para verificar contra valores de base de datos, etc... </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Funciones asíncronas</a> </div><div style="float:right"> Siguiente: <a href=
+"show_message_async.html">show_message_async</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

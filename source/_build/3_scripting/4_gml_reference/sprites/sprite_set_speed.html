@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>sprite_set_speed</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/sprites/sprite_set_speed.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Fsprite_set_speed.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsprites%2Fsprite_set_speed.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> sprite_set_speed </h2><div class="body-scroll"><p><br></p><h3> Sintaxis: </h3><p class="code">sprite_set_speed(index, speed, type)<span class="notranslate"></span></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">index</span> </td> <td> El índice del sprite para obtener el tipo de animación de </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">Constant (see above)<span class="notranslate"></span></p><p><br></p><h3> Descripción </h3><blockquote><p> Esta función se puede usar para establecer la velocidad de la animación base y escribir como para el recurso de sprite. Esto normalmente se establece en el <a href="../../../2_interface/1_editors/sprites.html">Editor de Sprites</a>, pero puede haber momentos en los que se requiera que lo configure manualmente para un recurso de sprite determinado. Debe proporcionar el índice de sprites para establecer, la velocidad de animación y el tipo de velocidad de animación para aplicar. El tipo de velocidad de animación puede ser cualquiera de las siguientes constantes: </p><div class="compat"><table><tr><th> Constante </th><th> Descripción </th></tr><tr><td> <span class="notranslate">spritespeed_framespersecond</span> </td> <td> El sprite se definió con animación en <i>cuadros por segundo</i>. </td></tr><tr class="alt"><td> <span class="notranslate">spritespeed_framespergameframe</span> </td> <td> El sprite se definió con animación en <i>cuadros por cuadro de juego</i>. </td></tr></table></div><p><br> Seleccionar el tipo de velocidad a usar para calcular animaciones es muy importante ya que hay una gran diferencia entre las dos opciones. Los siguientes dos ejemplos ilustran esta diferencia: </p><ul><li> Si tiene un objeto que dibuja 1 cuadro por <i>segundo</i> y establece la velocidad de la imagen en 0.5, dibujará a 0.5 cuadros por segundo. Si la velocidad de fotogramas del juego es de 60 fotogramas por segundo, el sprite dibujará 1 fotograma por cada 120 fotogramas del juego. <br><br></li><li> Si tienes un sprite que dibuja 1 cuadro por cuadro de <i>juego</i> y configuras la velocidad de la imagen a 0.5, dibujará 0.5 cuadros por cuadro de juego. Si la velocidad de fotogramas del juego es de 60 fotogramas por segundo, el sprite dibujará 30 fotogramas por cada 60 fotogramas del juego. </li></ul><p> Puede averiguar cuál era el valor de velocidad utilizado para la animación del sprite utilizando la función <a href=
+"sprite_get_speed.html"><tt>sprite_get_speed</tt></a>, y puedes obtener el tipo de velocidad de animación usando <a href=
+"sprite_get_speed_type.html"><tt>sprite_get_speed_type</tt></a>. </p><div class="note"> <b>¡IMPORTANTE!</b> Esta función afectará al <b>recurso de</b> sprite <b>,</b> por lo que cualquier cambio que realice con esta función afectará a <b>todas las</b> instancias que estén usando el sprite y todas las instancias futuras también. </div></blockquote><p><br></p><h3> Ejemplo: </h3><p class="code">sprite_set_speed(sprite_index, 10,
+spritespeed_framespersecond);<span class="notranslate"></span></p><blockquote><p> El código anterior establece la velocidad de animación base para el sprite asignado a la instancia a 10 cuadros por segundo. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Espalda: <a href=
+"index.html">Sprites</a> </div><div style="float:right"> Siguiente: <a href=
+"sprite_get_width.html">sprite_get_width</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

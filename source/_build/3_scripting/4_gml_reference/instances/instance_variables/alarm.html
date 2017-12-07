@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>alarm</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/instances/instance_variables/alarm.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Finstances%2Finstance_variables%2Falarm.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Finstances%2Finstance_variables%2Falarm.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> alarma </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote> Esta matriz de 1 dimensión se usa para obtener el valor actual de las alarmas que pueda tener la instancia, o se puede usar para establecer esas alarmas. Hay doce alarmas integradas en cada instancia de un objeto, y cada una tiene su propio evento que se ejecutará cuando esta variable llegue a 0. Se debe tener en cuenta que la alarma no finaliza en ese punto (aunque el evento se haya activado) como el siguiente paso bajará a -1, por lo que si necesita detener una alarma por cualquier razón, debe establecer su valor de matriz en -1 <i>no</i> 0. Los tiempos de alarma se calculan en <i>pasos de juego</i>, con un valor de 30 en 30 pasos etc... <br><br><div class="note"> <b>NOTA:</b> No se ejecutará una alarma sin acciones ni código. Sin embargo, incluso con solo un comentario y sin código, la alarma contará hacia abajo. </div><br> Puede configurar el conjunto de alarmas directamente (y recuperar el valor de alarma actual directamente usando el conjunto), pero en algunas circunstancias este no es el método más apropiado, por lo que también puede usar la función <a href=
+"../../miscellaneous/alarm_set.html"><tt>alarm_set()</tt></a> para configurar una alarma, y ​​la función <a href=
+"../../miscellaneous/alarm_get.html"><tt>alarm_get()</tt></a> para obtener el valor de una alarma <br><br></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">alarm[val];<span class="notranslate"></span></p><p><br></p><h3> Devoluciones: </h3><p class="code">Real (steps in the alarm, -1 if the alarm isn't
+running)<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">if canshoot<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;if keyboard_check_pressed(vk_space)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canshoot = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alarm[0] = room_speed;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance_create_layer(x, y,
+"Bullets", obj_Bullet);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote> El código anterior comprueba una variable y luego si es verdadera, comprueba si se presiona una tecla y, si eso es cierto, finalmente establece la variable en falso, establece una alarma (donde se establecerá en verdadero de nuevo) y crea una instancia. </blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Variables de instancia</a> </div><div style="float:right"> siguiente: <a href=
+"object_index.html">object_index</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

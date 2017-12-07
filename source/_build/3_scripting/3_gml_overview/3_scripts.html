@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Basic Code Structure</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../files/helpindex.css" type=
+"text/css">
+<link rel="stylesheet" href="../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/3_gml_overview/3_scripts.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F3_scripts.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F3_scripts.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Guiones </h2><div class="body-scroll"><p><br></p><p> Los scripts son esencialmente funciones que usted mismo escribe como fragmentos de código cortos que pueden resolver expresiones, valores de retorno o cualquier otra cosa que el lenguaje permita. Básicamente, si tiene un bloque de código que utiliza en más de un lugar u objeto, entonces es mejor en un script, ya que significa que puede cambiarlo una vez cuando sea necesario y el cambio será &quot;recogido&quot; por cada objeto que tiene una llamada al script. También pueden ser muy útiles desde el punto de vista organizativo, incluso si el código que poseen es invocado una sola vez por un solo objeto, ya que le permite dividir los bloques de código grandes en &quot;fragmentos&quot; más fácilmente manejables en puntos lógicos. </p><p> Cuando crea una secuencia de comandos, los valores que elige pasar se llaman <b>argumentos</b> y querrá acceder a estos argumentos, ya sea al utilizar la acción de la secuencia de comandos o al invocar la secuencia de comandos como una función de un programa o de otra secuencia de comandos. Estos argumentos se almacenan en las variables <i>integradas</i>: </p><p class="code"><tt>argument0</tt>, <tt>argument1</tt>, ..., etc...
+up to <tt>argument15</tt><span class="notranslate"></span></p><p> Por lo tanto, puede haber como máximo 16 argumentos pasados ​​a un script cuando se llama desde el código usando las variables de argumento, y cuando se usa el <tt>argument0...15</tt> variables para una secuencia de comandos, <b>debe asegurarse de que la secuencia de comandos utiliza todos los argumentos proporcionados</b>. Por ejemplo, si tiene una secuencia de comandos que toma dos argumentos y solo proporciona uno, obtendrá un error para esa secuencia de comandos. Lo mismo ocurre si proporciona más argumentos de los que necesita. </p><p> Sin embargo se puede suministrar un número variable de argumentos a una secuencia de comandos con el <i>construido en</i> la matriz de argumentos, y <i>no</i> están limitados a un máximo de 16 argumentos ya sea cuando se utiliza esta matriz, sino que puede tener tantos como sea necesario (aunque, de nuevo, debe asegurarse de que todos los argumentos estén referenciados dentro del script): </p><p class="code"><tt>argument[0 ... max_num]</tt>
+<span class="notranslate"></span></p><p> Al pasar una cantidad variable de argumentos como una matriz de valores, puede usar la siguiente función: </p><blockquote><ul><li> <a href="argument_count.html"><tt>argument_count</tt></a> </li></ul></blockquote><p> Esto se puede usar para averiguar cuántos argumentos se han pasado y adaptar el script para usar solo los argumentos proporcionados. </p><div class="note"> <b>NOTA:</b> No puede mezclar los dos tipos de variables de argumento cuando llama a un script. Debes usar <b>cualquiera</b> <tt>argument0...15</tt> <b>o</b> argumento [n]. </div><p><a name="return" id="return"></a> Los scripts también pueden devolver un valor para que puedan usarse en expresiones. Para esto, usarías el <tt>return</tt> declaración: </p><p class="code">return &lt;expression&gt;<span class="notranslate"></span></p><p> Cabe señalar que la <i>ejecución del script finaliza en la declaración de devolución</i>, lo que significa que <i>no se ejecutará</i> ningún código que aparezca después de la devolución. Aquí hay un pequeño script de ejemplo llamado &quot;scr_sqr&quot; que calcula el cuadrado de cualquier valor que se le pase, e incluye la captura de errores en caso de que el argumento de que se pase no sea un número real: </p><p class="code">{<br>
+if !is_real(argument0)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;return 0;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+else<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;return (argument0 * argument0);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<span class="notranslate"></span></p><p> Para invocar un script desde un fragmento de código, simplemente actúe de la misma manera que cuando llama a funciones, es decir, escriba el nombre del script con los valores del argumento entre paréntesis. Por lo tanto, el script anterior se llamaría así: </p><p class="code">if keyboard_check_pressed(vk_enter)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;val = scr_sqr(amount);<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> Vale la pena señalar que al escribir sus propios scripts también pueden tener ciertos comentarios de estilo <b>JSDoc</b> agregados para que cuando los use en su código se muestren en autocompletado junto con sus argumentos y otros detalles. Puede obtener más información sobre esto de la sección <a href=
+"../../1_overview/3_additional_information/jsdoc.html">Comentarios</a> de <a href=
+"../../1_overview/3_additional_information/jsdoc.html">JSDoc Script</a> para obtener más información. Además, tenga en cuenta que cuando escriba sus scripts en el editor de código, puede hacer clic <img style="vertical-align:middle" src="../../images/icon_f1.png"> o usa el botón central del mouse <img style="vertical-align:middle"
+src="../../images/icon_mmb.png"> en el nombre del script para abrirlo y editarlo directamente. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Descripción general de GML</a> </div><div style="float:right"> Siguiente: <a href="4_comments.html">Comentarios en el Código</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

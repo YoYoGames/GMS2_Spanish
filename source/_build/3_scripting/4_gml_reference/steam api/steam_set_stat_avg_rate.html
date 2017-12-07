@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>steam_set_stat_avg_rate</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/steam api/steam_set_stat_avg_rate.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsteam%20api%2Fsteam_set_stat_avg_rate.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fsteam%20api%2Fsteam_set_stat_avg_rate.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> <span class="notranslate">steam</span> _set_stat_avg_rate </h2><div class="body-scroll"><h3 class="studio"> Sintaxis: </h3><p class="code">steam_set_stat_avg_rate(stat_name, session_count,
+session_length);<span class="notranslate"></span></p><p><br></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">stat_name</span> </td> <td> El nombre de la estadística para establecer (una cadena). </td></tr><tr><td> <span class="notranslate">session_count</span> </td> <td class="alt"> El valor para obtener el promedio de (un número real) </td></tr><tr><td> <span class="notranslate">session_length</span> </td> <td> El tiempo que se ha tomado desde la última vez que se estableció la estadística (un número real). </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> N / A </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función le permite establecer un tipo de estadística promedio con un efecto de &quot;ventana deslizante&quot; en promedio. El valor de &quot;session_count&quot; es el valor actual que desea promediar, mientras que &quot;session_length&quot; es la cantidad de tiempo de juego desde la última llamada a la función. Consulte el <b>ejemplo extendido a</b> continuación para obtener más detalles sobre cómo se puede utilizar. <br><br></p><p><br></p><h3 class="studio"> Ejemplo extendido: </h3><p> Dado que la función estadística promedio puede ser compleja de entender, ilustraremos su uso con el siguiente ejemplo. Considere el caso en el que desea realizar un seguimiento de una estadística promedio, como &quot;Puntos ganados por hora&quot;. Un enfoque sería tener dos estadísticas: una estadística <i>entera</i>, &quot;TotalPoints&quot; y una estadística <i>flotante</i> &quot;TotalPlayTimeHours&quot;, y luego dividir el total de puntos por el tiempo total para obtener el valor de &quot;Puntos por hora&quot;. <br><br> Sin embargo, una vez que el jugador ha acumulado una cantidad significativa de tiempo de juego, el promedio calculado cambiará muy lentamente, y cuanto más juegue el usuario, menos receptivo será ese promedio. Si el usuario ha pasado 100 horas jugando, el promedio calculado se &quot;retrasará&quot; en aproximadamente 50 horas, y si aumentan su habilidad, no verán el aumento en &quot;Puntos por hora&quot; que esperan. Para evitarlo, podemos usar una &quot;ventana deslizante&quot; para calcular solo los &quot;Puntos por hora&quot; durante las últimas 10 horas que se jugaron. <br><br> Entonces, para usar esta función, necesitaríamos crear una estadística <span class="notranslate">Steam</span> (en el panel de control para el juego en el Taller) llamada &quot;AvgPointsPerHour&quot; y establecer su propiedad <b>Window</b> en 10. Ahora en tu juego deberías agregar algo global variables en una instancia al inicio: </p><p class="code">global.Points = 0;<br>
+global.Time = 0;<br><span class="notranslate"></span></p><p> A continuación, tendría un objeto controlador para contar la variable &quot;Tiempo&quot; global en una alarma (por ejemplo) cada segundo, mientras que su juego afectaría a la variable global &quot;Puntos&quot;. A intervalos regulares durante la reproducción (de nuevo, en un objeto controlador, tal vez en una alarma, o en intervalos de sondeo del valor &quot;Tiempo&quot;), establecería la estadística así: </p><p class="code">steam_set_stat_avg_rate("AvgPointsPerHour",
+global.Points, (global.Time / 3600));<br>
+global.Points = 0;<br>
+global.Time = 0;<br><span class="notranslate"></span></p><p> Tenga en cuenta que dividimos el tiempo entre 3600 ya que queremos el tiempo en <i>horas</i> y no en segundos, y luego reiniciamos la variable global &quot;Puntos&quot; y la variable &quot;Tiempo&quot; global a 0 para que la próxima vez que se llame a la función, obtengamos un nuevo promedio para la estadística. Ahora, lo que <span class="notranslate">Steam</span> hará es tomar este valor que ha enviado y crear un valor promedio sobre el tiempo establecido para nuestra &quot;ventana&quot;. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html"><span class="notranslate">Steam</span> API</a> </div><div style="float:right"> Siguiente: <a href=
+"steam_get_stat_int.html"><span class="notranslate">steam</span> _get_stat_int</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

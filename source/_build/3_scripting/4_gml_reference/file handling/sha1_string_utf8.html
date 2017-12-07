@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>sha1_string_utf8</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/file handling/sha1_string_utf8.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Ffile%20handling%2Fsha1_string_utf8.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Ffile%20handling%2Fsha1_string_utf8.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> sha1_string_utf8 </h2><div class="body-scroll"><h3 class="studio"> Sintaxis: </h3><p class="code">sha1_string_utf8(string)<span class="notranslate"></span></p><p><br></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">string</span> </td> <td> La cadena para hash. </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> cadena </p><p><br></p><h3 class="studio"> Descripción </h3><p> En criptografía, SHA-1 es una función de hash criptográfica diseñada por la <i>Agencia de Seguridad Nacional de</i> los Estados Unidos y se emplea en varias aplicaciones y protocolos ampliamente utilizados, como el popular <b>Git,</b> donde se usa para verificar los cambios de archivos. Esta función tomará una cadena de entrada UTF-8 (que tiene un número variable de bytes por carácter) y devolverá un resumen de mensaje de 160 bits en formato ASCII, por ejemplo: <br><br></p><p class="code">sha1 input string = "The quick brown fox jumps over
+the lazy dog"<br>
+sha1 output hash = "2fd4e1c6 7a2d28fc ed849ee1 bb76e739
+1b93eb12"<span class="notranslate"></span></p><p><br> De esta forma, puede generar una clave segura que puede almacenarse y usarse para verificar la integridad de la información que se envía (o recibe de) un servidor externo (por ejemplo). <br><br> <i><b>NOTA:</b> hay dos formatos para la codificación sha1, UTF-8 y Unicode. Ambos se proporcionan para facilitar la comunicación con diferentes configuraciones de servidor, pero la más común de usar es Unicode.</i> <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">var hash, str;<br>
+str = json_encode(hiscore_map);<br>
+hash = sha1_string_utf8(str);<br>
+ini_open("local.ini");<br>
+ini_write_string("info", "0", hash);<br>
+ini_close();<br>
+get[0] = http_post_string("http://www.MacSweeney
+Games.com/CatchTheHaggis?game_hiscores=" + string(global.game_id),
+str)<br><span class="notranslate"></span></p><p> El código anterior codificará un ds_map en una cadena JSON. A continuación, se genera un hash sha1 y se almacena en un archivo ini para que luego se pueda usar para verificar la integridad del JSON en caso de que se reciba la misma información más adelante desde el servidor. El JSON luego se envía. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">manejo de archivos</a> </div><div style="float:right"> Siguiente: <a href=
+"sha1_string_unicode.html">sha1_string_unicode</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

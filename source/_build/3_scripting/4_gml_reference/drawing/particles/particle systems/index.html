@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Particle Systems</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href=
+"../../../../../../../files/helpindex.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../../default.css"
+type="text/css">
+
+<script type="text/JavaScript" src="../../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/drawing/particles/particle systems/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Fparticles%2Fparticle%20systems%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Fparticles%2Fparticle%20systems%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Sistemas de partículas </h2><p> Antes de que puedas crear partículas, necesitas crear un sistema de partículas. Este es un &quot;contenedor&quot; donde coloca sus partículas y emisores (si los necesita) listos para usar, y puede colocar tantas o tan pocas partículas en cualquier sistema como crea necesario, y puede tener tantos sistemas como piensas que es necesario también Sin embargo, siempre es mejor mantener este número lo más pequeño posible debido al hecho de que cada sistema, emisor y partícula consume memoria y tener demasiados puede ralentizar su juego o causar problemas. Por ejemplo, si necesita que aparezcan algunos efectos encima de las instancias y que aparezcan otros efectos debajo de las instancias, debe crear dos sistemas y establecer sus profundidades para obtener el efecto deseado, con todas las partículas que se agregan a cada sistema que se dibuja en la profundidad tu específicas. </p><blockquote> <label class="collapse" for="five">Funciones del sistema</label> <input id="five" type="checkbox"><div class="index_list"><p> Como un sistema de partículas es un recurso creado dinámicamente, debe crearlo y almacenar el índice devuelto en una variable para hacer referencia al sistema en todas las demás llamadas a funciones, y es muy importante que también destruya el sistema cuando ya no lo necesite o no lo necesite. de lo contrario, tendrás una pérdida de memoria que se ralentizará y, finalmente, bloqueará tu juego. También vale la pena señalar que los sistemas de partículas vivirán para siempre después de que se crean, incluso si el índice ya no se almacena. Por lo tanto, incluso si cambia de habitación o reinicia el juego, los sistemas y las partículas permanecerán visibles en todas las habitaciones, por lo que es mejor que los destruya una vez que ya no los necesite. </p><p> Las funciones básicas para configurar un sistema de partículas se enumeran a continuación: </p><ul><li> <a href="part_system_exists.html">part_system_exists</a> </li><li> <a href="part_system_create.html">part_system_create</a> </li><li> <a href=
+"part_system_create_layer.html">part_system_create_layer</a> </li><li> <a href="part_system_get_layer.html">part_system_get_layer</a> </li><li> <a href="part_system_layer.html">part_system_layer</a> </li><li> <a href="part_system_clear.html">part_system_clear</a> </li><li> <a href="part_system_depth.html">part_system_depth</a> </li><li> <a href="part_system_position.html">part_system_position</a> </li><li> <a href="part_system_destroy.html">part_system_destroy</a> </li><li> <a href="part_particles_clear.html">part_particles_clear</a> </li><li> <a href="part_particles_count.html">part_particles_count</a> </li></ul></div><br> <label class="collapse" for="six">Dibujo del sistema</label> <input id=
+"six" type="checkbox"><div class="index_list"><p> Una vez que las partículas se agregan a un sistema de partículas y luego se rompen o se transmiten a la habitación, normalmente se actualizan automáticamente en cada paso y se dibujan según los parámetros que haya utilizado para definirlas. Sin embargo, a veces puede ser necesario controlar cuándo y cómo se actualiza el sistema, así como cómo se debe dibujar el sistema, y ​​para eso <i><span class="notranslate">GameMaker Studio 2</span></i> ofrece las siguientes funciones: </p><ul><li> <a href=
+"part_system_automatic_update.html">part_system_automatic_update</a> </li><li> <a href=
+"part_system_automatic_draw.html">part_system_automatic_draw</a> </li><li> <a href="part_system_update.html">part_system_update</a> </li><li> <a href="part_system_drawit.html">part_system_drawit</a> </li><li> <a href=
+"part_system_draw_order.html">part_system_draw_order</a> </li></ul></div><br> <label class="collapse" for="seven">Creando Partículas Directamente</label> <input id="seven" type="checkbox"><div class="index_list"><p> Normalmente, utilizaría <a href=
+"../particle%20emitters/index.html">emisores de partículas</a> para reventar o transmitir partículas desde un área, pero en muchos casos no son necesarias y, en realidad, es mejor crear las partículas directamente con las siguientes funciones: </p><ul><li> <a href="part_particles_create.html">part_particles_create</a> </li><li> <a href=
+"part_particles_create_colour.html">part_particles_create_colour</a> </li></ul></div></blockquote><p><br></p><div class="clear"><div style="float:left"> Espalda: <a href=
+"../index.html">Partículas</a> </div><div style="float:right"> Siguiente: <a href=
+"../particle%20types/index.html">Tipos de partículas</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

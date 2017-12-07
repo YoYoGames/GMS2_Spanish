@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Buffer Action Library</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/2_drag_and_drop_reference/buffer_actions/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fbuffer_actions%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fbuffer_actions%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Biblioteca de almacenamiento intermedio </h2><div class="body-scroll"><p><br></p><p><img class="center" src="images/lib_buffers.png" alt="Acciones de amortiguación"></p><p> Un <b>búfer</b> es una región de memoria física que se utiliza para guardar temporalmente datos mientras se mueven de un lugar a otro o se manipulan de alguna manera; por ejemplo, puede usar un búfer para guardar los datos del estado del juego. <span class="notranslate">GameMaker Studio 2</span> tiene una serie de acciones específicas relacionadas con la creación, modificación y carga / guardado de búferes, pero antes de utilizarlos tenga en cuenta los siguientes puntos: </p><ul><li> Cuando se crea un búfer, se borra automáticamente y se llena a 0. </li><li> El argumento de &quot;tamaño&quot; de las funciones del búfer siempre se refiere al tamaño <i>en bytes</i> del búfer. <br><br></li><li> Los buffers DnD™ siempre están <i>alineados a 1 byte</i>. La &quot;alineación&quot; se refiere a cómo se almacenan los datos dentro de un búfer y se usa cuando se utilizan las <a href="../../4_gml_reference/buffers/index.html">funciones de búfer</a> GML, pero para arrastrar y colocar, no es relevante. <br><br></li><li> Los datos en los buffers se leen y escriben de forma <i>secuencial</i> (es decir, usted llama a la acción <a href="write_buffer.html">Write Buffer</a> tres veces, luego escribe los primeros datos, avanza, los segundos datos, avanza y luego escribe los últimos datos), con algo llamado el valor &quot;buscar&quot; para indicarle en qué lugar del buffer se realizará la próxima lectura / escritura. <br><br></li><li> Todos los datos se escriben en el búfer y se devuelven del búfer como una <b>cadena,</b> por lo que si ha almacenado números reales, deberá usar una de las <a href="../type_actions/index.html">acciones de tipo de datos</a> para convertirlo de la cadena al valor. </li></ul><p> La memoria utilizada para crear memorias intermedias es la memoria del sistema, por lo que incluso cuando el juego no tiene foco, cualquier información almacenada en un búfer debe ser segura; sin embargo, si la aplicación se cierra o se reinicia, se perderá. La siguiente página explica cómo funcionan los almacenamientos intermedios en el contexto de <span class="notranslate">GameMaker Studio 2</span> y contiene un par de ejemplos de código GML: </p><blockquote><ol><li> <a href=
+"../../../1_overview/3_additional_information/using_buffers.html">Usando Buffers</a> </li></ol></blockquote><p> La biblioteca de <b>búfer</b> tiene las siguientes acciones: </p><table class="icons"><tr><td class="icons"> <a href="create_buffer.html"><img align="middle"
+src="images/i_buffers_create_buffer.png" alt="Crear buffer"></a> </td><td class="text"> <a href="create_buffer.html">Crear buffer</a> </td></tr><tr><td class="icons"> <a href="copy_buffer.html"><img align="middle"
+src="images/i_buffers_copy_buffer.png" alt="Copia Buffer"></a> </td><td class="text"> <a href="copy_buffer.html">Copia Buffer</a> </td></tr><tr><td class="icons"> <a href="delete_buffer.html"><img align="middle"
+src="images/i_buffers_delete_buffer.png" alt="Eliminar el búfer"></a> </td><td class="text"> <a href="delete_buffer.html">Eliminar el búfer</a> </td></tr><tr><td class="icons"> <a href="read_buffer.html"><img align="middle"
+src="images/i_buffers_read_buffer.png" alt="Leer el búfer"></a> </td><td class="text"> <a href="read_buffer.html">Leer el búfer</a> </td></tr><tr><td class="icons"> <a href="write_buffer.html"><img align="middle"
+src="images/i_buffers_write_buffer.png" alt="Tampón de escritura"></a> </td><td class="text"> <a href="write_buffer.html">Tampón de escritura</a> </td></tr><tr><td class="icons"> <a href="seek_buffer.html"><img align="middle"
+src="images/i_buffers_seek_buffer.png" alt="Seek Buffer"></a> </td><td class="text"> <a href="seek_buffer.html">Seek Buffer</a> </td></tr><tr><td class="icons"> <a href="get_buffer_size.html"><img align=
+"middle" src="images/i_buffers_get_buffer_size.png" alt="Obtener tamaño de búfer"></a> </td><td class="text"> <a href="get_buffer_size.html">Obtener tamaño de búfer</a> </td></tr><tr><td class="icons"> <a href="get_buffer_position.html"><img align=
+"middle" src="images/i_buffers_get_buffer_position.png" alt="Obtener la posición de almacenamiento intermedio"></a> </td><td class="text"> <a href="get_buffer_position.html">Obtener la posición de almacenamiento intermedio</a> </td></tr><tr><td class="icons"> <a href="if_buffer_exists.html"><img align=
+"middle" src="images/i_buffers_if_buffer_exists.png" alt="Si Buffer Exists"></a> </td><td class="text"> <a href="if_buffer_exists.html">Si Buffer Exists</a> </td></tr><tr><td class="icons"> <a href="if_end_of_buffer.html"><img align=
+"middle" src="images/i_buffers_if_end_of_buffer.png" alt="If End Of Buffer"></a> </td><td class="text"> <a href="if_end_of_buffer.html">If End Of Buffer</a> </td></tr></table><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="../index.html">referencia de arrastrar y soltar</a> </div><div style="float:right"> Siguiente: <a href=
+"../file_actions/index.html">Acciones de archivo</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

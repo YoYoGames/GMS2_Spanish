@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Arrays</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../files/helpindex.css" type=
+"text/css">
+<link rel="stylesheet" href="../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/3_gml_overview/10_arrays.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F10_arrays.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F10_arrays.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Arrays </h2><div class="body-scroll"><p><br></p><p> Las matrices pueden parecer confusas al principio, pero pueden ser extremadamente útiles y son una parte esencial de la creación de juegos. ¿Por qué? Bueno, aquí hay algunas cosas que serían imposibles sin arreglos - </p><ul><li> Menús. Una matriz o dos pueden hacer que sea mucho más fácil crear un buen sistema de menú. </li><li> Juegos de rol Las matrices son esenciales para hacer juegos de rol, porque en lugar de tener un revoltijo de variables, solo tienes unas pocas líneas, que puedes consultar en cualquier momento. </li><li> Juegos de cartas. ¡Bueno para llevar un registro de las cartas y las manos e incluso se puede barajar! </li><li> Puntuaciones altas y otras estadísticas. Mucho más fácil hacer un seguimiento de una matriz que múltiples variables. </li></ul><p> Esa es solo la punta del iceberg, ya que las matrices son una de las herramientas de programación más fundamentales y útiles que puedes utilizar, y te sorprenderían las aplicaciones que pueden tener. Existen diferentes tipos de matriz disponibles para usar en GML y se describen en las siguientes secciones: </p><blockquote> <label class="collapse" for="one">1 matriz de dimensiones</label> <input id="one" type="checkbox"><div class="index_list"><p> De acuerdo, podemos usar una matriz para las cosas mencionadas anteriormente, pero ¿qué es una matriz? Cómo se ve? Bueno, algo como esto... <img class="center" src="images/1darrayexample.png" alt="Matriz 1D"></p><p class="code">array[0] = 1.25;<span class="notranslate"></span></p><p> Esta es una matriz 1D (unidimensional) de la que ahora vamos a descomponer las partes de para ver lo que significa: </p><p class="code">array<span class="notranslate"></span></p><p> Este es el nombre de la matriz. Al igual que cualquier otra variable, puede ser cualquier cosa que desee, desde simplemente &quot;a&quot; hasta &quot;mymumscow&quot;. </p><p class="code">[0]<span class="notranslate"></span></p><p> Esta es la posición dentro de la matriz que estamos verificando o cambiando. Verá, una matriz es básicamente un contenedor con un número de espacios para almacenar valores, y cada posición en el contenedor tiene un número específico para identificarlo, que es lo que ponemos en []. Vale la pena señalar que una matriz <b>siempre comienza en 0</b> y <i>nunca</i> puede <i>ser negativa</i>. Ahora expandamos nuestra matriz para incluir diferentes posiciones... </p><p class="code">array[2] = 0;<br>
+array[1] = 0;<br>
+array[0] = 0;<br><span class="notranslate"></span></p><p> Nuestra matriz ahora contiene tres posiciones (0, 1 y 2) y hemos inicializado nuestra matriz a 0. ¿Qué significa eso? Bueno, una matriz tiene que ser <i>inicializada</i> antes de que podamos usarla o <i><span class="notranslate">GameMaker</span> Studio 2</i> nos dará un error. Inicializar una matriz solo significa que le damos a cada posición de la matriz un valor inicial en preparación para que se use en otra parte del objeto o código. Esto es importante de recordar, ya que significa que tienes que hacer una cierta cantidad de planificación antes de usar arreglos, pero es bastante fácil inicializar uno usando un ciclo de repetición como este... </p><p class="code">var i = 9;<br>
+repeat(10)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;array[i] = 0;<br>
+&nbsp;&nbsp;&nbsp;i -= 1;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> Este código simple inicializará una matriz de diez posiciones (0-9) a 0, en el sentido de que cada posición en la matriz contiene el valor 0. Notarás que la matriz se ha inicializado <i>hacia atrás</i>, definiendo primero el último valor. Esto no es estrictamente necesario, pero es la forma óptima de hacerlo, ya que reservará un espacio en la memoria que es el tamaño exacto de la matriz, mientras que si inicializa una matriz de 0 hacia arriba, la memoria debe reasignarse para cada valor agregado adicional La diferencia de velocidad es insignificante para matrices más pequeñas, pero las más grandes deben optimizarse tanto como sea posible de esta manera. </p><p> Pero, ¿y si queremos inicializar la matriz con diferentes valores para cada posición? Bueno, para eso tenemos que escribir manualmente todas y cada una de las posiciones, ¡pero hay un buen truco para ayudarnos a hacer un seguimiento de las cosas allí también! </p><p class="code">count = 3;<br>
+array[count] = "you?"<br>
+count -= 1;<br>
+array[count] = "are "<br>
+count -= 1;<br>
+array[count] = "How "<br>
+count -= 1;<br>
+array[count] = "Hello!"<br>
+count -= 1;<br><span class="notranslate"></span></p><p> Como puede ver, no hemos utilizado ningún número en la matriz real, sino una variable para realizar una cuenta regresiva a través de los valores. Esto tiene dos ventajas: una, no tenemos que preocuparnos por errores ortográficos o errores al escribir las posiciones de la matriz, y dos, tenemos en la variable &quot;contar&quot; el número de posiciones que contiene la matriz, que luego puede usarse en otro lugar en el objeto. ¡Muy útil! </p><p> Finalmente puede asignar los valores a una matriz usando una sola llamada de variable como esta: </p><p class="code">var a = [0, 1, 2, 3, 4];<br>
+var b = [];<span class="notranslate"></span></p><p> Lo anterior creará dos matrices como variables locales, la primera ya está poblada con 5 elementos y la segunda como una matriz vacía lista para tener valores agregados. </p><p> Con eso hecho, ¿cómo utilizamos una matriz para cosas prácticas? Exactamente lo mismo que utilizaríamos una variable normal, como se muestra en los siguientes ejemplos: </p><p class="code">total = array[0] + array[5]; //Add two array values
+together<br>
+<br>
+if (array[9]) == 10 //Check an array value<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;//do something<br>
+&nbsp;&nbsp;&nbsp;}<br>
+<br>
+draw_text(32, 32, array[3]); //draw an array value<br><span class="notranslate"></span></p><p> Como las matrices están numeradas consecutivamente, esto significa que puede recorrerlas para realizar acciones adicionales, como lo hicimos para inicializarla: </p><p class="code">var total = 0;<br>
+for (var i = 0; i &lt; 10; i++;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;total += array[i];<br>
+&nbsp;&nbsp;&nbsp;draw_text(32, 32 + (i * 32), array[i]);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+draw_text(32, 32 + (i * 32), total);<br><span class="notranslate"></span></p><p> El código anterior sumará todos los valores en nuestra matriz, dibujará cada uno de ellos y dibujará el valor total al final. </p></div><br> <label class="collapse" for="two">2 matrices de dimensiones</label> <input id="two" type="checkbox"><div class="index_list"><p> Ahora que sabemos cómo es una matriz normal, veamos una matriz 2D (bidimensional). <img class="center" src=
+"images/2darrayexample.png" alt="Matrices 2D"></p><p class="code">array[0, 0] = 5;<span class="notranslate"></span></p><p> Como antes, cada número apunta a una posición dentro de la matriz, solo que esta vez cada posición tiene una coordenada &quot;a&quot; <i>y</i> &quot;b&quot;. Piense en ello como una dimensión extra en nuestro contenedor, ya que ahora tiene alto <i>y</i> ancho, mientras que el conjunto 1D solo tiene altura. Aquí hay un ejemplo extendido: </p><p class="code">array[1, 2] = 1;<br>
+array[1, 1] = "hello";<br>
+array[1, 0] = 55.5;<br>
+array[0, 2] = sprite_index;<br>
+array[0, 1] = "world";<br>
+array[0, 0] = -67.89;<br><span class="notranslate"></span></p><p> Una matriz 2D necesita inicializarse antes de su uso, al igual que una matriz 1D, y puede contener números reales, cadenas y constantes, como cualquier otra variable, lo que los convierte en candidatos ideales para cualquier juego que necesite almacenar grandes cantidades de datos en un de manera fácilmente accesible (recuerde, puede recorrer fácilmente una matriz). Aquí hay un último ejemplo de cómo se puede usar esto en un juego real... Digamos que quiere engendrar cuatro enemigos diferentes en cuatro puntos diferentes de su juego dependiendo de un valor aleatorio. Bueno, podemos usar una matriz 2D para hacer esto y guardar la escritura de una carga de código. </p><p> Primero debemos inicializar la matriz que vamos a utilizar en el evento create de nuestro objeto &quot;controlador&quot; (observe el uso de comentarios para recordarle lo que hace cada entrada de matriz): </p><p class="code">enemy[3, 2] = 448;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//y position<br>
+enemy[3, 1] = 32; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//x
+position<br>
+enemy[3, 0] = obj_Slime; //Object<br>
+enemy[2, 2] = 448;<br>
+enemy[2, 1] = 608;<br>
+enemy[2, 0] = obj_Skeleton;<br>
+enemy[1, 2] = 32;<br>
+enemy[1, 1] = 608;<br>
+enemy[1, 0] = obj_Knight;<br>
+enemy[0, 2] = 32;<br>
+enemy[0, 1] = 32;<br>
+enemy[0, 0] = obj_Ogre;<br><span class="notranslate"></span></p><p> Ahora tenemos los objetos para generar instancias de y sus correspondientes coordenadas de generación xey en la sala, todo almacenado en nuestra matriz. Esto ahora se puede usar de la siguiente manera en otro evento del objeto controlador (una alarma, por ejemplo, o un evento de pulsación de tecla): </p><p class="code">var i;<br>
+i = irandom(3); //get a random number from 0 to 3, inclusive<br>
+instance_create_layer(enemy[i, 1], enemy[i, 2], enemy[i, 0],
+"Enemy_Layer"); //Use the array to create the object<br><span class="notranslate"></span></p><p> Ese código corto ahora engendrará un enemigo aleatorio en la sala de juegos, y usa mucho menos código que una estructura &quot;if / then / else&quot; o incluso un &quot;switch&quot;, y como la matriz se inicializa en el evento create es MUCHO más fácil de editar y cambiar cualquiera de esos valores ya que no están codificados en el resto de los códigos objeto. También vale la pena señalar que la longitud de cada matriz 2D puede ser diferente, por lo que puede tener una matriz con una altura de 2, pero la entrada 0 podría ser de 2, la entrada 1 podría ser de 4 y la entrada 2 podría ser 3 en longitud: </p><p class="code">array[0, 0] = 1;<br>
+array[0, 1] = 2;<br>
+array[1, 0] = "one";<br>
+array[1, 1] = "two";<br>
+array[1, 2] = "three";<br>
+array[1, 3] = "four";<br>
+array[2, 0] = "1";<br>
+array[2, 1] = "2";<br>
+array[2, 2] = "3";<br><span class="notranslate"></span></p></div><br> <label class="collapse" for="three">Funcionalidad avanzada de matriz</label> <input id="three" type="checkbox"><div class="index_list"><p> Al igual que las variables normales, puede pasar las matrices a los scripts que se usarán y luego regresar a la instancia que llamó al script. Para hacer esto, simplemente tiene que especificar la variable de matriz (sin necesidad de cada una de las entradas individuales, ni los corchetes []) y la matriz se pasará por referencia al script. Sin embargo, si cambia alguno de los valores de matriz, la matriz se copiará en una matriz temporal solo para la secuencia de comandos. Tenga en cuenta el uso de la palabra <i>temporal</i> aquí! En realidad, no está transfiriendo la matriz misma al script (como lo haría con una variable), sino que solicita que el script cree una <i>copia</i> de este conjunto, que cambiará en el script. Esto significa que <b>siempre debe devolver la matriz</b> desde la secuencia de comandos si desea cambiar cualquier valor de matriz. </p><blockquote><div class="note"> <b>NOTA:</b> Debido a la forma en que esto funciona internamente, pasar matrices a las secuencias de comandos puede afectar el rendimiento, especialmente si la matriz es muy grande. ¡Así que usa esta funcionalidad con cuidado! </div></blockquote><p> Como ejemplo, considere el siguiente código. Primero creamos la matriz que queremos usar, y luego pasamos esa matriz a la secuencia de comandos: </p><p class="code">for (var i = 9; i &gt; -1; i--;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;a[i] = i;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+<br>
+scr_Return_Array(a);<br><span class="notranslate"></span></p><p> El script en sí es algo simple como: </p><p class="code">for (var i = 9; i &gt; -1; i--;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;a[i] = i * 100;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> Ahora esperaría que la matriz final tenga los valores 900, 800, 700, etc. PERO este no será el caso, ya que <i>no</i> devolvimos la matriz del script, así que todo lo que cambiamos fue la copia temporal que era creado cuando pasamos el conjunto como un argumento en el script. Para rectificar esto, deberíamos haber formateado el código de la siguiente manera: </p><p class="code">for (var i = 9; i &gt; -1; i--;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;a[i] = i;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+<br>
+a = scr_Return_Array(a);<br><span class="notranslate"></span></p><p> Y el script debería verse así: </p><p class="code">for (var i = 9; i &gt; -1; i--;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;argument0[i] = i * 100;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+<br>
+return argument0;<br><span class="notranslate"></span></p><blockquote><div class="note"> <b>NOTA:</b> Lo anterior <b>no</b> es necesario si no está cambiando ninguno de los valores de la matriz, sino simplemente haciendo referencia a ellos. Hacer referencia a una matriz no la copiará y será más rápido de analizar. </div></blockquote><p> También puede eliminar una matriz simplemente &quot;reasignando&quot; la variable que la define a un único valor. Esto liberará la memoria asociada con todas las entradas y valores para esa matriz. Por ejemplo: </p><p class="code">//Create the array for (var i = 9; i &gt; -1;
+i--;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;a[i] = i;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+//Delete the array a = 0;<span class="notranslate"></span></p><p> También vale la pena señalar que puede usar el accesorio <tt>@</tt> hacer referencia a una matriz desde una secuencia de comandos y cambiar sus valores directamente, lo que ahorra la sobrecarga de la CPU al copiarla en la secuencia de comandos. Puede encontrar más información sobre los accesores y cómo funcionan, junto con un ejemplo para las matrices, de la siguiente página: </p><blockquote><ol><li> <a href="13_accessors.html"><span class=
+"list_link">Accesorios</span></a> </li></ol></blockquote></div></blockquote><p><br></p><h2> Funciones de matriz </h2><p> Hay algunas funciones asociadas con el uso de matrices también. Estos están diseñados para darle flexibilidad en su código, y le permitirán crear matrices más dinámicas y funcionales al hacer sus juegos. Estas funciones son: </p><ul><li> <a href="checking_data_types/is_array.html">is_array</a> <br></li><li> <a href="arrays/array_create.html">array_create</a> </li><li> <a href="arrays/array_copy.html">array_copy</a> </li><li> <a href="arrays/array_equals.html">array_equals</a> </li><li> <a href="arrays/array_length_1d.html">array_length_1D</a> <br></li><li> <a href="arrays/array_length_2d.html">array_length_2D</a> <br></li><li> <a href="arrays/array_height_2d.html">array_height_2D</a> <br></li></ul><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Descripción general de GML</a> </div><div style="float:right"> Siguiente: <a href=
+"11_assignments.html">Asignaciones</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>physics_joint_gear_create</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/physics/joints/physics_joint_gear_create.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fphysics%2Fjoints%2Fphysics_joint_gear_create.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fphysics%2Fjoints%2Fphysics_joint_gear_create.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h1 class="studio"> physics_joint_gear_create </h1><h2 class="studio"> Cree una unión de engranaje utilizando dos articulaciones giratorias o una articulación prismática y revolute. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">physics_joint_gear_create(inst1, inst2, joint_1,
+joint_2, ratio)<span class="notranslate"></span></p><p><br></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">inst1</span> </td> <td> La primera instancia para conectarse con la articulación </td></tr><tr class="alt"><td> <span class="notranslate">inst2</span> </td> <td> La segunda instancia para conectarse con la articulación </td></tr><tr><td> <span class="notranslate">joint_1</span> </td> <td> Una articulación <b>revolucionaria</b> previamente definida </td></tr><tr class="alt"><td> <span class="notranslate">joint_2</span> </td> <td> Una articulación revoluta <i>o</i> prismática previamente definida </td></tr><tr><td> <span class="notranslate">ratio</span> </td> <td> Establezca la relación de velocidad entre las dos articulaciones </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> índice de la articulación </p><p><br></p><h3 class="studio"> Descripción </h3><p> Si desea crear un artilugio mecánico sofisticado, es posible que desee utilizar engranajes. En principio, puede crear engranajes en <i><span class="notranslate">GameMaker Studio 2</span></i> mediante el uso de instancias de composición para modelar dientes de engranaje, ¡pero esto no es muy eficiente y podría ser tedioso de autorizar! Afortunadamente hay un método más simple, y es usar una <i>articulación de engranaje</i>. Para hacer uno, debe haber definido previamente sus accesorios y haber creado las dos juntas básicas que van a formar su equipo: estos <b>deben</b> estar formados por una <a href=
+"physics_joint_revolute_create.html">junta giratoria</a> y una <a href="physics_joint_prismatic_create.html">junta prismática</a> u otra <i>articulación giratoria</i>. La imagen a continuación muestra cómo un arte normalmente se crearía en un juego: <img class="center" src=
+"images/gear_joint_image.png"> ¿Así que lo que ocurre? Bueno, una vez que las dos articulaciones se agregan al engranaje, la interacción con uno tendrá un efecto sobre el otro, así que en la imagen de ejemplo de arriba, si giras inst2, inst3 se moverá hacia arriba y hacia abajo, o si mueves inst3 arriba y abajo entonces inst2 rotará. También puede cambiar la relación de transmisión, lo que significa que necesita mover una instancia más (o menos) para obtener el efecto deseado. El código en el ejemplo de la parte inferior muestra cómo se puede crear algo como la imagen de arriba. <br><br> <i><b>Nota:</b> si necesita eliminar cualquiera de las dos instancias que están involucradas en la articulación del engranaje (o simplemente eliminar sus articulaciones), primero <b>debe</b> eliminar la articulación del engranaje utilizando <a href=
+"physics_joint_delete.html"><tt>physics_joint_delete()</tt></a> ¡De lo contrario, obtendrás un error!</i> </p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">var t_fix, g_fix, inst1, inst2, inst3, r_joint,
+p_joint;<br>
+g_fix = physics_fixture_create();<br>
+physics_fixture_set_box_shape(g_fix, 40, 10);<br>
+t_fix = physics_fixture_create();<br>
+physics_fixture_set_circle_shape(t_fix, 10);<br>
+physics_fixture_set_density(t_fix, 0.5);<br>
+inst1 = instance_create_layer(60, room_height - 30, "Background",
+obj_Ground);<br>
+inst2 = instance_create_layer(40, room_height - 300, "Instances",
+obj_Cog);<br>
+inst3 = instance_create_layer(150, room_height - 300, "Instances",
+obj_Barrel);<br>
+physics_fixture_bind(g_fix, inst1);<br>
+physics_fixture_bind(t_fix, inst2);<br>
+physics_fixture_bind(t_fix, inst3);<br>
+r_joint = physics_create_revolute_joint(inst1, inst2, 40,
+room_height - 300, -80, 80, 1, 10, 0.5, 1, 0);<br>
+p_joint = physics_create_prismatic_joint(inst1, inst3, 150,
+room_height - 300, 0, 1, -10, 10, true, 0, 0, 0, 0);<br>
+physics_create_gear_joint(inst2, inst3, r_joint, p_joint,
+0.5);<br><span class="notranslate"></span></p><p> El código anterior crea y define dos dispositivos y luego crea tres instancias, una &quot;obj_Ground&quot; y otras dos, &quot;obj_Cog&quot; y &quot;obj_Barrel&quot;. Los accesorios están ligados a estas instancias y se crean dos uniones. Una articulación revolucionaria entre el suelo y el engranaje, y una junta prismática entre el suelo y el cañón. Finalmente, se crea una unión de engranaje entre las instancias de engranaje y tambor utilizando las juntas revolucionarias y prismáticas previamente definidas. </p><p><br></p><div class="clear"><div style="float:left"> Espalda: <a href="index.html">Articulaciones</a> </div><div style="float:right"> Siguiente: <a href=
+"physics_joint_delete.html">physical_joint_delete</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

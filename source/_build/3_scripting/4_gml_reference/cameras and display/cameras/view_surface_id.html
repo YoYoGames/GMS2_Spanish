@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>view_surface_id</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/cameras and display/cameras/view_surface_id.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fcameras%20and%20display%2Fcameras%2Fview_surface_id.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fcameras%20and%20display%2Fcameras%2Fview_surface_id.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> view_surface_id </h2><p><br></p><h3> Descripción </h3><blockquote><p> Con esta variable puede establecer el contenido de un puerto de vista determinado para dibujar en una superficie, u obtener el ID de superficie actual si se le ha asignado uno a un puerto de vista. Cuando se trabaja con superficies, a menudo se requiere que capture <i>toda</i> la región visible de la pantalla en la superficie, y así lo asignaría a un puerto de visualización usando esta variable. Esto significa que todo lo que se muestra en la vista elegida se dibujará ahora en la superficie asignada. La vista ahora <i>no</i> se dibujará en la pantalla, lo que significa que necesitará: </p><blockquote><ul><li> Habilite una nueva vista y dibuje la superficie solo en esa vista (usando <a href="view_current.html"><tt>view_current</tt></a> para verificar qué vista se está dibujando) </li><li style="list-style: none"><br></li><li> Dibuje la superficie en el evento Dibujar GUI de una instancia, ya que la capa de la GUI es independiente de las vistas. </li></ul></blockquote><p> También puede leer esta variable para obtener el índice de la superficie que se ha asignado a la vista elegida o devolverá -1 si no se ha asignado ninguna superficie, y generalmente la superficie utilizada para esta función debe ser del tamaño de la cámara de visualización sí mismo (no el puerto de vista). El siguiente ejemplo extendido muestra una configuración básica para capturar una vista y dibujarla en el evento <b>Dibujar GUI</b>, y para obtener más información sobre superficies, consulte la sección <a href=
+"../../drawing/surfaces/index.html">Superficies</a>. </p><p> Tenga en cuenta que también puede establecer un puerto de visualización en una superficie usando la función <a href=
+"view_set_surface_id.html"><tt>view_set_surface_id()</tt></a>. </p></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">view_surface_id[0...7];<span class="notranslate"></span></p><p><br></p><h3> Devoluciones: </h3><p class="code">Real (surface index or -1 if no surface has been
+assigned)<span class="notranslate"></span></p><p><br></p><h3> Ejemplo extendido: </h3><blockquote><p> En este ejemplo extendido, crearemos una superficie y la asignaremos al puerto de visualización [0] para que capture la vista de la cámara asignada a ese puerto y luego la dibuje a la pantalla en el evento Draw GUI. Para empezar, necesitamos inicializar nuestra variable de superficie en el <b>evento Crear</b> de una instancia de controlador: </p></blockquote><p class="code">surf = -1;<span class="notranslate"></span></p><blockquote><p> Establecemos la variable de superficie en -1, ya que todas las funciones de superficie deberían usarse realmente en los eventos <b>Draw</b> para evitar errores impares o comportamientos indefinidos. Entonces, con eso hecho, tendríamos esto en el evento principal de <b>Draw</b>: </p></blockquote><p class="code">if !surface_exists(surf)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;surf =
+surface_create(camera_get_view_width(view_camera[0]),
+camera_get_view_height(view_camera[0]));<br>
+&nbsp;&nbsp;&nbsp;view_surface_id[0] = surf;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> Las superficies son <i>volátiles,</i> lo que significa que podrían eliminarse de la memoria en cualquier momento debido a la administración de la memoria del sistema operativo y otras cosas, así que aquí verificamos si nuestra superficie existe y si no la creamos y la asignamos a la vista 0. Una vez hecho esto, todo lo que aparecería en la vista 0 ahora se dibujará en la superficie que hemos creado. Si no hace nada más en este punto, cuando ejecute su juego simplemente obtendrá una pantalla en blanco ya que todo el dibujo se está haciendo en la superficie, pero la superficie en sí no se dibuja en ningún lado. Por lo tanto, ahora tenemos que dibujar la superficie de la pantalla en el evento <b>Dibujar GUI de</b> esta manera: </p></blockquote><p class="code">if surface_exists(surf)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;draw_surface_stretched(surf, 0, 0,
+display_get_gui_width(), display_get_gui_height());<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> Este código ahora dibujará la superficie que hemos creado desde la cámara de visualización estirada para llenar toda la capa de la GUI. </p></blockquote><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href=
+"index.html">Cámaras</a> </div><div style="float:right"> Siguiente: <a href=
+"view_set_camera.html">view_set_camera</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

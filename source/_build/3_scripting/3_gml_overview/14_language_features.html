@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>Language Features</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../files/helpindex.css" type=
+"text/css">
+<link rel="stylesheet" href="../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/3_gml_overview/14_language_features.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F14_language_features.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../index.html?page=source%2F_build%2F3_scripting%2F3_gml_overview%2F14_language_features.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Características del lenguaje </h2><div class="body-scroll"><p><br></p><p> El lenguaje de <span class="notranslate">GameMaker</span> (GML) tiene una serie de características que son parte de la estructura esencial de todos los códigos escritos con el lenguaje. Cada uno de estos se usará en cualquier código que escriba varias veces, por lo que debe saber cuáles son y cómo funcionan antes de comenzar a programar un proyecto. </p><blockquote> <label class="collapse" for="one">Operador si / condicional</label> <input id="one" type="checkbox"><div class="index_list"> Una declaración simple &quot;si&quot; toma esta forma: <br><br><p class="code">if (&lt;expression&gt;) &lt;statement&gt;<span class="notranslate"></span></p><br> o puede tener la forma &quot;if... else...&quot; un poco más compleja: <br><br><p class="code">if (&lt;expression&gt;) &lt;statement&gt; else
+&lt;statement&gt;<span class="notranslate"></span></p><br> En este caso, la expresión será evaluada, y si el valor (redondeado) es &lt;= 0 ( <tt>false</tt> ) la instrucción después de else se ejecuta, de lo contrario ( <tt>true</tt> ) la otra declaración se ejecuta. Es una buena costumbre poner siempre corchetes alrededor de las declaraciones en el if &quot;, y tomar una nueva línea en el bloque para cada instrucción, por lo que el código final tendrá esta forma: <br><br><p class="code">if (&lt;expression&gt;)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&lt;statement&gt;<br>
+&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&lt;statement&gt;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+else<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&lt;statement&gt;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><br> Como un pequeño ejemplo, considere el siguiente código que moverá la instancia hacia la posición x = 200 en la sala: <br><br><p class="code">if (x &lt; 200)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x += 4;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+else<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x -= 4;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><br> Tenga en cuenta que también puede hacer comprobaciones <i>compuestas</i> en un if, es decir: verificar varios valores o expresiones en la misma instrucción. Cuando hagas esto, <i><span class="notranslate">GameMaker Studio 2</span></i> evaluará cada uno de ellos de uno en uno, y si alguno de ellos se evalúa como falso, el resto se omitirá. Por ejemplo: <br><br><p class="code">if (keyboard_check_pressed(vk_enter) &amp;&amp;
+!instance_exists(obj_Player))<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;go = false<br>
+&nbsp;&nbsp;&nbsp;alarm[0] = room_speed<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><br> También puede realizar <b>operaciones condicionales</b> (también conocidas como operaciones <b>ternarias</b> ), que es esencialmente una forma de &quot;acceso directo&quot; para realizar un &quot;si&quot; básico. Tiene la siguiente sintaxis: <br><br><p class="code">variable = condition ? &lt;expression1 (if
+<i>true</i>)&gt; : &lt;expression2 (if <i>false</i>)&gt;<span class="notranslate"></span></p><br> El operador condicional devolverá uno de dos valores dados dependiendo de si la condición se evalúa como <tt>true</tt> o <tt>false</tt>, por ejemplo: <br><br><p class="code">var temp_x = x &lt; (room_width / 2) ? 32:
+room_width - 32;<span class="notranslate"></span></p><br> El código anterior verificará el valor de &quot;x&quot; contra el valor de la mitad del ancho de la sala y luego, si es menor, establecerá &quot;temp_x&quot; a 32, de lo contrario &quot;temp_x&quot; será room_width - 32. Aquí hay algunos ejemplos más de utilizar: <br><br><p class="code">draw_text(x, y, "The fee is " + (global.Member ?
+"$2.00" : "$10.00"));<br>
+path_start((global.level &gt; 10 ? path_hard : path_easy;), 2,
+path_action_reverse, true);<br>
+--hp &lt;= 0 ? instance_destroy() : score += 10;<span class="notranslate"></span></p><br> Vale la pena señalar que puede anidar operaciones condicionales, pero que si lo hace, entonces cada operación deberá estar entre corchetes, por ejemplo: <br><br><p class="code">var c = a ? "foo" : (b ? "bar" : "wii"); //
+Correct<br>
+var c = a ? "foo" : b ? "bar" : "wii";&nbsp;&nbsp; // Will cause an
+error<span class="notranslate"></span></p></div><br> <label class="collapse" for="two">repetir</label> <input id="two"
+type="checkbox"><div class="index_list"> Una declaración de &quot;repetición&quot; tiene la forma <br><br><p class="code">repeat (&lt;expression&gt;) &lt;statement&gt;<span class="notranslate"></span></p><br> La instrucción se repite la cantidad de veces indicada por el valor redondeado de la expresión. Por ejemplo, el siguiente programa crea cinco bolas en posiciones aleatorias. <br><br><p class="code">{<br>
+repeat (5) instance_create_layer(random(400), random(400),
+"Instances", obj_ball);<br>
+}<br><span class="notranslate"></span></p><p><br> Esto puede ser muy útil para evitar escribir el mismo código varias veces, o para usar matrices, o para contar a través de varias operaciones, etc.... Por ejemplo: <br><br></p><p class="code">{<br>
+var i, total;<br>
+i = 0;<br>
+total = 0;<br>
+repeat (10)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;total += array[i];<br>
+&nbsp;&nbsp;&nbsp;i += 1<br>
+&nbsp;&nbsp;&nbsp;}<br>
+draw_text(32, 32, total);<br>
+}<br><span class="notranslate"></span></p></div><br> <label class="collapse" for="three">mientras</label> <input id="three"
+type="checkbox"><div class="index_list"> Una declaración &quot;while&quot; tiene la forma <br><br><p class="code">while (&lt;expression&gt;) &lt;statement&gt;<span class="notranslate"></span></p><br> Siempre que la expresión sea verdadera, se ejecuta la instrucción (que también puede ser un bloque de código). <b>¡Ten cuidado con tus bucles de tiempo!</b> Puedes hacer bucles infinitos fácilmente, en cuyo caso tu juego se bloqueará y ya no reaccionará ante ninguna entrada del usuario. A continuación puede encontrar un ejemplo de una forma típica de usar &quot;while&quot;: <br><br><p class="code">{<br>
+while (!place_free(x, y))<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x = random(room_width);<br>
+&nbsp;&nbsp;&nbsp;y = random(room_height);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> El programa anterior intenta colocar el objeto actual en una posición libre (esto es más o menos lo mismo que la acción para mover un objeto a una posición aleatoria). </div><br> <label class="collapse" for="four">hacer hasta</label> <input id=
+"four" type="checkbox"><div class="index_list"> Un &quot;do&quot; es realmente la declaración &quot;do... until&quot; ya que no puede tener una sin la otra. Tiene esta forma: <br><br><p class="code">do &lt;statement&gt; until (&lt;expression&gt;)<span class="notranslate"></span></p><br> La instrucción (que también puede ser un bloque de código) se ejecuta hasta que la expresión se encuentre verdadera, y la declaración inicial siempre se ejecuta al menos una vez. Tenga cuidado con sus bucles do, ya que puede hacerlos fácilmente repetitivos, en cuyo caso su juego se bloqueará y ya no reaccionará a ninguna entrada del usuario. A continuación puede encontrar un ejemplo de una forma típica de usar &quot;do... until&quot;: <br><br><p class="code">{<br>
+do<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x = random(room_width);<br>
+&nbsp;&nbsp;&nbsp;y = random(room_height);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+until (place_free(x, y)); }<br><span class="notranslate"></span></p><br> El programa anterior intenta colocar el objeto actual en una posición libre (esto es más o menos lo mismo que la acción para mover un objeto a una posición aleatoria). </div><br> <label class="collapse" for="five">para</label> <input id="five"
+type="checkbox"><div class="index_list"> Una declaración &quot;para&quot; tiene esta forma: <br><br><p class="code">for (&lt;statement1&gt; ; &lt;expression&gt;
+;&lt;statement2&gt;) &lt;statement3&gt;<span class="notranslate"></span></p><br> Esto funciona de la siguiente manera: se ejecuta la primera instrucción1, luego se evalúa la expresión y, si es verdadera, se ejecuta la instrucción 3. Luego la declaración 2 y luego la expresión se evalúa nuevamente. Este ciclo continuará hasta que la expresión sea falsa. <br><br> Ahora, esto puede sonar complicado cuando se escribe así, pero debes interpretarlo como: <br><br><ul><li> La primera instrucción inicializa el for-loop. </li><li> La expresión prueba si el ciclo debería finalizar. </li><li> Statement2 es la declaración de &quot;paso&quot; que va a la próxima evaluación de bucle. </li></ul> Esto es extremadamente útil para realizar tareas repetitivas que involucrarían múltiples líneas de código de cualquier otra manera, y se usa comúnmente como un contador para evaluar matrices o dibujar cosas. el siguiente ejemplo de código ilustra un uso típico para este tipo de instrucción: <br><br><p class="code">{<br>
+for (var i = 0; i &lt; 10; i += 1)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;draw_text(32, 32 + (i * 32), string(i) + ". "+
+string(scr[i]));<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> El código anterior inicializa un bucle for, comenzando en 0 y contando hasta 9, y luego usa el valor de bucle de &quot;i&quot; para dibujar los valores almacenados en una matriz en la pantalla. Observe cómo la variable de bucle &quot;for&quot; &quot;i&quot; se usa no solo para recorrer el conjunto, sino también para dibujar un número y decirle a <i><span class="notranslate">GameMaker Studio 2</span></i> dónde debe dibujar los valores en la sala. Esta flexibilidad es una de las principales razones por las cuales los bucles &quot;for&quot; son tan importantes en la programación. </div><br> <label class="collapse" for="six">cambiar</label> <input id="six"
+type="checkbox"><div class="index_list"> En una serie de situaciones, desea permitir que sus instancias completen una acción en función de un valor particular. Puedes hacer esto usando una cantidad de &quot;consecutivos&quot; <tt>if</tt> &quot;declaraciones pero cuando las opciones posibles se ponen por encima de dos o tres, generalmente es más fácil usar la instrucción&quot; cambiar &quot;. Una instrucción switch tiene la siguiente forma: <br><br><p class="code">switch (&lt;expression&gt;)<br>
+{<br>
+case &lt;expression1&gt;: &lt;statement1&gt;; ... ; break;<br>
+case &lt;expression2&gt;: &lt;statement2&gt;; ... ; break;<br>
+...<br>
+default: &lt;statement&gt;;<br>
+}<br><span class="notranslate"></span></p><br> Esto funciona de la siguiente manera: <br><br><ul><li> Primero, la expresión se ejecuta. </li><li> Luego se compara con los resultados de las diferentes expresiones después de cada una de las declaraciones de casos. </li><li> La ejecución continúa después de la primera declaración de caso con el valor correcto, <i>hasta que se encuentre una declaración de interrupción</i>. </li><li> Si ninguna declaración de caso tiene el valor correcto, la ejecución continúa después de la declaración predeterminada (no es necesario tener una declaración predeterminada, en cuyo caso no se tomará ninguna medida). </li></ul> Tenga en cuenta que se pueden colocar múltiples declaraciones de casos para la misma declaración. Además, no se requiere la interrupción, y si no hay una declaración de interrupción, la ejecución simplemente continúa con el código para la siguiente declaración de caso. Esto significa que puede crear un &quot;interruptor&quot; de jerarquía en el que se ejecutan diferentes secciones de código dependiendo del valor de entrada. aquí hay un ejemplo de un &quot;cambio&quot; típico de un juego: <br><br><p class="code">{<br>
+switch (keyboard_key)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;case vk_left:<br>
+&nbsp;&nbsp;&nbsp;case ord("A"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x -= 4;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;&nbsp;case vk_right:<br>
+&nbsp;&nbsp;&nbsp;case ord("D"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x += 4;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;&nbsp;case vk_up:<br>
+&nbsp;&nbsp;&nbsp;case ord("W"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y -= 4;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;&nbsp;case vk_down:<br>
+&nbsp;&nbsp;&nbsp;case ord("S"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y += 4;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> El código anterior usa &quot;cambiar&quot; para verificar si hay un evento de teclado y luego lo compara con los casos enumerados. Si cumple con alguno de los valores requeridos, se ejecuta el código correspondiente. Observe cómo en el código hemos usado la forma en que &quot;cambiar&quot; puede verificar múltiples casos y continuar si no se encuentra un corte para permitir el uso de varias claves para obtener el mismo resultado. Esta es solo una de las formas en que puede permitir configuraciones múltiples para el movimiento en sus juegos. </div><br> <label class="collapse" for="seven">descanso</label> <input id="seven"
+type="checkbox"><div class="index_list"> La declaración &quot;break&quot; se usa para terminar prematuramente una <tt>for</tt>, <tt>repeat</tt>, <tt>while</tt>, <tt>do... until</tt> lazo de algún tipo, o para decirle a un <tt>switch</tt> declaración para finalizar en ese punto, o para terminar prematuramente un <tt>with</tt> llamada. A continuación puede ver algunos ejemplos de cómo se puede utilizar, y su sintaxis es simple: <br><br><p class="code">break;<span class="notranslate"></span></p><br><p> &quot;romper&quot; en una <tt>for</tt> lazo: <br><br></p><p class="code">{<br>
+var i;<br>
+for (i = 0; i &lt; 10; i += 1)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;if array[i] = 234 break;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+num = i;<br>
+}<br><span class="notranslate"></span></p><br> &quot;romper&quot; en una <tt>repeat</tt> lazo: <br><br><p class="code">{<br>
+var i, temp;<br>
+i = 0;<br>
+temp = 0;<br>
+repeat (10)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;temp += array[i];<br>
+&nbsp;&nbsp;&nbsp;if temp &gt; max_total break else i += 1;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> &quot;romper&quot; en una <tt>while</tt> lazo: <br><br><p class="code">{<br>
+var i;<br>
+i = 0;<br>
+while (!place_free(x, y))<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x = random(room_width);<br>
+&nbsp;&nbsp;&nbsp;y = random(room_height);<br>
+&nbsp;&nbsp;&nbsp;if i &gt; 50 break else i+=1;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> &quot;romper&quot; cuando se usa <tt>with</tt>: <br><br><p class="code">{<br>
+var count = 0;<br>
+with (obj_Enemy)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;count++;<br>
+&nbsp;&nbsp;&nbsp;if count &gt; 10 break;<br>
+&nbsp;&nbsp;&nbsp;hp = 100;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p></div><br> <label class="collapse" for="eight">continuar</label> <input id=
+"eight" type="checkbox"><div class="index_list"> La instrucción continue tiene la forma: <br><br><p class="code">continue<span class="notranslate"></span></p><br> Si se usa dentro de una declaración que forma un ciclo ( <tt>repeat</tt>, <tt>while</tt>, <tt>do... until</tt> o <tt>for</tt> ), saltará de inmediato al principio del ciclo como si el ciclo hubiera pasado y retrocediera (si se usa fuera de un ciclo, actúa como un <tt>exit</tt> declaración, saliendo del evento). También hará lo mismo cuando use el <tt>with</tt> función, donde hará que el código salte a la siguiente instancia y se ejecute de nuevo. <br><br> A continuación se muestra un ejemplo de su uso en un bucle &quot;para&quot;: <br><br><p class="code">{<br>
+var i;<br>
+for (i = 0; i &lt; 10; i += 1)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;if array[i] = "" continue;<br>
+&nbsp;&nbsp;&nbsp;array[i] = "";<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> El código anterior saltará al comienzo del ciclo si el valor de la matriz [i] ya es una cadena vacía. </div><br> <label class="collapse" for="eleven">salida</label> <input id=
+"eleven" type="checkbox"><div class="index_list"> La declaración de salida tiene la forma: <br><br><p class="code">exit;<span class="notranslate"></span></p><br> &quot;Salir&quot; simplemente finaliza la ejecución del script o evento actual. Tenga en cuenta que aquí hay una pequeña diferencia de uso según el alcance: si usa <tt>exit</tt> en un script simplemente saldrá de la secuencia de comandos y volverá al código que llamó la secuencia de comandos; sin embargo, si usa este evento en un bloque de código desde dentro de un objeto, saldrá de <i>todo el evento</i> incluso si hay varios bloques de código separados después de la función ha sido llamada. Normalmente se usa para evitar que una instancia ejecute un bloque específico de código, por ejemplo, un evento de colisión. El siguiente código brinda un ejemplo simple de esto: <br><br><p class="code">{<br>
+if !visible exit;<br>
+while (place_meeting(x, y))<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x -= lengthdir_x(1, direction - 180);<br>
+&nbsp;&nbsp;&nbsp;y -= lengthdir_y(1, direction - 180);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> El código anterior comprueba una variable y si se resuelve en verdadero, entonces existe el bloque de código; de lo contrario, continúa y ejecuta el resto del código. <div class="note"> <b>Nota:</b> No finaliza la ejecución del juego. Para eso necesitas usar la función <a href=
+"../4_gml_reference/game/game_end.html"><tt>game_end</tt></a>. </div></div><br> <label class="collapse" for="nine">con</label> <input id="nine"
+type="checkbox"><div class="index_list"> Como se indica en la sección <a hreff=
+"7_Addressing_Variables.html">Direccionamiento de variables en otras instancias</a>, es posible leer y cambiar el valor de las variables en otras instancias. Pero en algunos casos desea hacer mucho más que simplemente cambiar una sola variable con esas otras instancias. Por ejemplo, imagine que desea mover todos los objetos de bola en su juego 8 píxeles. Puede pensar que esto se logra simplemente con la siguiente pieza de código: <br><br><p class="code">obj_ball.y = obj_ball.y + 8;<span class="notranslate"></span></p><br> Pero esto no es correcto, ya que el lado derecho de la asignación obtiene el valor de la coordenada y de la primera bola y agrega 8 a ella. A continuación, este nuevo valor se establece como una coordenada y de todas las bolas, por lo que el resultado es que todas las bolas obtienen la misma coordenada y, incluso si utiliza lo siguiente: <br><br><p class="code">obj_ball.y += 8;<span class="notranslate"></span></p><br> tendrá exactamente el mismo efecto porque es simplemente una abreviación de la primera declaración. Entonces, <i>¿cómo</i> lograr esto? Para este propósito, existe la declaración <b>con</b> en GML. Su forma global es: <br><br><p class="code">with (&lt;expression&gt;) &lt;statement&gt;<span class="notranslate"></span></p><br> &lt;Expression&gt; indica una o más instancias, y para esto puede usar un ID de instancia, el nombre de un objeto (que indica que <i>todas las instancias</i> de este objeto son para ejecutar el bloque de código) o una de las <i>palabras clave</i> especiales ( <b>todo</b>, <b>uno mismo</b>, <b>otro</b> ). &lt;Statement&gt; ahora se ejecuta para cada una de las instancias indicadas, como si esa instancia fuera la instancia (propia) actual. Entonces, para mover todas las instancias del objeto bola 8 píxeles hacia abajo, puede escribir: <br><br><p class="code">with (obj_ball) y += 8;<span class="notranslate"></span></p><br> Si desea ejecutar varias instrucciones, coloque corchetes a su alrededor, de la misma forma que lo haría con cualquier otro programa. Entonces, por ejemplo, para mover todas las bolas a una posición aleatoria, puede usar: <br><br><p class="code">with (obj_ball)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;x = random(room_width);<br>
+&nbsp;&nbsp;&nbsp;y = random(room_height);<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><br> Tenga en cuenta que, dentro de la declaración (s), la instancia indicada se ha convertido en la instancia (auto) objetivo que ejecuta el bloque de código, lo que significa que las declaraciones de la instancia original (que contiene el bloque &quot;con&quot; y el bloque de código) se han convertido en <b>otra</b> instancia. Entonces, por ejemplo, para mover todas las bolas a la posición de la instancia actual, puede escribir esto: <br><br><p class="code">with (obj_ball) { x = other.x; y = other.y; }<span class="notranslate"></span></p><br> La declaración con es una herramienta extremadamente poderosa y es útil en muchas, muchas circunstancias por lo que es importante que comprenda completamente cómo se puede usar. Para ayudar, hay algunos ejemplos más de uso a continuación: <br><br><p class="code">with (instance_create_layer(x, y, "Instances",
+obj_Ball))<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;speed = other.speed;<br>
+&nbsp;&nbsp;&nbsp;direction = other.direction;<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><br> El código anterior creará una instancia de obj_Ball y le asignará la velocidad y dirección de la instancia que ejecuta todo el bloque de código. <br><br><p class="code">with (instance_nearest(x, y, obj_Ball))<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;instance_destroy();<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><br> El código anterior destruirá la instancia de obj_Ball más cercana a la instancia que ejecuta el código. <br><br><p class="code">var inst;<br>
+inst = noone;<br>
+with (obj_ball)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;if str &gt; other.str inst = id;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+if inst != noone target = inst;<br><span class="notranslate"></span></p><br> El código anterior es ligeramente más complejo que los anteriores debido a que usa una variable local. Esta variable es local para el <i>script</i> y no para la instancia, por lo que todas las instancias a las que se hace referencia en el bloque de código pueden usarla y acceder a ella. Entonces, en el código lo hemos establecido en la <i>palabra clave</i> especial <b>noone</b> y luego usamos la construcción &quot;con&quot; para que cada instancia de obj_Ball compruebe su variable &quot;str&quot; ​​contra la de la instancia que ejecuta el bloque de código. Si el valor de la variable es más grande, almacenan su ID único en la variable local &quot;inst&quot;, lo que significa que al final del código, solo la instancia con un valor mayor que la instancia de llamada (o la <i>palabra clave</i> <b>noone</b> si no hay) son más grandes) se almacenarán en la variable local inst. Para obtener más información sobre variables locales, consulte la sección <a href="6_scope.html">Variables y alcance variable</a>. </div><br> <label class="collapse" for="ten">regreso</label> <input id="ten"
+type="checkbox"><div class="index_list"> La declaración de devolución tiene la forma: <br><br><p class="code">return (&lt;expression&gt;)<br><span class="notranslate"></span></p><br> Solo usas el <tt>return</tt> declaración en <a href=
+"../../2_interface/1_editors/scripts.html">scripts</a>, y se utiliza para devolver un valor de la secuencia de comandos para ser utilizado en posteriores llamadas de código o script. Cabe señalar que la <i>ejecución del script finaliza en la declaración de devolución</i>, lo que significa que no se ejecutará ningún código que aparezca después de la devolución. Aquí hay un pequeño script de ejemplo llamado &quot; <tt>scr_sqr</tt> &quot;que calcula el cuadrado de cualquier valor que se le pase, e incluye la captura de errores en caso de que el argumento de que se pase no sea un número real: <br><br><p class="code">{<br>
+if !is_real(argument0)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;return 0;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+else<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;return (argument0 * argument0);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br><span class="notranslate"></span></p><br> Para invocar un script desde un fragmento de código, simplemente actúe de la misma manera que cuando llama a funciones, es decir, escriba el nombre del script con los valores del argumento entre paréntesis. Por lo tanto, el script anterior se llamaría así: <br><br><p class="code">if keyboard_check_pressed(vk_enter)<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;val = scr_sqr(amount);<br>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p></div><br></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Descripción general de GML</a> </div><div style="float:right"> Siguiente: <a href="1_code.html">Estructura básica del código</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>DnD™ Gamepad Actions Library</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/2_drag_and_drop_reference/gamepad_actions/index.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fgamepad_actions%2Findex.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fgamepad_actions%2Findex.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> Biblioteca de acciones de Gamepad </h2><div class="body-scroll"><p><br></p><p><img class="center" src="images/lib_gamepad.png" alt="Acciones de Gamepad"></p><p> <i><span class="notranslate">GameMaker Studio 2</span></i> tiene una serie de acciones dedicadas que se pueden utilizar para detectar controles analógicos y digitales desde múltiples juegos conectados. Estas acciones requieren que especifiques un valor de <i>índice de</i> gamepad, que es un número (contando desde 0) que representa el gamepad que se selecciona. Tenga en cuenta que cuando un gamepad está conectado a su dispositivo (o se elimina), se desencadena un <a href=
+"../../../2_interface/1_editors/events/async_events.html">evento del sistema</a> asíncrono (sin embargo, para tratar con esto, es posible que necesite usar código). </p><p> Las &quot;ranuras&quot; del gamepad están indexadas desde 0 con las ranuras 0 - 3 inclusive, que son <i>solo para gamepads Xinput</i>, es decir: controladores Xbox360 y compatibles. Sin embargo, también puede verificar las ranuras 4 - ii inclusive para los gamepads DirectInput, lo que significa que puede detectar muchos otros modelos de controlador cuando está conectado a través de estas ranuras. </p><p> Las acciones del gamepad disponibles se enumeran a continuación: </p><table class="icons"><tr><td class="icons"> <a href="gamepad_get_axis.html"><img align=
+"middle" src="images/i_gamepad_get_axis.png" alt="Obtener Gamepad Axis Value"></a> </td><td class="text"> <a href="gamepad_get_axis.html">Gamepad Get Axis</a> </td></tr><tr><td class="icons"> <a href="gamepad_get_trigger.html"><img align=
+"middle" src="images/i_gamepad_get_trigger.png" alt="Obtener Gamepad Trigger Value"></a> </td><td class="text"> <a href="gamepad_get_trigger.html">Gamepad Get Trigger</a> </td></tr><tr><td class="icons"> <a href="gamepad_get_count.html"><img align=
+"middle" src="images/i_gamepad_get_count.png" alt="Obtener Gamepad Count Value"></a> </td><td class="text"> <a href="gamepad_get_count.html">Gamepad Get Count</a> </td></tr><tr><td class="icons"> <a href="gamepad_get_connected.html"><img align=
+"middle" src="images/i_gamepad_get_connected.png" alt="Obtener valor de activación conectado"></a> </td><td class="text"> <a href="gamepad_get_connected.html">Gamepad Get Connected</a> </td></tr><tr><td class="icons"> <a href=
+"gamepad_set_axis_deadzone.html"><img align="middle" src=
+"images/i_gamepad_set_axis_deadzone.png" alt="Establecer Gamepad Axis Deadzone"></a> </td><td class="text"> <a href="gamepad_set_axis_deadzone.html">Gamepad Set Axis Deadzone</a> </td></tr><tr><td class="icons"> <a href=
+"if_gamepad_button_pressed.html"><img align="middle" src=
+"images/i_gamepad_if_button_pressed.png" alt="Botón de verificación"></a> </td><td class="text"> <a href="if_gamepad_button_pressed.html">Si el botón Gamepad presionó</a> </td></tr><tr><td class="icons"> <a href="if_gamepad_button_down.html"><img align=
+"middle" src="images/i_gamepad_if_button_down.png" alt="Detectar el botón hacia abajo"></a> </td><td class="text"> <a href="if_gamepad_button_down.html">Si Gamepad abotona</a> </td></tr><tr><td class="icons"> <a href=
+"if_gamepad_button_released.html"><img align="middle" src=
+"images/i_gamepad_if_button_released.png" alt="Detectar liberación de botón"></a> </td><td class="text"> <a href="if_gamepad_button_released.html">Si se lanza el botón Gamepad</a> </td></tr></table><p><br></p><h2> Compatibilidad </h2><p><br></p><p> La siguiente lista muestra la compatibilidad actual entre las plataformas (tenga en cuenta que esto cambiará con futuras actualizaciones): <br><br></p><ul><li> Windows es totalmente compatible con hasta un máximo de 11 dispositivos conectados permitidos a la vez. Tenga en cuenta que en Windows, las primeras 4 ranuras de gamepad (0 - 3) se manejan usando el dll XInput, lo que significa que solo los controladores XBox pueden ser 100% compatibles y que para otros tipos de controladores debe verificar el resto de las ranuras del gamepad (4 - 11). <br><br></li><li> Mac OS es compatible con hasta un máximo de 4 dispositivos conectados permitidos a la vez, y estos dispositivos SOLAMENTE pueden ser del tipo <span class="notranslate">Playstation</span> 3 o Xbox 360. Tenga en cuenta que la opción &quot; <b>Build for Mac AppStore</b> &quot; en Mac Game Options debe ser APAGADO para que el soporte de la almohadilla funcione. <br><br></li><li> Ubuntu también es compatible con la entrada de GamePad, pero es posible que deba instalar bibliotecas adicionales desde el repositorio de Ubuntu. Puede hacerlo fácilmente abriendo un terminal de línea de comando y escribiendo lo siguiente: <p class="code">sudo apt-get install jstest-gtk<br>
+sudo apt-get install joystick.<br><span class="notranslate"></span></p><p> Esto instalará el soporte de GUI para el joystick así como también el joystick. <br><br></p></li><li> Los juegos HTML5 admiten gamepads en la mayoría de los principales navegadores, excepto <i>Safari</i>. <br><br></li><li> La compatibilidad con Gamepad también se extiende a iOS con el gabinete <b>iCade</b>. El eje izquierdo se asigna al controlador stick (aunque la entrada es digital, no analógica), los cuatro botones &quot;cara&quot; se asignan a los botones frontales del gabinete, y los cuatro botones laterales se asignan a los que se encuentran en la parte posterior del gabinete. <br><br></li><li> <span class="notranslate">Android</span> exportación de <span class="notranslate">Android</span> admite controladores NYKO y controladores Bluetooth genéricos (incluido el OUYA), pero solo cuando están habilitados, lo que significa que deberá marcar la opción iCade / Bluetooth en la sección <a href=
+"../../../2_interface/3_settings/game_options/options_android.html">General</a> de <b><span class="notranslate">Android</span> Opciones de juegos de <span class="notranslate">Android</span></b>. Requieren API nivel 12 para que funcionen por completo y se debe tener en cuenta que <i><span class="notranslate">GameMaker Studio 2</span></i> se registrará como conectado a cualquier dispositivo Bluetooth con el que esté emparejado, ya sea que esté realmente conectado o no. Por lo tanto, esto debe tenerse en cuenta al asignar y verificar &quot;espacios&quot;. <br><br></li><li> En PS4, si desea utilizar el seguimiento del panel táctil, debe usar las funciones para <a href=
+"../../4_gml_reference/controls/device%20input/index.html"><tt>device_mouse_*</tt></a> botones (no hay acciones DnD™ para esto). <br><br></li></ul><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="../index.html">referencia de arrastrar y soltar</a> </div><div style="float:right"> Siguiente: <a href=
+"../movement_actions/index.html">Acciones de movimiento</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>texture_global_scale</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/drawing/textures/texture_global_scale.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Ftextures%2Ftexture_global_scale.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fdrawing%2Ftextures%2Ftexture_global_scale.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h1 class="studio"> texture_global_scale </h1><h2 class="studio"> Se usa para controlar la escala de las páginas de textura cargadas desde el archivo WAD. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">texture_global_scale(pow2integer);<span class="notranslate"></span></p><p><br></p><div><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">pow2integer</span> </td> <td> El factor de escala a usar (1, sin escala, 2, media escala, 4, escala trimestral, etc.) </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> N / A </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función le permite controlar el escalado de las páginas de textura cargadas desde el archivo WAD que forma parte del ejecutable final de su juego. El valor de entrada debe ser una potencia de dos valores y funcionará de tal manera que: </p><ul><li> Para configurar las páginas de textura para que sean de uso 1: 1 <tt>texture_global_scale(1)</tt></li><li> Para medias texturas todo el tiempo use <tt>texture_global_scale(2)</tt></li><li> Para cuarto uso <tt>texture_global_scale(4)</tt>, etc... </li></ul><p> De esta forma, puede controlar mejor el uso de la memoria de la página de textura en plataformas con problemas de poca memoria. Tenga en cuenta que las páginas de texturas se crean a petición del WAD, por lo que puede llamarlas al inicio del juego para cargar todas las texturas escaladas, o puede llamarlas en momentos específicos para cargar texturas específicas, en cuyo caso Probablemente quiera llamar <a href=
+"draw_texture_flush.html"><tt>draw_texture_flush</tt></a> antes de llamar a esta función, utilice las funciones de búsqueda previa para obtener las páginas de textura correctas en la memoria. <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">draw_texture_flush();<br>
+texture_global_scale(2);<br>
+sprite_prefetch(spr_Trees);<br><span class="notranslate"></span></p><p> El código anterior eliminará todas las texturas de la memoria, luego establecerá la escala de texturas en 2 (para que las páginas de textura sean de la mitad de tamaño) y finalmente preseleccionará la página de texturas en la que está contenido el sprite &quot;spr_Trees&quot;. </p><p><br></p><div class="clear"><div style="float:left"> Espalda: <a href=
+"index.html">Texturas</a> </div><div style="float:right"> Siguiente: <a href=
+"draw_texture_flush.html">draw_texture_flush</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>
