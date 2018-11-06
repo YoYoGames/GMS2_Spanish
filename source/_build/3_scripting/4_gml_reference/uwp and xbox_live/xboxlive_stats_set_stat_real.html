@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>xboxlive_stats_set_stat_real</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/uwp and xbox_live/xboxlive_stats_set_stat_real.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fuwp%20and%20xbox_live%2Fxboxlive_stats_set_stat_real.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fuwp%20and%20xbox_live%2Fxboxlive_stats_set_stat_real.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> xboxlive_stats_set_stat_real </h2><div class="body-scroll"><p><br></p><h3 class="studio"> Descripción </h3><blockquote><p> Esta función se puede usar para establecer el valor de una estadística para el ID de usuario dado. Usted suministra el ID de usuario tal como lo devolvió (por ejemplo) la función <a href=
+"xboxlive_get_user.html"><tt>xboxlive_get_user()</tt></a>, luego la cadena de estadísticas que se establecerá ( <b>si la cadena de estadísticas aún no existe, se creará una nueva estadística y se establecerá el valor dado</b> ) y un valor (real) para establecer la estadística en. Tenga en cuenta que el nombre de la estadística debe ser solo alfanumérico, sin símbolos ni espacios. </p><p> Al configurar el valor estadístico, cualquier valor anterior se anulará, por lo que depende de usted determinar si el valor estadístico debe actualizarse o no (es decir, verificar que la puntuación más alta sea realmente la más alta) comparando con el valor estadístico actual con el nuevo antes de configurarlo. </p><p> La función devolverá -1 si hubo un error o la ID de usuario no es válida, o cualquier otro valor si la función fue llamada con éxito. </p><div class="note"> <b>¡IMPORTANTE!</b> Esta función solo es válida cuando se exporta utilizando el objetivo de UWP para Xbox One y requiere que hayas marcado la opción <b>Habilitar XBox Live</b> en las <a href=
+"../../../2_interface/3_settings/game_options/options_windowsuwp.html">Opciones de juego de UWP</a>. </div></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">xboxlive_stats_set_stat_real(user_id, stat,
+value);<span class="notranslate"></span></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">user_id</span> </td> <td> El puntero de ID de usuario para establecer la estadística para </td></tr><tr class="alt"><td> <span class="notranslate">stat</span> </td> <td> La estadística para establecer (una cadena) </td></tr><tr><td> <span class="notranslate">value</span> </td> <td> El valor para establecer la estadística a (un real) </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">Real<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">if game_over == true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if xboxlive_stats_get_stat(p_user_id,
+"PercentDone") &lt; 100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var _val =
+(global.LevelsFinished / global.LevelsTotal) * 100;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xboxlive_stats_set_stat_real(p_user_id,
+"PercentDone", _val);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> El código anterior verifica una variable y si es <tt>true</tt>, luego verificará el valor de la estadística &quot;PercentDone&quot;. Si este valor es menor que 100, se genera un valor y la estadística se establece en ese valor. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">UWP y XBox Live</a> </div><div style="float:right"> Siguiente: <a href=
+"xboxlive_stats_set_stat_int.html">xboxlive_stats_set_stat_int</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -26,7 +26,7 @@ if (window.name != "content")
 </script>
 <!-- !chm2web! --><script type="text/JavaScript">
  if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
-</script><h1 class="studio"> gamepad_get_description </h1><h2 class="studio"> Devuelve una cadena descriptiva para el gamepad dado. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">gamepad_get_description(device);<span class="notranslate"></span></p><p><br></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">device</span> </td> <td> ¿Qué &quot;ranura&quot; de gamepad para obtener el nombre de. </td></tr></table></div><p><br></p><p> <b>Devoluciones:</b> cadena </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función devolverá una cadena con la descripción del gamepad dado, por ejemplo, un controlador PS3 puede devolver una cadena similar a &quot;PLAYSTATION (R) 3 Controller&quot;, o un controlador XBox360 podría devolver &quot;Xbox 360 Controller (XInput STANDARD GAMEPAD) &quot;. Esta cadena depende del hardware y el valor devuelto dependerá del gamepad conectado en la &quot;ranura&quot; del dispositivo que se está verificando. <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">var gp_num = gamepad_get_device_count();<br>
+</script><h1 class="studio"> gamepad_get_description </h1><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta función devolverá una cadena con la descripción del gamepad dado, por ejemplo, un controlador PS3 puede devolver una cadena similar a &quot;PLAYSTATION (R) 3 Controller&quot;, o un controlador XBox360 podría devolver &quot;Xbox 360 Controller (XInput STANDARD GAMEPAD) &quot;. Esta cadena depende del hardware y el valor devuelto dependerá del gamepad conectado a la &quot;ranura&quot; del dispositivo que se está verificando. </p></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">gamepad_get_description(device);<span class="notranslate"></span></p><div class="param"><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">device</span> </td> <td> Que gamepad &quot;slot&quot; para obtener el nombre de. </td></tr></table></div><p><br></p><h3> Devoluciones: </h3><p class="code">String<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">var gp_num = gamepad_get_device_count();<br>
 for (var i = 0; i &lt; gp_num; i++;)<br>
 &nbsp;&nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;if gamepad_is_connected(i)<br>
@@ -39,11 +39,12 @@ gamepad_get_description(i));<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw_text(32, 32 + (i * 32),
 "No Gamepad Connected");<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href="index.html">entrada de GamePad</a> </div><div style="float:right"> Siguiente: <a href=
-"gamepad_get_button_threshold.html">gamepad_get_button_threshold</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior recorrerá todas las ranuras del gamepad para verificar si hay dispositivos conectados y luego dibujará un texto en la pantalla según si un gamepad está conectado a la ranura o no. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Entrada GamePad</a> </div><div style="float:right"> Siguiente: <a href=
+"gamepad_get_button_threshold.html">gamepad_get_button_threshold</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
 <script type="text/javascript">
    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
 </script>
+</div>
 
 <script type="text/JavaScript">
 var fe = FindFrame("toc", top);

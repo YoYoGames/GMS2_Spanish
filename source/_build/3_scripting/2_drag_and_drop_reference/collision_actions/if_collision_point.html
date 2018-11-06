@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>If Collision Point</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/2_drag_and_drop_reference/collision_actions/if_collision_point.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fcollision_actions%2Fif_collision_point.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F2_drag_and_drop_reference%2Fcollision_actions%2Fif_collision_point.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2><img style="vertical-align:middle" src=
+"images/i_collision_point.png"> Si el punto de colisión </h2><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta acción se usa para verificar y ver si hay una colisión con una o más instancias de un objeto determinado en un punto específico de la sala y se evaluará para <tt>true</tt> si se detecta una colisión, o <tt>false</tt> de otra manera. Usted da el objeto a comprobar y la posición comprobar en - que puede ser una posición absoluta en la habitación o una posición relativa a la instancia - y también se puede comprobar la bandera <b>no</b> para comprobar si <i>no</i> hay una colisión en el dado posición, lo que significa que la acción sólo se evaluará como <tt>true</tt> si <i>no</i> se encuentran colisiones, de lo contrario se evaluará como <tt>false</tt>. También puede configurar la opción <b>Excluir uno mismo</b> para excluir la instancia de llamada de la verificación de colisión. </p><p> A continuación, puede marcar / desmarcar la opción para <b>devolver la lista</b>. Verificando esto significa que la acción creará y llenará una estructura de datos de <a href=
+"../data_structure_actions/index.html">lista</a> con <i>todas las</i> instancias en colisión con el punto y establecerá la variable <b>Objetivo</b> en el ID de lista de DS. Cuando no está marcada, solo establecerá la variable <b>Objetivo</b> en un valor inferior a 0 cuando no se detecte una colisión, o el valor de ID único de <i>una</i> de las instancias de la colisión (tenga en cuenta que si varias instancias están en colisión, entonces no tiene forma de saber qué ID de instancia se devolverá cuando no se use una lista). </p><p> Si ha seleccionado devolver una lista (y la variable Objetivo <i>no</i> está configurada en <b>Temp)</b>, también puede seleccionar la opción <b>Objetivo libre</b>. Cuando se establece en <tt>true</tt>, entonces la lista contenida en la variable de destino se destruirá y se creará una nueva lista (y se devolverá a la variable de destino) cada vez que llame la acción. De esta manera, puede reutilizar la misma variable sin preocuparse por las fugas de memoria, ya que, si <i>no selecciona la</i> opción <b>Free Target</b>, será responsable de destruir la lista antes de usar la variable nuevamente en la acción. Tenga en cuenta que, <i>independientemente</i> de si esta opción está marcada o no, si ha configurado la acción como <b>Lista de retorno</b>, la variable de destino <i>siempre contendrá un ID de lista</i> y, como tal, deberá liberarse cuando se destruya la instancia o la sala finaliza (puede usar el evento de <b>limpieza</b> para esto, por ejemplo, junto con la acción <a href=
+"../data_structure_actions/free_data_structure.html">Estructura de datos gratuita</a> ). Vale la pena señalar que puede configurar la opción <b>Objetivo libre</b> para usar una variable predefinida o una expresión, y así controlar cuando la estructura de datos de la lista se libera al establecer la variable en otro lugar (o tener diferentes resultados para la expresión) siempre que evalúa a <tt>true</tt> / <tt>false</tt>. </p><p> Finalmente, proporciona la variable de <b>destino</b> que desea que contenga el valor devuelto o el ID de lista. Si marca la variable Objetivo para mantener el valor devuelto como una variable <b>Temp</b> (local), la acción creará esta variable para mantener el valor devuelto <i>solo</i> hasta el final del evento, en este caso, la opción Objetivo libre no hace nada y usted será responsable de destruir la lista de DS si esa opción ha sido marcada. Si no se proporciona una variable de destino y la opción <b>Lista de retorno</b> está marcada, no se creará ninguna lista. </p><div class="note"> <b>¡IMPORTANTE!</b> Las colisiones solo se registrarán para aquellas instancias que tengan una máscara de colisión válida, es decir: tienen un sprite asignado a la <tt>sprite_index</tt>, o un sprite asignado a la <tt>mask_index</tt>. Si las instancias del objeto que se está verificando en esta acción no tienen máscara de colisión, la colisión no se detectará, independientemente de lo que la instancia esté dibujando en ese momento. </div><p><br> Tenga en cuenta que para agregar acciones a un bloque &quot;si&quot;, se deben colocar al <i>lado</i> de la acción, como se muestra en la siguiente imagen: <img class="center" src="images/if_collision_point.png" alt="Si ejemplo de punto de colisión"></p></blockquote><p><br></p><h3> Sintaxis de acción: </h3><img class="center" src="images/a_collision_point.png" alt="Si el punto de colisión en la sintaxis"><p><br></p><h3> Argumentos: </h3><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">Shape</span> </td> <td> La forma de usar </td></tr><tr class="alt"><td> <span class="notranslate">Object</span> </td> <td> El objeto a verificar por instancias de </td></tr><tr><td> <span class="notranslate">x1</span> </td> <td> La posición x para empezar </td></tr><tr class="alt"><td> <span class="notranslate">y1</span> </td> <td> La posición y para comenzar </td></tr><tr><td> <span class="notranslate">x2</span> </td> <td> La posición x para terminar en </td></tr><tr class="alt"><td> <span class="notranslate">y2</span> </td> <td> La posición y para terminar en </td></tr><tr><td> <span class="notranslate">Free Target</span> </td> <td> Se puede establecer en una variable o expresión, o se puede establecer en <tt>true</tt> / <tt>false</tt> para controlar la liberación de la memoria de lista cuando se reutiliza una variable de lista </td></tr><tr class="alt"><td> <span class="notranslate">Target</span> </td> <td> La variable de destino para el valor de retorno de la acción. </td></tr></table></blockquote><p><br></p><h3> Ejemplo: </h3><img class="center" src="images/e_collision_point.png" alt="Si ejemplo de punto de colisión"><blockquote> El código de bloqueo de acción anterior verifica una colisión en la posición x / y del mouse con una instancia del objeto &quot;obj_Enemy&quot;. Si se encuentra una (o más) colisiones, se crea un efecto y en la posición de la instancia con el ID almacenado en la variable de destino, y luego se destruye la instancia. Si no se encuentra ninguna colisión, se crea un efecto diferente en la posición del mouse. </blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Acciones de colisión</a> </div><div style="float:right"> siguiente: <a href="if_any_object_at.html">si cualquier objeto en el lugar</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

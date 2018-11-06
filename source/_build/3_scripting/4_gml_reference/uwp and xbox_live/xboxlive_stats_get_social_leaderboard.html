@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="keywords" content="online documentation, web online help, web help, chm2web" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="generator" content="chm2web Pro 2.85 (unicode)" />
+<title>xboxlive_stats_get_social_leaderboard</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="../../../../../files/helpindex.css"
+type="text/css">
+<link rel="stylesheet" href="../../../../../default.css" type=
+"text/css">
+
+<script type="text/JavaScript" src="../../../../../files/supply.js"></script>
+<script type="text/JavaScript">
+chmtop.c2wtopf.pageid = "_build/3_scripting/4_gml_reference/uwp and xbox_live/xboxlive_stats_get_social_leaderboard.html";
+</script>
+
+</head>
+<body><script type="text/JavaScript"> 
+if (window.name != "content") 
+  document.write(" <table width=\"100%\" bgcolor=\"#e1e1e1\"cellspacing=\"2\" cellpadding=\"0\" style=\"border-collapse: collapse; font-family: sans-serif; font-size: 14px; color: #000000; text-decoration: none;  \"> <tr> <td align=\"center\" style=\"border-bottom: 2px solid gray\" > <br>&nbsp;Click <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fuwp%20and%20xbox_live%2Fxboxlive_stats_get_social_leaderboard.html\">here</a> to show toolbars of the Web Online Help System: <a href=\"../../../../../index.html?page=source%2F_build%2F3_scripting%2F4_gml_reference%2Fuwp%20and%20xbox_live%2Fxboxlive_stats_get_social_leaderboard.html\">show toolbars</a><br>&nbsp;</td></tr></table><br> "); 
+</script>
+<!-- !chm2web! --><script type="text/JavaScript">
+ if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
+</script><h2> xboxlive_stats_get_social_leaderboard </h2><div class="body-scroll"><p><br></p><h3> <b>Descripción</b> </h3><blockquote><p> Esta función se puede utilizar para recuperar una tabla de clasificación social de rangos para una estadística determinada. Usted proporciona el ID de usuario (como lo devuelve, por ejemplo, la función <a href=
+"xboxlive_get_user.html"><tt>xboxlive_get_user</tt></a> ), la cadena de estadísticas (como se definió cuando la creó con las funciones xboxlive_stats_set_stat_ *), y luego especifica una serie de detalles sobre la información de la tabla de clasificación que desea recuperar. Tenga en cuenta que solo puede recuperar una tabla de clasificación social para estadísticas int o reales, pero no para estadísticas de cadena, y que si marca el argumento &quot;favourites_only&quot; como verdadero, los resultados solo contendrán datos para aquellos amigos marcados por el usuario. como &quot;favoritos&quot;. </p><div class="note"> <b>¡IMPORTANTE!</b> Las estadísticas utilizadas en tablas de clasificación social <b>no</b> tienen que registrarse como &quot;Estadísticas destacadas&quot; en el XDP / Windows Dev Center. </div><p><br> La función generará una devolución de llamada que activará un <a href=
+"../../../2_interface/1_editors/events/async_events.html">evento asíncrono del sistema</a>. Este evento tendrá el mapa especial de DS. <tt>async_load</tt> que luego debe ser analizado para las siguientes claves: </p><ul><li> &quot; <b>id</b> &quot; - mantendrá la constante <tt>achievement_stat_event</tt></li><li style="list-style: none"><br></li><li> &quot; <b>eventname</b> &quot; - mantendrá la cadena &quot; <i>GetLeaderboardComplete</i> &quot; </li><li style="list-style: none"><br></li><li> &quot; <b>ID de usuario</b> &quot;: el ID de usuario asociado con la solicitud </li><li style="list-style: none"><br></li><li> &quot; <b>error</b> &quot; - 0 si es exitoso, algún otro valor si ha habido un error. El siguiente es el error más común devuelto: <br><br><ul><li> -2145844848: solicitud incorrecta (la estadística no es un tipo de tabla de clasificación válida, es decir, una cadena) </li></ul></li><li style="list-style: none"><br></li><li> <b>&quot;ErrorMessage&quot;</b> - Una cadena con un mensaje de error, si lo hay está disponible </li><li style="list-style: none"><br></li><li> &quot; <b>display_name</b> &quot;: la ID única para la tabla de clasificación tal como se define en el panel del proveedor. </li><li style="list-style: none"><br></li><li> &quot; <b>números de entrada</b> &quot;: el número de entradas en la tabla de clasificación que ha recibido. </li><li style="list-style: none"><br></li></ul><p> El resto del mapa de DS también contendrá los datos de la tabla de clasificación con el siguiente formato (donde &quot;N&quot; es la posición en la información de la tabla de clasificación, de 0 a &quot;números&quot;): </p><ul><li> &quot; <b>Jugador <i>N</i></b> &quot;: el nombre del jugador, donde &quot;N&quot; es un valor entero correspondiente a su posición dentro de la lista de entradas de la tabla de clasificación. </li><li style="list-style: none"><br></li><li> &quot; <b>Playerid <i>N</i></b> &quot;: la ID de usuario única del jugador, &quot;N&quot;. </li><li style="list-style: none"><br></li><li> &quot; <b>Rango <i>N</i></b> &quot;: el rango del jugador &quot;N&quot; dentro de la tabla de clasificación. </li><li style="list-style: none"><br></li><li> &quot; <b>Puntuación <i>N</i></b> &quot; - La puntuación del jugador &quot;N&quot;. </li><li style="list-style: none"><br></li></ul><div class="note"> <b>¡IMPORTANTE!</b> Esta función solo es válida cuando se exporta utilizando el objetivo de UWP para Xbox One y requiere que hayas marcado la opción <b>Habilitar XBox Live</b> en las <a href=
+"../../../2_interface/3_settings/game_options/options_windowsuwp.html">Opciones de juego de UWP</a>. </div></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">xboxlive_stats_get_social_leaderboard(user_id,
+stat, num_entries, start_rank, start_at_user, favourites_only);<span class="notranslate"></span></p><blockquote><table><tr><th> Argumento </th><th> Descripción </th></tr><tr><td> <span class="notranslate">user_id</span> </td> <td> El ID de usuario del usuario para obtener la tabla de clasificación para </td></tr><tr class="alt"><td> <span class="notranslate">stat</span> </td> <td> El stat (como cadena) para crear la tabla de clasificación global de </td></tr><tr><td> <span class="notranslate">num_entries</span> </td> <td> El número de entradas de la tabla de clasificación global para recuperar </td></tr><tr class="alt"><td> <span class="notranslate">start_rank</span> </td> <td> El rango en la tabla de clasificación para comenzar (use 0 si el argumento &quot;start_at_user&quot; está establecido en <tt>true</tt> ) </td></tr><tr><td> <span class="notranslate">start_at_user</span> </td> <td> Ajustado a <tt>true</tt> para comenzar en el rango de ID de usuario, <tt>false</tt> de lo contrario (establecido en <tt>false</tt> si el argumento &quot;start_rank&quot; es distinto de 0) </td></tr><tr class="alt"><td> <span class="notranslate">favourites_only</span> </td> <td> Ajustado a <tt>true</tt> para mostrar solo los amigos que están marcados como &quot;favoritos&quot; o <tt>false</tt> de otra manera </td></tr></table></blockquote><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Ejemplo extendido: </h3><blockquote><p> El siguiente es un ejemplo extendido de cómo se puede utilizar esta función. Para empezar, lo llamaría en algún evento como <b>Room Start</b> o <b>Create</b>: </p></blockquote><p class="code">xboxlive_stats_get_social_leaderboard(user_id,
+"GlobalTime", 20, 1, false, false);<span class="notranslate"></span></p><blockquote><p> Se llamará al código anterior para obtener una lista de todas las posiciones de la tabla de clasificación mundial para el juego, y generará una devolución de evento asíncrono social que trataríamos de la siguiente manera: </p></blockquote><p class="code">if async_load[? "id"] == achievement_stat_event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if async_load[? "eventname"] ==
+"GetLeaderboardComplete"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global.numentries =
+async_load[? "numentries"];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var i = 0; i
+&lt; numentries; i++;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global.playername[i]
+= async_load[? "Player" + string(i)];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global.playerid[i]
+= async_load[? "Playerid" + string(i)];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global.playerrank[i]
+= async_load[? "Rank" + string(i)];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global.playerscore[i]
+= async_load[? "Score" + string(i]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><blockquote><p> El código anterior comprueba el ds_map devuelto en el evento asíncrono social y si su &quot;id&quot; coincide con la constante que se está verificando, luego verifica si el evento ha sido activado por los datos devueltos de la tabla de clasificación antes de recorrer el mapa y almacenar todos los valores en una serie de matrices globales. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">UWP y XBox Live</a> </div><div style="float:right"> Siguiente: <a href=
+"xboxlive_achievements_set_progress.html">xboxlive_achievements_set_progress</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
+</script>
+</div>
+
+<script type="text/JavaScript">
+var fe = FindFrame("toc", top);
+if ((fe != null) && (chmtop.c2wtopf.jstree != null)) {
+  if (chmtop.c2wtopf.FITEMS[chmtop.c2wtopf.pagenum] != chmtop.c2wtopf.pageid)
+    chmtop.c2wtopf.jstree.OpenTreeNode("source/" + chmtop.c2wtopf.pageid);
+}
+</script>
+</body>
+</html>

@@ -26,15 +26,15 @@ if (window.name != "content")
 </script>
 <!-- !chm2web! --><script type="text/JavaScript">
  if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
-</script><h2> draw_primitive_end </h2><div class="body-scroll"><p><br></p><h3> Sintaxis: </h3><p class="code">draw_primitive_end()<span class="notranslate"></span></p><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Descripción </h3><blockquote><p> Esta función debe invocarse cuando haya terminado de definir los puntos de su primitiva. Si no llama a esta función, <i>no se extraerá nada,</i> ya que esto efectivamente le dice a <i><span class="notranslate">GameMaker</span> Studio 2</i> que ha terminado y que ahora puede dibujar la primitiva definida. </p></blockquote><p><br></p><h3> Ejemplo: </h3><p class="code">var tex;<br>
-tex = background_get_texture(back);<br>
+</script><h2> draw_primitive_end </h2><div class="body-scroll"><p><br></p><h3> Sintaxis: </h3><p class="code">draw_primitive_end()<span class="notranslate"></span></p><p><br></p><h3> Devoluciones: </h3><p class="code">N/A<span class="notranslate"></span></p><p><br></p><h3> Descripción </h3><blockquote><p> Esta función debe llamarse cuando haya terminado de definir los puntos de su primitiva. Si no llama a esta función, <i>no se dibujará nada,</i> ya que esto le indica a <i><span class="notranslate">GameMaker</span> Studio 2</i> que ha terminado y que ahora puede dibujar la primitiva definida. </p></blockquote><p><br></p><h3> Ejemplo: </h3><p class="code">var tex;<br>
+var tex = sprite_get_texture(spr_Background);<br>
 draw_primitive_begin_texture(pr_trianglestrip, tex);<br>
 draw_vertex_texture(0, 480, 0, 0);<br>
 draw_vertex_texture(640, 480, 1, 0);<br>
 draw_vertex_texture(640, 480, 1, 1);<br>
 draw_vertex_texture(0, 480, 0, 1);<br>
-draw_primitive_end();<br><span class="notranslate"></span></p><blockquote><p> El código anterior dibujará una tira triangular de 4 vértices texturizada con la textura contenida en la variable &quot;tex&quot;. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Dibujar y crear primitivos</a> </div><div style="float:right"> Siguiente: <a href=
-"draw_vertex.html">draw_vertex</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+draw_primitive_end();<br><span class="notranslate"></span></p><blockquote><p> El código anterior dibujará una tira triangular de 4 vértices texturizada con la textura contenida en la variable &quot;tex&quot;. </p></blockquote><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">dibujando y creando primitivas</a> </div><div style="float:right"> Siguiente: <a href=
+"draw_vertex.html">draw_vertex</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
 <script type="text/javascript">
    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
 </script>

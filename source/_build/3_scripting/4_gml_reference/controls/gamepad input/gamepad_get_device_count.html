@@ -26,17 +26,18 @@ if (window.name != "content")
 </script>
 <!-- !chm2web! --><script type="text/JavaScript">
  if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
-</script><h1 class="studio"> gamepad_get_device_count </h1><h2 class="studio"> Devuelve la cantidad de juegos conectados <i>o</i> el número de espacios disponibles para juegos. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">gamepad_get_device_count();<span class="notranslate"></span></p><p><br></p><p> <b>Devoluciones:</b> Real </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función te dirá una de dos cosas. Ya sea la cantidad de almohadillas de juegos conectadas, <i>o</i> la cantidad de &quot;ranuras&quot; disponibles para las almohadillas de juegos a las que se va a conectar. El valor real de retorno dependerá de la plataforma y la configuración interna de esa plataforma y, como tal, esta función se debe utilizar junto con la función <a href=
-"gamepad_is_connected.html"><tt>gamepad_is_connected</tt></a> para asegurarse de la cantidad exacta de almohadillas conectadas en cualquier momento. <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">var gp_num = gamepad_get_device_count();<br>
+</script><h1 class="studio"> gamepad_get_device_count </h1><div class="body-scroll"><p><br></p><h3> Descripción </h3><blockquote><p> Esta función te dirá una de dos cosas. El número de almohadillas de juego conectadas <i>o</i> la cantidad de &quot;ranuras&quot; disponibles para las almohadillas de juego a las que se conectará. El valor de retorno real dependerá de la plataforma y la configuración interna de esa plataforma y, como tal, esta función se debe utilizar junto con la función <a href=
+"gamepad_is_connected.html"><tt>gamepad_is_connected</tt></a> para asegurarse del número exacto de almohadillas conectadas en cualquier momento. </p></blockquote><p><br></p><h3> Sintaxis: </h3><p class="code">gamepad_get_device_count();<span class="notranslate"></span></p><h3> Devoluciones: </h3><p class="code">Real<span class="notranslate"></span></p><p><br></p><h3> Ejemplo: </h3><p class="code">var gp_num = gamepad_get_device_count();<br>
 for (var i = 0; i &lt; gp_num; i++;)<br>
 &nbsp;&nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;if gamepad_is_connected(i) global.gp[i] = true
 else global.gp[i] = false;<br>
-&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior recorre las almohadillas disponibles (o las ranuras del gamepad) y luego comprueba cada uno de ellos para un gamepad conectado. el valor devuelto se usa para establecer una matriz global para <tt>true</tt> o <tt>false</tt> para usar en futuros controles. </p><p><br></p><div class="clear"><div style="float:left"> Atrás: <a href="index.html">entrada de GamePad</a> </div><div style="float:right"> Siguiente: <a href=
-"gamepad_is_connected.html">gamepad_is_connected</a> </div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior recorre los pads de juego disponibles (o las ranuras del gamepad) y luego verifica cada uno para un gamepad conectado. el valor devuelto se utiliza para establecer una matriz global en <tt>true</tt> o <tt>false</tt> para uso en futuras verificaciones. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Entrada GamePad</a> </div><div style="float:right"> Siguiente: <a href=
+"gamepad_is_connected.html">gamepad_is_connected</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
 <script type="text/javascript">
    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
 </script>
+</div>
 
 <script type="text/JavaScript">
 var fe = FindFrame("toc", top);

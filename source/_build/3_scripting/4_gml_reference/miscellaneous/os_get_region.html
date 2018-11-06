@@ -26,14 +26,14 @@ if (window.name != "content")
 </script>
 <!-- !chm2web! --><script type="text/JavaScript">
  if( typeof(chmtop.helpStyle) != 'undefined' ) { var linkNodes = document.getElementsByTagName("link");  for( var i=0; i < linkNodes.length; ++i ) { var link = linkNodes[i];    if( link.href.endsWith("default.css")) {    var style = link.href.replace("default.css", chmtop.helpStyle); document.write('<link id="newstyleLink" rel="stylesheet" href=' + style + ' type="text/css">');    break; } } } 
-</script><h2> os_get_region </h2><div class="body-scroll"><h2 class="studio"> Esta función devuelve un valor diferente según el navegador o región de idioma del dispositivo. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">os_get_region()<span class="notranslate"></span></p><p><br></p><p> <b>Devoluciones:</b> cadena </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función devuelve una cadena con el código regional de dos o tres letras para el sistema operativo que ejecuta el juego, como lo establece el estándar <a href="http://en.wikipedia.org/wiki/ISO_3166-1" target=
-"_blank">ISO3166-1</a>. Si la información no está disponible, contendrá simplemente una cadena vacía &quot;&quot;. <br><br></p><p> <i><b>NOTA:</b> Este no es el código regional de ubicación que se devuelve, sino el código de idioma regional del sistema operativo.</i> <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">switch (os_get_language())<br>
+</script><h2> os_get_region </h2><div class="body-scroll"><h2 class="studio"> Esta función devuelve un valor diferente según el navegador o la región de idioma del dispositivo. </h2><h3 class="studio"> Sintaxis: </h3><p class="code">os_get_region()<span class="notranslate"></span></p><p><br></p><p> <b>Devoluciones:</b> Cadena </p><p><br></p><h3 class="studio"> Descripción </h3><p> Esta función devuelve una cadena con el Código regional de dos o tres letras para el sistema operativo que ejecuta el juego, según lo establecido por el estándar <a href="http://en.wikipedia.org/wiki/ISO_3166-1" target=
+"_blank">ISO3166-1</a>. Si la información no está disponible, mantendrá simplemente una cadena vacía &quot;&quot;. <br><br></p><p> <i><b>NOTA:</b> Este no es el código regional de ubicación que se devuelve, sino el código de idioma regional del sistema operativo.</i> <br><br></p><p><br></p><h3 class="studio"> Ejemplo: </h3><p class="code">switch (os_get_language())<br>
 &nbsp;&nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;case "zh":<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var region =
 os_get_region();<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (region == "hk" || region ==
-"mo" || region == "tw")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (region == "HK" || region ==
+"MO" || region == "TW")<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ini_open("chinese_traditional.ini");<br>
 
@@ -53,8 +53,8 @@ os_get_region();<br>
 &nbsp;&nbsp;&nbsp;default:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ini_open("english.ini");<br>
 &nbsp;&nbsp;&nbsp;break;<br>
-&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior comprueba el idioma del sistema operativo y, si es chino, comprueba la región del sistema operativo y abre un <tt>*.ini</tt> archivo en función de los valores devueltos. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Funciones misceláneas</a> </div><div style="float:right"> Siguiente: <a href=
-"os_get_info.html">os_get_info</a> </div></div></div><h5> © Copyright <span class="notranslate">YoYo Games Ltd.</span> 2017 Todos los derechos reservados </h5>
+&nbsp;&nbsp;&nbsp;}<br><span class="notranslate"></span></p><p> El código anterior verifica el idioma del sistema operativo y, si es chino, luego verifica la región del sistema operativo, abriendo un código diferente. <tt>*.ini</tt> archivo en función de los valores devueltos. </p><p><br></p></div><div class="footer"><div class="buttons"><div class="clear"><div style="float:left"> Atrás: <a href="index.html">Funciones Misceláneas</a> </div><div style="float:right"> Siguiente: <a href=
+"os_get_info.html">os_get_info</a> </div></div></div><h5>© Copyright YoYo Games Ltd. 2018 All Rights Reserved</h5>
 <script type="text/javascript">
    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');   ga('create', 'UA-2711665-14', 'auto');   ga('send', 'pageview'); 
 </script>
